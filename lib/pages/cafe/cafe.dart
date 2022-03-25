@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cafe_note_mobile/entities/cafe.dart';
+import 'package:cafe_note_mobile/entities/cafe_detail.dart';
 import 'package:cafe_note_mobile/pages/cafe/_cafe_cell.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,7 +18,7 @@ class CafePage extends StatefulWidget {
 }
 
 class _CafePageState extends State<CafePage> {
-  Cafe? _cafe;
+  CafeDetail? _cafe;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _CafePageState extends State<CafePage> {
         await rootBundle.loadString("assets/json/komeda_narimasu.json");
     final json = jsonDecode(rawData);
     setState(() {
-      _cafe = Cafe.fromJson(json);
+      _cafe = CafeDetail.fromJson(json);
     });
   }
 

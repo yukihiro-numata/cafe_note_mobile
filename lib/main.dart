@@ -59,19 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const Cafes(),
+                  builder: (context) => const CafesPage(),
                 ),
               ),
               child: const Text("navigate to cafes page."),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const Cafes(),
-                ),
-              ),
-              child: const Text("navigate to add cafe page."),
             ),
           ],
         ),

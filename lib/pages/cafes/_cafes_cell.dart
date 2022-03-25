@@ -1,8 +1,13 @@
+import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
 import 'package:flutter/material.dart';
 
 class CafesCell extends StatelessWidget {
-  const CafesCell({Key? key}) : super(key: key);
+  final Cafe cafe;
+  const CafesCell({
+    Key? key,
+    required this.cafe,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,34 +15,37 @@ class CafesCell extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const CafePage(id: 1),
+          builder: (context) => CafePage(id: cafe.id),
         ),
       ),
       child: Container(
         margin: const EdgeInsets.only(top: 16) +
-            const EdgeInsets.symmetric(horizontal: 16),
+            const EdgeInsets.symmetric(horizontal: 8),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Image(
+            Image(
               width: 100,
               height: 100,
-              image: AssetImage("assets/img/komeda_logo.png"),
+              image: AssetImage(cafe.assetPath),
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    "コメダ珈琲成増駅前店",
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  Text(
-                    "東京都板橋区成増2-15-18 成増プライム2階",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ],
+            Flexible(
+              child: Container(
+                margin: const EdgeInsets.only(left: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      cafe.name,
+                      softWrap: true,
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      cafe.address,
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

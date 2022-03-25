@@ -1,0 +1,34 @@
+{
+  "cafe_list": [
+    {
+      "id": 1,
+      "name": "コメダ珈琲成増駅前店",
+      "address": "東京都板橋区成増2-15-18 成増プライム2階",
+      "asset_path": "assets/img/komeda_logo.png"
+    },
+    {
+      "id": 2,
+      "name": "スターバックスコーヒー エキア成増店",
+      "address": "東京都板橋区成増2-13−１ EQUiA成増2階",
+      "asset_path": "assets/img/starbacks_logo.png"
+    },
+    {
+      "id": 3,
+      "name": "居留珈",
+      "address": "東京都練馬区石神井町5-3−12",
+      "asset_path": "assets/img/default_logo.png"
+    },
+    {
+      "id": 4,
+      "name": "スターバックスコーヒー 光が丘IMA店",
+      "address": "東京都練馬区光が丘5-1-1",
+      "asset_path": "assets/img/starbacks_logo.png"
+    },
+    {
+      "id": 5,
+      "name": "スターバックスコーヒー エキアプレミエ和光店",
+      "address": "埼玉県和光市本町4-6",
+      "asset_path": "assets/img/starbacks_logo.png"
+    }
+  ]
+}
