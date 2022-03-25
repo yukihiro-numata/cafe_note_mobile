@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="854e465a-5990-4178-b149-95110695ef75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/json/komeda_narimasu.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/cafe.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/cafe/cafe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafe/cafe.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/cafes/_cafes_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafes/_cafes_cell.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/cafes/cafes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafes/cafes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/icons/Icon-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/icons/Icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/icons/Icon-maskable-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/icons/Icon-maskable-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/manifest.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
