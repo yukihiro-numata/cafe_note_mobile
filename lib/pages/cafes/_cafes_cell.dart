@@ -22,7 +22,7 @@ class CafesCell extends StatelessWidget {
             const Image(
               width: 100,
               height: 100,
-              image: AssetImage("assets/komeda_logo.png"),
+              image: AssetImage("assets/img/komeda_logo.png"),
             ),
             Container(
               margin: const EdgeInsets.only(left: 8),
