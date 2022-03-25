@@ -14,7 +14,7 @@ class Cafes extends StatelessWidget {
         child: Column(
           children: [
             Column(
-              children: [
+              children: const [
                 CafesCell(),
               ],
             ),

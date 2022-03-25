@@ -1,8 +1,42 @@
+import 'dart:convert';
+
+import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafe/_cafe_cell.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class Cafe extends StatelessWidget {
-  const Cafe({Key? key}) : super(key: key);
+class CafePage extends StatefulWidget {
+  final int id;
+
+  const CafePage({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
+
+  @override
+  State<CafePage> createState() => _CafePageState();
+}
+
+class _CafePageState extends State<CafePage> {
+  Cafe? _cafe;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future(() async {
+      await _getCafe(widget.id);
+    });
+  }
+
+  _getCafe(int id) async {
+    final rawData =
+        await rootBundle.loadString("assets/json/komeda_narimasu.json");
+    final json = jsonDecode(rawData);
+    setState(() {
+      _cafe = Cafe.fromJson(json);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,42 +47,42 @@ class Cafe extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             CafeCell(
               title: "名前",
-              text: "コメダ珈琲成増駅前店",
+              text: _cafe?.name ?? "",
             ),
             CafeCell(
               title: "最寄り駅",
-              text: "東武東上線成増駅",
+              text: _cafe?.nearestStation ?? "",
             ),
             CafeCell(
               title: "住所",
-              text: "東京都板橋区成増2-15-18 成増プライム2階",
+              text: _cafe?.address ?? "",
             ),
             CafeCell(
               title: "営業時間",
-              text: "7:00〜20:00",
+              text: _cafe?.businessHours ?? "",
             ),
             CafeCell(
               title: "wifi",
-              text: "○",
+              text: (_cafe?.hasWifi ?? false) ? "有" : "無",
             ),
             CafeCell(
               title: "コンセント",
-              text: "△",
+              text: (_cafe?.hasPowerSupply ?? false) ? "有" : "無",
             ),
             CafeCell(
               title: "喫煙",
-              text: "×",
+              text: (_cafe?.canSmoking ?? false) ? "有" : "無",
             ),
             CafeCell(
               title: "メモ",
-              text: "コンセントはあるけど狭い席か、コンセントはないけど広い席がある。",
+              text: _cafe?.memo ?? "",
             ),
             CafeCell(
               title: "食べログURL",
-              text: "https://tabelog.com/tokyo/A1322/A132204/13185412/",
+              text: _cafe?.tabelogUrl ?? "",
             ),
           ],
         ),

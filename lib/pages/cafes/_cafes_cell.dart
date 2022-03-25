@@ -10,7 +10,7 @@ class CafesCell extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const Cafe(),
+          builder: (context) => const CafePage(id: 1),
         ),
       ),
       child: Container(
