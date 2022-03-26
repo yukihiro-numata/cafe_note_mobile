@@ -21,4 +21,4 @@ doc/api/
 *.js.map
 
 # editor
-.idea
+.idea/*

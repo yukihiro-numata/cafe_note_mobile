@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:cafe_note_mobile/entities/cafe_detail.dart';
 import 'package:cafe_note_mobile/pages/cafe/_cafe_cell.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class CafePage extends StatefulWidget {
   final int id;
@@ -30,11 +30,12 @@ class _CafePageState extends State<CafePage> {
   }
 
   _getCafe(int id) async {
-    final rawData =
-        await rootBundle.loadString("assets/json/komeda_narimasu.json");
-    final json = jsonDecode(rawData);
+    final response =
+        await http.get(Uri.parse("http://10.0.2.2:3000/cafes/$id"));
+    // TODO: エラーハンドリング
+    final json = jsonDecode(response.body);
     setState(() {
-      _cafe = CafeDetail.fromJson(json);
+      _cafe = CafeDetail.fromJson(json["data"]);
     });
   }
 
