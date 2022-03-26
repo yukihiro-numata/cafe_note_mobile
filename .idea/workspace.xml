@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="854e465a-5990-4178-b149-95110695ef75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/json/cafe_list.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/entities/cafe_detail.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/komeda_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/komeda_logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/entities/cafe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/entities/cafe.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/cafe/cafe.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafe/cafe.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/cafes/_cafes_cell.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafes/_cafes_cell.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/cafes/cafes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/cafes/cafes.dart" afterDir="false" />
     </list>

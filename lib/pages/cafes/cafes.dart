@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafes/_cafes_cell.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class CafesPage extends StatefulWidget {
   const CafesPage({Key? key}) : super(key: key);
@@ -25,10 +25,11 @@ class _CafesPageState extends State<CafesPage> {
   }
 
   _getData() async {
-    final rawData = await rootBundle.loadString("assets/json/cafe_list.json");
-    final json = jsonDecode(rawData);
+    final response = await http.get(Uri.parse("http://10.0.2.2:3000/cafes/"));
+    // TODO: エラーハンドリング
+    final json = jsonDecode(response.body);
     setState(() {
-      (json["cafe_list"] as Iterable).forEach((cafe) {
+      (json["data"] as Iterable).forEach((cafe) {
         _cafeList.add(Cafe.fromJson(cafe));
       });
     });

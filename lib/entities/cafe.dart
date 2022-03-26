@@ -2,13 +2,13 @@ class Cafe {
   final int id;
   final String name;
   final String address;
-  final String assetPath;
+  final String imgPath;
 
   Cafe({
     required this.id,
     required this.name,
     required this.address,
-    required this.assetPath,
+    required this.imgPath,
   });
 
   factory Cafe.fromJson(Map<String, dynamic> json) {
@@ -16,7 +16,7 @@ class Cafe {
       id: json["id"] as int,
       name: json["name"] as String,
       address: json["address"] as String,
-      assetPath: json["asset_path"] as String,
+      imgPath: json["img_path"] as String,
     );
   }
 }

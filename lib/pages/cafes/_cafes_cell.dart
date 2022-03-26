@@ -27,7 +27,7 @@ class CafesCell extends StatelessWidget {
             Image(
               width: 100,
               height: 100,
-              image: AssetImage(cafe.assetPath),
+              image: AssetImage(cafe.imgPath),
             ),
             Flexible(
               child: Container(
