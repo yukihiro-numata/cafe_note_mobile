@@ -1,9 +1,7 @@
-import 'dart:convert';
-
-import 'package:cafe_note_mobile/entities/cafe_detail.dart';
+import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafe/_cafe_cell.dart';
+import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class CafePage extends StatefulWidget {
   final int id;
@@ -18,24 +16,22 @@ class CafePage extends StatefulWidget {
 }
 
 class _CafePageState extends State<CafePage> {
-  CafeDetail? _cafe;
+  Cafe? _cafe;
+  final CafeService _service = CafeService();
 
   @override
   void initState() {
     super.initState();
 
     Future(() async {
-      await _getCafe(widget.id);
+      await _fetchData(widget.id);
     });
   }
 
-  _getCafe(int id) async {
-    final response =
-        await http.get(Uri.parse("http://10.0.2.2:3000/cafes/$id"));
-    // TODO: エラーハンドリング
-    final json = jsonDecode(response.body);
+  _fetchData(int id) async {
+    final data = await _service.get(id);
     setState(() {
-      _cafe = CafeDetail.fromJson(json["data"]);
+      _cafe = data;
     });
   }
 
