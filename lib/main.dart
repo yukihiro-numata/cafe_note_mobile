@@ -1,4 +1,5 @@
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
+import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -63,6 +64,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               child: const Text("navigate to cafes page."),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CreateCafePage(),
+                ),
+              ),
+              child: const Text("navigate to create cafe page."),
             ),
           ],
         ),
