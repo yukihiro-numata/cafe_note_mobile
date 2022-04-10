@@ -9,7 +9,7 @@ class CafeService {
   }
 
   Future<List<Cafe>> getList() async {
-    final Map<String, dynamic> result = await _apiClient.getList("/cafes");
+    final Map<String, dynamic> result = await _apiClient.get("/cafes");
 
     final List<Cafe> res = [];
     result["data"].forEach((cafe) {
@@ -21,5 +21,9 @@ class CafeService {
   Future<Cafe> get(int id) async {
     final result = await _apiClient.get("/cafes/$id");
     return Cafe.fromJson(result["data"]);
+  }
+
+  Future create(CreateCafeDto params) async {
+    await _apiClient.post("/cafes", params);
   }
 }

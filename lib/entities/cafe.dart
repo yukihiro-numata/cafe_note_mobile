@@ -53,3 +53,37 @@ class Cafe {
     );
   }
 }
+
+class CreateCafeDto {
+  final String name;
+  final String address;
+  final String nearestStation;
+  final String transportation;
+  final String businessHours;
+  final String regularHoliday;
+  final bool canTakeOut;
+  final bool hasParking;
+  final bool hasWifi;
+  final bool hasPowerSupply;
+  final bool canSmoking;
+  final String memo;
+  final String imgPath;
+  final String? tabelogUrl;
+
+  CreateCafeDto({
+    required this.name,
+    required this.address,
+    required this.nearestStation,
+    required this.transportation,
+    required this.businessHours,
+    required this.regularHoliday,
+    required this.canTakeOut,
+    required this.hasParking,
+    required this.hasWifi,
+    required this.hasPowerSupply,
+    required this.canSmoking,
+    required this.memo,
+    required this.imgPath,
+    this.tabelogUrl,
+  });
+}

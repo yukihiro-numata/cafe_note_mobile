@@ -1,6 +1,8 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/components/atoms/radio_with_text.dart';
+import 'package:cafe_note_mobile/entities/cafe.dart';
+import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:flutter/material.dart';
 
 class CreateCafePage extends StatefulWidget {
@@ -11,12 +13,21 @@ class CreateCafePage extends StatefulWidget {
 }
 
 class _CreateCafePage extends State<CreateCafePage> {
+  final CafeService _service = CafeService();
   final _formKey = GlobalKey<FormState>();
-  bool canTakeOut = false;
-  bool hasParking = false;
-  bool hasWifi = false;
-  bool hasPowerSupply = false;
-  bool canSmoking = false;
+  String _name = "";
+  String _address = "";
+  String _nearestStation = "";
+  String _transportation = "";
+  String _businessHours = "";
+  String _regularHoliday = "";
+  bool _canTakeOut = false;
+  bool _hasParking = false;
+  bool _hasWifi = false;
+  bool _hasPowerSupply = false;
+  bool _canSmoking = false;
+  String _memo = "";
+  String? _tabelogUrl = "";
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +49,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _name = value!,
+                    ),
                   ),
                 ),
                 const FormLabel(text: "住所"),
@@ -45,6 +61,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                    ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _address = value!,
                     ),
                   ),
                 ),
@@ -54,6 +75,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _nearestStation = value!,
+                    ),
                   ),
                 ),
                 const FormLabel(text: "交通アクセス"),
@@ -61,6 +87,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                    ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _transportation = value!,
                     ),
                   ),
                 ),
@@ -70,6 +101,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _businessHours = value!,
+                    ),
                   ),
                 ),
                 const FormLabel(text: "定休日"),
@@ -77,6 +113,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
+                    ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _regularHoliday = value!,
                     ),
                   ),
                 ),
@@ -87,16 +128,18 @@ class _CreateCafePage extends State<CreateCafePage> {
                       RadioWithText<bool>(
                         text: "有",
                         value: true,
-                        groupValue: canTakeOut,
-                        onChanged: (value) =>
-                            setState(() => canTakeOut = value as bool),
+                        groupValue: _canTakeOut,
+                        onChanged: (value) => setState(
+                          () => _canTakeOut = value!,
+                        ),
                       ),
                       RadioWithText<bool>(
                         text: "無",
                         value: false,
-                        groupValue: canTakeOut,
-                        onChanged: (value) =>
-                            setState(() => canTakeOut = value as bool),
+                        groupValue: _canTakeOut,
+                        onChanged: (value) => setState(
+                          () => _canTakeOut = value!,
+                        ),
                       ),
                     ],
                   ),
@@ -108,16 +151,18 @@ class _CreateCafePage extends State<CreateCafePage> {
                       RadioWithText<bool>(
                         text: "有",
                         value: true,
-                        groupValue: hasParking,
-                        onChanged: (value) =>
-                            setState(() => hasParking = value as bool),
+                        groupValue: _hasParking,
+                        onChanged: (value) => setState(
+                          () => _hasParking = value!,
+                        ),
                       ),
                       RadioWithText<bool>(
                         text: "無",
                         value: false,
-                        groupValue: hasParking,
-                        onChanged: (value) =>
-                            setState(() => hasParking = value as bool),
+                        groupValue: _hasParking,
+                        onChanged: (value) => setState(
+                          () => _hasParking = value!,
+                        ),
                       ),
                     ],
                   ),
@@ -129,16 +174,18 @@ class _CreateCafePage extends State<CreateCafePage> {
                       RadioWithText<bool>(
                         text: "有",
                         value: true,
-                        groupValue: hasWifi,
-                        onChanged: (value) =>
-                            setState(() => hasWifi = value as bool),
+                        groupValue: _hasWifi,
+                        onChanged: (value) => setState(
+                          () => _hasWifi = value!,
+                        ),
                       ),
                       RadioWithText<bool>(
                         text: "無",
                         value: false,
-                        groupValue: hasWifi,
-                        onChanged: (value) =>
-                            setState(() => hasWifi = value as bool),
+                        groupValue: _hasWifi,
+                        onChanged: (value) => setState(
+                          () => _hasWifi = value!,
+                        ),
                       ),
                     ],
                   ),
@@ -150,16 +197,18 @@ class _CreateCafePage extends State<CreateCafePage> {
                       RadioWithText<bool>(
                         text: "有",
                         value: true,
-                        groupValue: hasPowerSupply,
-                        onChanged: (value) =>
-                            setState(() => hasPowerSupply = value as bool),
+                        groupValue: _hasPowerSupply,
+                        onChanged: (value) => setState(
+                          () => _hasPowerSupply = value!,
+                        ),
                       ),
                       RadioWithText<bool>(
                         text: "無",
                         value: false,
-                        groupValue: hasPowerSupply,
-                        onChanged: (value) =>
-                            setState(() => hasPowerSupply = value as bool),
+                        groupValue: _hasPowerSupply,
+                        onChanged: (value) => setState(
+                          () => _hasPowerSupply = value!,
+                        ),
                       ),
                     ],
                   ),
@@ -171,16 +220,18 @@ class _CreateCafePage extends State<CreateCafePage> {
                       RadioWithText<bool>(
                         text: "可",
                         value: true,
-                        groupValue: canSmoking,
-                        onChanged: (value) =>
-                            setState(() => canSmoking = value as bool),
+                        groupValue: _canSmoking,
+                        onChanged: (value) => setState(
+                          () => _canSmoking = value!,
+                        ),
                       ),
                       RadioWithText<bool>(
                         text: "否",
                         value: false,
-                        groupValue: canSmoking,
-                        onChanged: (value) =>
-                            setState(() => canSmoking = value as bool),
+                        groupValue: _canSmoking,
+                        onChanged: (value) => setState(
+                          () => _canSmoking = value!,
+                        ),
                       ),
                     ],
                   ),
@@ -191,6 +242,11 @@ class _CreateCafePage extends State<CreateCafePage> {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
+                    validator: (String? value) =>
+                        (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _memo = value!,
+                    ),
                   ),
                 ),
                 const FormLabel(text: "食べログURL"),
@@ -199,6 +255,12 @@ class _CreateCafePage extends State<CreateCafePage> {
                     decoration: const InputDecoration(
                       labelText: "食べログURL",
                       border: OutlineInputBorder(),
+                    ),
+                    // TODO: URL形式チェック
+                    // validator: (String? value) =>
+                    // (value?.isEmpty ?? true) ? "必須入力です" : null,
+                    onSaved: (value) => setState(
+                      () => _tabelogUrl = value,
                     ),
                   ),
                 ),
@@ -211,7 +273,29 @@ class _CreateCafePage extends State<CreateCafePage> {
                   ),
                   child: ElevatedButton(
                     child: const Text("登録"),
-                    onPressed: () => print("create cafe."),
+                    onPressed: () {
+                      if (!(_formKey.currentState?.validate() ?? false)) {
+                        return;
+                      }
+                      _formKey.currentState?.save();
+                      final params = CreateCafeDto(
+                        name: _name,
+                        address: _address,
+                        nearestStation: _nearestStation,
+                        transportation: _transportation,
+                        businessHours: _businessHours,
+                        regularHoliday: _regularHoliday,
+                        canTakeOut: _canTakeOut,
+                        hasParking: _hasParking,
+                        hasWifi: _hasWifi,
+                        hasPowerSupply: _hasPowerSupply,
+                        canSmoking: _canSmoking,
+                        memo: _memo,
+                        imgPath: "assets/img/komeda_logo.png",
+                        tabelogUrl: _tabelogUrl,
+                      );
+                      _service.create(params);
+                    },
                   ),
                 ),
               ],
