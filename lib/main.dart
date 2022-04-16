@@ -1,8 +1,13 @@
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
+import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
+import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
+import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
 import 'package:cafe_note_mobile/pages/sample/provider_sample.dart';
+import 'package:cafe_note_mobile/pages/sample/todos_controller.dart';
+import 'package:cafe_note_mobile/pages/sample/todos_state.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,14 +18,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Books(),
+    return StateNotifierProvider<TodosController, TodosState>(
+      create: (_) => TodosController(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home:
+            StateNotifierProvider<FilteredTodosController, FilteredTodosState>(
+          create: (_) => FilteredTodosController(),
+          child: FilteredTodosScreen(),
+        ),
       ),
     );
   }
