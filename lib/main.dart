@@ -3,11 +3,11 @@ import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
-import 'package:cafe_note_mobile/pages/sample/provider_sample.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,18 +18,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateNotifierProvider<TodosController, TodosState>(
-      create: (_) => TodosController(),
+    return MultiProvider(
+      providers: [
+        StateNotifierProvider<TodosController, TodosState>(
+          create: (_) => TodosController(),
+        ),
+        StateNotifierProvider<FilteredTodosController, FilteredTodosState>(
+          create: (_) => FilteredTodosController(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:
-            StateNotifierProvider<FilteredTodosController, FilteredTodosState>(
-          create: (_) => FilteredTodosController(),
-          child: FilteredTodosScreen(),
-        ),
+        home: const MyHomePage(title: 'home'),
       ),
     );
   }
@@ -92,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const BookshelfScreen(),
+                  builder: (BuildContext context) => FilteredTodosScreen(),
                 ),
               ),
               child: const Text("navigate to sample page."),
