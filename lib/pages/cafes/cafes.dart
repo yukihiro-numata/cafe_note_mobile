@@ -1,37 +1,15 @@
-import 'package:cafe_note_mobile/entities/cafe.dart';
-import 'package:cafe_note_mobile/pages/cafes/_cafes_cell.dart';
-import 'package:cafe_note_mobile/services/cafe_service.dart';
+import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class CafesPage extends StatefulWidget {
+import '_cafes_cell.dart';
+
+class CafesPage extends StatelessWidget {
   const CafesPage({Key? key}) : super(key: key);
 
   @override
-  State<CafesPage> createState() => _CafesPageState();
-}
-
-class _CafesPageState extends State<CafesPage> {
-  List<Cafe> _cafeList = [];
-  final CafeService _service = CafeService();
-
-  @override
-  void initState() {
-    super.initState();
-
-    Future(() async {
-      await _fetchData();
-    });
-  }
-
-  _fetchData() async {
-    final data = await _service.getList();
-    setState(() {
-      _cafeList = data;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final cafes = context.watch<CafesState>().cafes;
     return Scaffold(
       appBar: AppBar(
         title: const Text("カフェ一覧"),
@@ -41,7 +19,7 @@ class _CafesPageState extends State<CafesPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
-              children: _cafeList.map((cafe) => CafesCell(cafe: cafe)).toList(),
+              children: cafes.map((cafe) => CafesCell(cafe: cafe)).toList(),
             ),
           ],
         ),

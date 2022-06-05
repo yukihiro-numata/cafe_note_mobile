@@ -1,9 +1,11 @@
+import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_state.dart';
+import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         StateNotifierProvider<FilteredTodosController, FilteredTodosState>(
           create: (_) => FilteredTodosController(),
+        ),
+        StateNotifierProvider<CafesController, CafesState>(
+          create: (_) => CafesController(),
         ),
       ],
       child: MaterialApp(
