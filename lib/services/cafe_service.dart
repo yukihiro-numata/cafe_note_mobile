@@ -23,7 +23,7 @@ class CafeService {
     return Cafe.fromJson(result["data"]);
   }
 
-  Future create(CreateCafeDto params) async {
-    await _apiClient.post("/cafes", params);
-  }
+  // Future create(CreateCafeDto params) async {
+  //   await _apiClient.post("/cafes", params);
+  // }
 }

@@ -1,5 +1,4 @@
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
-import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
@@ -82,15 +81,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: const Text("navigate to cafes page."),
             ),
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CreateCafePage(),
-                ),
-              ),
-              child: const Text("navigate to create cafe page."),
-            ),
+            // ElevatedButton(
+            //   onPressed: () => Navigator.push(
+            //     context,
+            //     MaterialPageRoute(
+            //       builder: (context) => const CreateCafePage(),
+            //     ),
+            //   ),
+            //   child: const Text("navigate to create cafe page."),
+            // ),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
