@@ -1,52 +1,30 @@
-class CafeDetail {
-  final int id;
-  final String name;
-  final String address;
-  final String nearestStation;
-  final String transportation;
-  final String businessHours;
-  final String regularHoliday;
-  final bool canTakeout;
-  final bool hasParking;
-  final bool hasWifi;
-  final bool hasPowerSupply;
-  final bool canSmoking;
-  final String memo;
-  final String tabelogUrl;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  CafeDetail({
-    required this.id,
-    required this.name,
-    required this.address,
-    required this.nearestStation,
-    required this.transportation,
-    required this.businessHours,
-    required this.regularHoliday,
-    required this.canTakeout,
-    required this.hasParking,
-    required this.hasWifi,
-    required this.hasPowerSupply,
-    required this.canSmoking,
-    required this.memo,
-    required this.tabelogUrl,
-  });
+part 'cafe_detail.freezed.dart';
+part 'cafe_detail.g.dart';
 
-  factory CafeDetail.fromJson(Map<String, dynamic> json) {
-    return CafeDetail(
-      id: json["id"] as int,
-      name: json["name"] as String,
-      address: json["address"] as String,
-      nearestStation: json["nearest_station"] as String,
-      transportation: json["transportation"] as String,
-      businessHours: json["business_hours"] as String,
-      regularHoliday: json["regular_holiday"] as String,
-      canTakeout: json["can_takeout"] as bool,
-      hasParking: json["has_parking"] as bool,
-      hasWifi: json["has_wifi"] as bool,
-      hasPowerSupply: json["has_power_supply"] as bool,
-      canSmoking: json["can_smoking"] as bool,
-      memo: json["memo"] as String,
-      tabelogUrl: json["tabelog_url"] as String,
-    );
-  }
+@freezed
+abstract class CafeDetail with _$CafeDetail {
+  const CafeDetail._();
+  const factory CafeDetail({
+    @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'name') required String name,
+    @JsonKey(name: 'address') required String address,
+    @JsonKey(name: 'nearest_station') required String nearestStation,
+    @JsonKey(name: 'transportation') required String transportation,
+    @JsonKey(name: 'business_hours') required String businessHours,
+    @JsonKey(name: 'regular_holiday') required String regularHoliday,
+    @JsonKey(name: 'can_takeout') required bool canTakeout,
+    @JsonKey(name: 'has_parking') required bool hasParking,
+    @JsonKey(name: 'has_wifi') required bool hasWifi,
+    @JsonKey(name: 'has_power_supply') required bool hasPowerSupply,
+    @JsonKey(name: 'can_smoking') required bool canSmoking,
+    @JsonKey(name: 'memo') required String memo,
+    @JsonKey(name: 'img_path') required String imgPath,
+    @JsonKey(name: 'tabelog_url') String? tabelogUrl,
+  }) = _CafeDetail;
+
+  factory CafeDetail.fromJson(Map<String, dynamic> json) =>
+      _$CafeDetailFromJson(json);
 }
