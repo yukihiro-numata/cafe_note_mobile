@@ -10,7 +10,10 @@ class CafeService {
 
   Future<List<Cafe>> getList() async {
     final Map<String, dynamic> result = await _apiClient.get("/cafes");
-    return result["data"].map((cafe) => Cafe.fromJson(cafe));
+    return result["data"]
+        .map((cafe) => Cafe.fromJson(cafe))
+        .toList()
+        .cast<Cafe>();
   }
 
   Future<Cafe> get(int id) async {
