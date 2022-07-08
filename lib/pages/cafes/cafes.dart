@@ -10,6 +10,7 @@ class CafesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cafes = context.watch<CafesState>().cafes;
+    // TODO: リストが0件だった場合の表示
     return Scaffold(
       appBar: AppBar(
         title: const Text("カフェ一覧"),
