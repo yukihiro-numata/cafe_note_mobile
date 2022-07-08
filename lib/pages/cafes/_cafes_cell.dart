@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CafesCell extends StatelessWidget {
   final Cafe cafe;
@@ -24,10 +25,16 @@ class CafesCell extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image(
+            // TODO: svgアイコンでなく画像を表示できるようになったらImageウィジェットに置き換える
+            // Image(
+            //   width: 100,
+            //   height: 100,
+            //   image: AssetImage(cafe.imgPath),
+            // ),
+            SvgPicture.asset(
+              cafe.imgPath,
               width: 100,
               height: 100,
-              image: AssetImage(cafe.imgPath),
             ),
             Flexible(
               child: Container(
