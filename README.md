@@ -1,6 +1,7 @@
 # cafe_note_mobile
 Flutter勉強用のリポジトリ。状態管理にprovider(state notifier + freezed)を使ってみる。
 
+## 開発用メモ
 1. entityクラスの作成
 - `./lib/entities/cafe.dart`を真似てクラスファイルを作成
 - `flutter pub run build_runner build`でfreezedクラスを生成
