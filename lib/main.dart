@@ -3,11 +3,6 @@ import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
-import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
-import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
-import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
-import 'package:cafe_note_mobile/pages/sample/todos_controller.dart';
-import 'package:cafe_note_mobile/pages/sample/todos_state.dart';
 import 'package:cafe_note_mobile/states/cafe_form_state.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
@@ -26,12 +21,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        StateNotifierProvider<TodosController, TodosState>(
-          create: (_) => TodosController(),
-        ),
-        StateNotifierProvider<FilteredTodosController, FilteredTodosState>(
-          create: (_) => FilteredTodosController(),
-        ),
         StateNotifierProvider<CafesController, CafesState>(
           create: (_) => CafesController(),
         ),
@@ -105,15 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               child: const Text("navigate to create cafe page."),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => FilteredTodosScreen(),
-                ),
-              ),
-              child: const Text("navigate to sample page."),
             ),
           ],
         ),
