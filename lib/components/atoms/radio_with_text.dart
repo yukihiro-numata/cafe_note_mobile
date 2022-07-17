@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class RadioWithText<T> extends StatelessWidget {
+class RadioWithText extends StatelessWidget {
   final String text;
-  final T value;
-  final T? groupValue;
-  final ValueChanged<T?> onChanged;
+  final bool value;
+  final bool? groupValue;
+  final ValueChanged<bool?> onChanged;
 
   const RadioWithText({
     Key? key,
