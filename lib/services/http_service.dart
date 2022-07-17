@@ -12,7 +12,8 @@ class HttpService<T> {
     return jsonDecode(response.body);
   }
 
-  Future<Map<String, dynamic>> post(String path, Object body) async {
+  Future<Map<String, dynamic>> post(
+      String path, Map<String, String?> body) async {
     final url = Uri.parse(_baseUrl + path);
     final response = await http.post(url, body: body);
     // TODO: エラーハンドリング

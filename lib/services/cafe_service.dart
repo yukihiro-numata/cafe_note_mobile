@@ -21,7 +21,38 @@ class CafeService {
     return Cafe.fromJson(result["data"]);
   }
 
-  // Future create(CreateCafeDto params) async {
-  //   await _apiClient.post("/cafes", params);
-  // }
+  Future create({
+    required String name,
+    required String address,
+    required String nearestStation,
+    required String transportation,
+    required String businessHours,
+    required String regularHoliday,
+    required bool canTakeout,
+    required bool hasParking,
+    required bool hasWifi,
+    required bool hasPowerSupply,
+    required bool canSmoking,
+    required String memo,
+    required String imgPath,
+    String? tabelogUrl,
+  }) async {
+    final params = {
+      "name": name,
+      "address": address,
+      "nearest_station": nearestStation,
+      "transportation": transportation,
+      "business_hours": businessHours,
+      "regular_holiday": regularHoliday,
+      "can_takeout": canTakeout.toString(),
+      "has_parking": hasParking.toString(),
+      "has_wifi": hasWifi.toString(),
+      "has_power_supply": hasPowerSupply.toString(),
+      "can_smoking": canSmoking.toString(),
+      "memo": memo,
+      "img_path": imgPath,
+      "tabelog_url": tabelogUrl,
+    };
+    await _apiClient.post("/cafes", params);
+  }
 }

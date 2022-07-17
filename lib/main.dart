@@ -1,11 +1,14 @@
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
+import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
+import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_screen.dart';
 import 'package:cafe_note_mobile/pages/sample/filtered_todos_state.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_controller.dart';
 import 'package:cafe_note_mobile/pages/sample/todos_state.dart';
+import 'package:cafe_note_mobile/states/cafe_form_state.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         StateNotifierProvider<CafeController, CafeState>(
           create: (_) => CafeController(),
+        ),
+        StateNotifierProvider<CafeFormController, CafeFormState>(
+          create: (_) => CafeFormController(),
         ),
       ],
       child: MaterialApp(
@@ -91,15 +97,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: const Text("navigate to cafes page."),
             ),
-            // ElevatedButton(
-            //   onPressed: () => Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: (context) => const CreateCafePage(),
-            //     ),
-            //   ),
-            //   child: const Text("navigate to create cafe page."),
-            // ),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CreateCafePage(),
+                ),
+              ),
+              child: const Text("navigate to create cafe page."),
+            ),
             ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
