@@ -6,7 +6,6 @@ part 'cafes_state.freezed.dart';
 @freezed
 abstract class CafesState with _$CafesState {
   const factory CafesState({
-    @Default(false) bool completed,
     @Default(<Cafe>[]) List<Cafe> cafes,
   }) = CafesStateData;
 }

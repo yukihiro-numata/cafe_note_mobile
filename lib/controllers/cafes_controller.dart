@@ -7,11 +7,8 @@ class CafesController extends StateNotifier<CafesState> with LocatorMixin {
 
   final CafeService _service = CafeService();
 
-  @override
-  void initState() async {
-    super.initState();
-
+  Future<void> fetch() async {
     final cafes = await _service.getList();
-    state = CafesState(cafes: cafes);
+    state = state.copyWith(cafes: cafes);
   }
 }

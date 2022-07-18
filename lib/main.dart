@@ -55,12 +55,15 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CafesPage(),
-                ),
-              ),
+              onPressed: () async {
+                await context.read<CafesController>().fetch();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CafesPage(),
+                  ),
+                );
+              },
               child: const Text("navigate to cafes page."),
             ),
             ElevatedButton(
