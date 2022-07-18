@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Cafe Note App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
