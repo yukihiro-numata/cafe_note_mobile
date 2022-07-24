@@ -1,8 +1,6 @@
 name: Flutter
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -23,9 +21,7 @@ jobs:
 
       - name: Analyze project source
         run: flutter analyze
-        
+
+      # Androidでビルドが通るかだけチェック（TODO: できればiOSもビルドチェックを通したい）        
       - name: Build Android APK
         run: flutter build apk
-        
-      - name: Build for iOS
-        run: flutter build ipa
