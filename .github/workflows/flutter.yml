@@ -14,15 +14,14 @@ jobs:
       - uses: subosito/flutter-action@v2.4.0
         with:
           flutter-version: '2.8.1'
+          channel: 'stable'
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze project source
         run: flutter analyze
-        
+
+      # Androidでビルドが通るかだけチェック（TODO: できればiOSもビルドチェックを通したい）        
       - name: Build Android APK
         run: flutter build apk
-        
-      - name: Build for iOS
-        run: flutter --version
