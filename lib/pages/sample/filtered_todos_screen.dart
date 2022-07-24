@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 class FilteredTodosScreen extends StatelessWidget {
   final _textEditingController = TextEditingController();
 
+  FilteredTodosScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class FilteredTodosScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: FilteredTodos()),
+        const Expanded(child: FilteredTodos()),
         Padding(
           padding: const EdgeInsets.all(16),
           child: Row(

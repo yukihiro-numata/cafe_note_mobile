@@ -64,7 +64,7 @@ class BookshelfScreen extends StatelessWidget {
 class Bookshelf extends StatelessWidget {
   final List<Book> books;
 
-  const Bookshelf(this.books);
+  const Bookshelf(this.books, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class Bookshelf extends StatelessWidget {
 class BookItem extends StatelessWidget {
   final String bookId;
 
-  const BookItem(this.bookId);
+  const BookItem(this.bookId, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

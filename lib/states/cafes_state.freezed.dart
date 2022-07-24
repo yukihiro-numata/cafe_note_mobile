@@ -18,10 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CafesStateTearOff {
   const _$CafesStateTearOff();
 
-  CafesStateData call(
-      {bool completed = false, List<Cafe> cafes = const <Cafe>[]}) {
+  CafesStateData call({List<Cafe> cafes = const <Cafe>[]}) {
     return CafesStateData(
-      completed: completed,
       cafes: cafes,
     );
   }
@@ -32,7 +30,6 @@ const $CafesState = _$CafesStateTearOff();
 
 /// @nodoc
 mixin _$CafesState {
-  bool get completed => throw _privateConstructorUsedError;
   List<Cafe> get cafes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -45,7 +42,7 @@ abstract class $CafesStateCopyWith<$Res> {
   factory $CafesStateCopyWith(
           CafesState value, $Res Function(CafesState) then) =
       _$CafesStateCopyWithImpl<$Res>;
-  $Res call({bool completed, List<Cafe> cafes});
+  $Res call({List<Cafe> cafes});
 }
 
 /// @nodoc
@@ -58,14 +55,9 @@ class _$CafesStateCopyWithImpl<$Res> implements $CafesStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? completed = freezed,
     Object? cafes = freezed,
   }) {
     return _then(_value.copyWith(
-      completed: completed == freezed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
       cafes: cafes == freezed
           ? _value.cafes
           : cafes // ignore: cast_nullable_to_non_nullable
@@ -81,7 +73,7 @@ abstract class $CafesStateDataCopyWith<$Res>
           CafesStateData value, $Res Function(CafesStateData) then) =
       _$CafesStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({bool completed, List<Cafe> cafes});
+  $Res call({List<Cafe> cafes});
 }
 
 /// @nodoc
@@ -96,14 +88,9 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? completed = freezed,
     Object? cafes = freezed,
   }) {
     return _then(CafesStateData(
-      completed: completed == freezed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
       cafes: cafes == freezed
           ? _value.cafes
           : cafes // ignore: cast_nullable_to_non_nullable
@@ -115,18 +102,15 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CafesStateData implements CafesStateData {
-  const _$CafesStateData({this.completed = false, this.cafes = const <Cafe>[]});
+  const _$CafesStateData({this.cafes = const <Cafe>[]});
 
-  @JsonKey()
-  @override
-  final bool completed;
   @JsonKey()
   @override
   final List<Cafe> cafes;
 
   @override
   String toString() {
-    return 'CafesState(completed: $completed, cafes: $cafes)';
+    return 'CafesState(cafes: $cafes)';
   }
 
   @override
@@ -134,15 +118,12 @@ class _$CafesStateData implements CafesStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CafesStateData &&
-            const DeepCollectionEquality().equals(other.completed, completed) &&
             const DeepCollectionEquality().equals(other.cafes, cafes));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(completed),
-      const DeepCollectionEquality().hash(cafes));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(cafes));
 
   @JsonKey(ignore: true)
   @override
@@ -151,11 +132,8 @@ class _$CafesStateData implements CafesStateData {
 }
 
 abstract class CafesStateData implements CafesState {
-  const factory CafesStateData({bool completed, List<Cafe> cafes}) =
-      _$CafesStateData;
+  const factory CafesStateData({List<Cafe> cafes}) = _$CafesStateData;
 
-  @override
-  bool get completed;
   @override
   List<Cafe> get cafes;
   @override

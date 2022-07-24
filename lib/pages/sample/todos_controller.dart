@@ -6,7 +6,7 @@ import 'package:uuid/uuid.dart';
 class TodosController extends StateNotifier<TodosState> with LocatorMixin {
   TodosController() : super(const TodosState.loading());
 
-  final _uuid = Uuid();
+  final _uuid = const Uuid();
 
   @override
   void initState() async {
