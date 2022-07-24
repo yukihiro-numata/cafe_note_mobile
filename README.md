@@ -13,3 +13,5 @@ Flutter勉強用のリポジトリ。状態管理にprovider(state notifier + fr
 3. controllerクラスの作成
 4. pageクラスの作成
 5. state/controllerクラスをmainファイルに登録
+
+test
