@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,10 @@ class CafesPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () => Navigator.pushNamed(context, RouteConfig.createCafe),
       ),
     );
   }
