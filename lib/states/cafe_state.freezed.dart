@@ -18,10 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CafeStateTearOff {
   const _$CafeStateTearOff();
 
-  CafeStateData call({bool completed = false, Cafe? cafe = null}) {
+  CafeStateData call({Cafe? cafe = null, bool isLoading = false}) {
     return CafeStateData(
-      completed: completed,
       cafe: cafe,
+      isLoading: isLoading,
     );
   }
 }
@@ -31,8 +31,8 @@ const $CafeState = _$CafeStateTearOff();
 
 /// @nodoc
 mixin _$CafeState {
-  bool get completed => throw _privateConstructorUsedError;
   Cafe? get cafe => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CafeStateCopyWith<CafeState> get copyWith =>
@@ -43,7 +43,7 @@ mixin _$CafeState {
 abstract class $CafeStateCopyWith<$Res> {
   factory $CafeStateCopyWith(CafeState value, $Res Function(CafeState) then) =
       _$CafeStateCopyWithImpl<$Res>;
-  $Res call({bool completed, Cafe? cafe});
+  $Res call({Cafe? cafe, bool isLoading});
 
   $CafeCopyWith<$Res>? get cafe;
 }
@@ -58,18 +58,18 @@ class _$CafeStateCopyWithImpl<$Res> implements $CafeStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? completed = freezed,
     Object? cafe = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
-      completed: completed == freezed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
       cafe: cafe == freezed
           ? _value.cafe
           : cafe // ignore: cast_nullable_to_non_nullable
               as Cafe?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -92,7 +92,7 @@ abstract class $CafeStateDataCopyWith<$Res>
           CafeStateData value, $Res Function(CafeStateData) then) =
       _$CafeStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({bool completed, Cafe? cafe});
+  $Res call({Cafe? cafe, bool isLoading});
 
   @override
   $CafeCopyWith<$Res>? get cafe;
@@ -110,18 +110,18 @@ class _$CafeStateDataCopyWithImpl<$Res> extends _$CafeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? completed = freezed,
     Object? cafe = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(CafeStateData(
-      completed: completed == freezed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
       cafe: cafe == freezed
           ? _value.cafe
           : cafe // ignore: cast_nullable_to_non_nullable
               as Cafe?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -129,18 +129,18 @@ class _$CafeStateDataCopyWithImpl<$Res> extends _$CafeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CafeStateData implements CafeStateData {
-  const _$CafeStateData({this.completed = false, this.cafe = null});
+  const _$CafeStateData({this.cafe = null, this.isLoading = false});
 
-  @JsonKey()
-  @override
-  final bool completed;
   @JsonKey()
   @override
   final Cafe? cafe;
+  @JsonKey()
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'CafeState(completed: $completed, cafe: $cafe)';
+    return 'CafeState(cafe: $cafe, isLoading: $isLoading)';
   }
 
   @override
@@ -148,15 +148,15 @@ class _$CafeStateData implements CafeStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CafeStateData &&
-            const DeepCollectionEquality().equals(other.completed, completed) &&
-            const DeepCollectionEquality().equals(other.cafe, cafe));
+            const DeepCollectionEquality().equals(other.cafe, cafe) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(completed),
-      const DeepCollectionEquality().hash(cafe));
+      const DeepCollectionEquality().hash(cafe),
+      const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -165,12 +165,12 @@ class _$CafeStateData implements CafeStateData {
 }
 
 abstract class CafeStateData implements CafeState {
-  const factory CafeStateData({bool completed, Cafe? cafe}) = _$CafeStateData;
+  const factory CafeStateData({Cafe? cafe, bool isLoading}) = _$CafeStateData;
 
   @override
-  bool get completed;
-  @override
   Cafe? get cafe;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   $CafeStateDataCopyWith<CafeStateData> get copyWith =>

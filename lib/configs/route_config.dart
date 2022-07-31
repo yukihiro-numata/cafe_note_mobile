@@ -17,3 +17,8 @@ class RouteConfig {
     createCafe: (context) => const CreateCafePage(),
   };
 }
+
+class CafeRouteArgs {
+  final int id;
+  CafeRouteArgs({required this.id});
+}

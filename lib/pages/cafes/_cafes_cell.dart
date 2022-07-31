@@ -1,9 +1,7 @@
 import 'package:cafe_note_mobile/configs/route_config.dart';
-import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
 
 class CafesCell extends StatelessWidget {
   final Cafe cafe;
@@ -15,10 +13,11 @@ class CafesCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () async {
-        await context.read<CafeController>().fetch(cafe.id);
-        Navigator.pushNamed(context, RouteConfig.cafe);
-      },
+      onTap: () => Navigator.pushNamed(
+        context,
+        RouteConfig.cafe,
+        arguments: CafeRouteArgs(id: cafe.id),
+      ),
       child: Container(
         margin: const EdgeInsets.only(top: 16) +
             const EdgeInsets.symmetric(horizontal: 8),
