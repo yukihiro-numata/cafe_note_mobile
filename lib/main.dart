@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
+import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:cafe_note_mobile/states/cafe_form_state.dart';
@@ -11,15 +12,8 @@ import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
+  runApp(
+    MultiProvider(
       providers: [
         StateNotifierProvider<CafesController, CafesState>(
           create: (_) => CafesController(),
@@ -36,10 +30,15 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage(),
+        routes: {
+          '/': (context) => const MyHomePage(),
+          '/cafes': (context) => const CafesPage(),
+          '/cafes/detail': (context) => const CafePage(),
+          '/cafes/create': (context) => const CreateCafePage(),
+        },
       ),
-    );
-  }
+    ),
+  );
 }
 
 class MyHomePage extends StatelessWidget {
@@ -53,26 +52,16 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             ElevatedButton(
               onPressed: () async {
                 await context.read<CafesController>().fetch();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CafesPage(),
-                  ),
-                );
+                Navigator.pushNamed(context, '/cafes');
               },
               child: const Text("navigate to cafes page."),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const CreateCafePage(),
-                ),
-              ),
+              onPressed: () => Navigator.pushNamed(context, '/cafes/create'),
               child: const Text("navigate to create cafe page."),
             ),
           ],
