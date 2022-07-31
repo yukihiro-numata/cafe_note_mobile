@@ -1,6 +1,5 @@
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/entities/cafe.dart';
-import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -17,12 +16,7 @@ class CafesCell extends StatelessWidget {
     return InkWell(
       onTap: () async {
         await context.read<CafeController>().fetch(cafe.id);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const CafePage(),
-          ),
-        );
+        Navigator.pushNamed(context, '/cafes/detail');
       },
       child: Container(
         margin: const EdgeInsets.only(top: 16) +
