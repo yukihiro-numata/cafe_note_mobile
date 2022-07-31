@@ -1,9 +1,7 @@
+import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
-import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
-import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
-import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
 import 'package:cafe_note_mobile/states/cafe_form_state.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
@@ -30,12 +28,7 @@ void main() {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        routes: {
-          '/': (context) => const MyHomePage(),
-          '/cafes': (context) => const CafesPage(),
-          '/cafes/detail': (context) => const CafePage(),
-          '/cafes/create': (context) => const CreateCafePage(),
-        },
+        routes: RouteConfig.routes,
       ),
     ),
   );
@@ -56,12 +49,13 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () async {
                 await context.read<CafesController>().fetch();
-                Navigator.pushNamed(context, '/cafes');
+                Navigator.pushNamed(context, RouteConfig.cafes);
               },
               child: const Text("navigate to cafes page."),
             ),
             ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/cafes/create'),
+              onPressed: () =>
+                  Navigator.pushNamed(context, RouteConfig.createCafe),
               child: const Text("navigate to create cafe page."),
             ),
           ],
