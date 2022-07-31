@@ -18,9 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CafesStateTearOff {
   const _$CafesStateTearOff();
 
-  CafesStateData call({List<Cafe> cafes = const <Cafe>[]}) {
+  CafesStateData call(
+      {List<Cafe> cafes = const <Cafe>[], bool isLoading = false}) {
     return CafesStateData(
       cafes: cafes,
+      isLoading: isLoading,
     );
   }
 }
@@ -31,6 +33,7 @@ const $CafesState = _$CafesStateTearOff();
 /// @nodoc
 mixin _$CafesState {
   List<Cafe> get cafes => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CafesStateCopyWith<CafesState> get copyWith =>
@@ -42,7 +45,7 @@ abstract class $CafesStateCopyWith<$Res> {
   factory $CafesStateCopyWith(
           CafesState value, $Res Function(CafesState) then) =
       _$CafesStateCopyWithImpl<$Res>;
-  $Res call({List<Cafe> cafes});
+  $Res call({List<Cafe> cafes, bool isLoading});
 }
 
 /// @nodoc
@@ -56,12 +59,17 @@ class _$CafesStateCopyWithImpl<$Res> implements $CafesStateCopyWith<$Res> {
   @override
   $Res call({
     Object? cafes = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       cafes: cafes == freezed
           ? _value.cafes
           : cafes // ignore: cast_nullable_to_non_nullable
               as List<Cafe>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -73,7 +81,7 @@ abstract class $CafesStateDataCopyWith<$Res>
           CafesStateData value, $Res Function(CafesStateData) then) =
       _$CafesStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({List<Cafe> cafes});
+  $Res call({List<Cafe> cafes, bool isLoading});
 }
 
 /// @nodoc
@@ -89,12 +97,17 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cafes = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(CafesStateData(
       cafes: cafes == freezed
           ? _value.cafes
           : cafes // ignore: cast_nullable_to_non_nullable
               as List<Cafe>,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -102,15 +115,18 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CafesStateData implements CafesStateData {
-  const _$CafesStateData({this.cafes = const <Cafe>[]});
+  const _$CafesStateData({this.cafes = const <Cafe>[], this.isLoading = false});
 
   @JsonKey()
   @override
   final List<Cafe> cafes;
+  @JsonKey()
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'CafesState(cafes: $cafes)';
+    return 'CafesState(cafes: $cafes, isLoading: $isLoading)';
   }
 
   @override
@@ -118,12 +134,15 @@ class _$CafesStateData implements CafesStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CafesStateData &&
-            const DeepCollectionEquality().equals(other.cafes, cafes));
+            const DeepCollectionEquality().equals(other.cafes, cafes) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(cafes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(cafes),
+      const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
@@ -132,10 +151,13 @@ class _$CafesStateData implements CafesStateData {
 }
 
 abstract class CafesStateData implements CafesState {
-  const factory CafesStateData({List<Cafe> cafes}) = _$CafesStateData;
+  const factory CafesStateData({List<Cafe> cafes, bool isLoading}) =
+      _$CafesStateData;
 
   @override
   List<Cafe> get cafes;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   $CafesStateDataCopyWith<CafesStateData> get copyWith =>
