@@ -1,10 +1,10 @@
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
-import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
-import 'package:cafe_note_mobile/states/cafe_form_state.dart';
+import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
+import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +19,8 @@ void main() {
         StateNotifierProvider<CafeController, CafeState>(
           create: (_) => CafeController(),
         ),
-        StateNotifierProvider<CafeFormController, CafeFormState>(
-          create: (_) => CafeFormController(),
+        StateNotifierProvider<CreateCafeController, CreateCafeState>(
+          create: (_) => CreateCafeController(),
         ),
       ],
       child: MaterialApp(
@@ -45,6 +45,11 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          // TODO:
+          // - 来店日を記録できるようにする
+          // - 画像を登録できるようにする（Firebase Cloud Storage）
+          // - 一覧ページにボトムナビを追加する
+          // - 一覧ページをルートにする
           children: [
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, RouteConfig.cafes),

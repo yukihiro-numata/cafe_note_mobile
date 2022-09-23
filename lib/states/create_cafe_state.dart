@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'cafe_form_state.freezed.dart';
+part 'create_cafe_state.freezed.dart';
 
 @freezed
-abstract class CafeFormState with _$CafeFormState {
-  const factory CafeFormState({
+abstract class CreateCafeState with _$CreateCafeState {
+  const factory CreateCafeState({
     required GlobalKey<FormState> formKey,
     String? name,
     String? address,
@@ -21,5 +21,5 @@ abstract class CafeFormState with _$CafeFormState {
     String? memo,
     String? imgPath,
     String? tabelogUrl,
-  }) = CafeFormStateData;
+  }) = CreateCafeStateData;
 }

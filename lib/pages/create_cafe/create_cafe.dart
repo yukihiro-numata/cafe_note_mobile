@@ -1,9 +1,9 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/components/atoms/radio_with_text.dart';
-import 'package:cafe_note_mobile/controllers/cafe_form_controller.dart';
+import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/cafe_form_validator.dart';
-import 'package:cafe_note_mobile/states/cafe_form_state.dart';
+import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +12,8 @@ class CreateCafePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _state = context.watch<CafeFormState>();
-    final _controller = context.read<CafeFormController>();
+    final _state = context.watch<CreateCafeState>();
+    final _controller = context.read<CreateCafeController>();
     final _validator = CafeFormValidator();
 
     return Scaffold(
@@ -34,7 +34,7 @@ class CreateCafePage extends StatelessWidget {
                     ),
                     validator: (String? value) => _validator.name(value),
                     onSaved: (String? value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyName,
+                      key: CreateCafeController.formKeyName,
                       value: value,
                     ),
                   ),
@@ -47,7 +47,7 @@ class CreateCafePage extends StatelessWidget {
                     ),
                     validator: (String? value) => _validator.address(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyAddress,
+                      key: CreateCafeController.formKeyAddress,
                       value: value,
                     ),
                   ),
@@ -61,7 +61,7 @@ class CreateCafePage extends StatelessWidget {
                     validator: (String? value) =>
                         _validator.nearestStation(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyNearestStation,
+                      key: CreateCafeController.formKeyNearestStation,
                       value: value,
                     ),
                   ),
@@ -75,7 +75,7 @@ class CreateCafePage extends StatelessWidget {
                     validator: (String? value) =>
                         _validator.transportation(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyTransportation,
+                      key: CreateCafeController.formKeyTransportation,
                       value: value,
                     ),
                   ),
@@ -89,7 +89,7 @@ class CreateCafePage extends StatelessWidget {
                     validator: (String? value) =>
                         _validator.businessHours(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyBusinessHours,
+                      key: CreateCafeController.formKeyBusinessHours,
                       value: value,
                     ),
                   ),
@@ -103,7 +103,7 @@ class CreateCafePage extends StatelessWidget {
                     validator: (String? value) =>
                         _validator.regularHoliday(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyRegularHoliday,
+                      key: CreateCafeController.formKeyRegularHoliday,
                       value: value,
                     ),
                   ),
@@ -119,7 +119,7 @@ class CreateCafePage extends StatelessWidget {
                       //         groupValue: _state.canTakeout,
                       //         onChanged: (bool? value) =>
                       //             _controller.changeBoolInput(
-                      //           key: CafeFormController.formKeyCanTakeout,
+                      //           key: CreateCafeController.formKeyCanTakeout,
                       //           value: value,
                       //         ),
                       //       ),
@@ -131,7 +131,7 @@ class CreateCafePage extends StatelessWidget {
                       value: true,
                       groupValue: _state.canTakeout,
                       onChanged: (bool? value) => _controller.changeBoolInput(
-                        key: CafeFormController.formKeyCanTakeout,
+                        key: CreateCafeController.formKeyCanTakeout,
                         value: value,
                       ),
                     ),
@@ -140,7 +140,7 @@ class CreateCafePage extends StatelessWidget {
                       value: false,
                       groupValue: _state.canTakeout,
                       onChanged: (bool? value) => _controller.changeBoolInput(
-                        key: CafeFormController.formKeyCanTakeout,
+                        key: CreateCafeController.formKeyCanTakeout,
                         value: value,
                       ),
                     ),
@@ -157,7 +157,7 @@ class CreateCafePage extends StatelessWidget {
                             groupValue: _state.hasParking,
                             onChanged: (bool? value) =>
                                 _controller.changeBoolInput(
-                              key: CafeFormController.formKeyHasParking,
+                              key: CreateCafeController.formKeyHasParking,
                               value: value,
                             ),
                           ),
@@ -176,7 +176,7 @@ class CreateCafePage extends StatelessWidget {
                             groupValue: _state.hasWifi,
                             onChanged: (bool? value) =>
                                 _controller.changeBoolInput(
-                              key: CafeFormController.formKeyHasWifi,
+                              key: CreateCafeController.formKeyHasWifi,
                               value: value,
                             ),
                           ),
@@ -195,7 +195,7 @@ class CreateCafePage extends StatelessWidget {
                             groupValue: _state.hasPowerSupply,
                             onChanged: (bool? value) =>
                                 _controller.changeBoolInput(
-                              key: CafeFormController.formKeyHasPowerSupply,
+                              key: CreateCafeController.formKeyHasPowerSupply,
                               value: value,
                             ),
                           ),
@@ -214,7 +214,7 @@ class CreateCafePage extends StatelessWidget {
                             groupValue: _state.canSmoking,
                             onChanged: (bool? value) =>
                                 _controller.changeBoolInput(
-                              key: CafeFormController.formKeyCanSmoking,
+                              key: CreateCafeController.formKeyCanSmoking,
                               value: value,
                             ),
                           ),
@@ -230,7 +230,7 @@ class CreateCafePage extends StatelessWidget {
                     ),
                     validator: (String? value) => _validator.memo(value),
                     onSaved: (String? value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyMemo,
+                      key: CreateCafeController.formKeyMemo,
                       value: value,
                     ),
                   ),
@@ -243,7 +243,7 @@ class CreateCafePage extends StatelessWidget {
                     ),
                     validator: (String? value) => _validator.tabelogUrl(value),
                     onSaved: (String? value) => _controller.changeStringInput(
-                      key: CafeFormController.formKeyTabelogUrl,
+                      key: CreateCafeController.formKeyTabelogUrl,
                       value: value,
                     ),
                   ),

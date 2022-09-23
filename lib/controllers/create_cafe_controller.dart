@@ -1,11 +1,12 @@
 import 'package:cafe_note_mobile/services/cafe_service.dart';
-import 'package:cafe_note_mobile/states/cafe_form_state.dart';
+import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
 import 'package:state_notifier/state_notifier.dart';
 
-class CafeFormController extends StateNotifier<CafeFormState>
+class CreateCafeController extends StateNotifier<CreateCafeState>
     with LocatorMixin {
-  CafeFormController() : super(CafeFormState(formKey: GlobalKey<FormState>()));
+  CreateCafeController()
+      : super(CreateCafeState(formKey: GlobalKey<FormState>()));
 
   static const String formKeyName = "name";
   static const String formKeyAddress = "address";

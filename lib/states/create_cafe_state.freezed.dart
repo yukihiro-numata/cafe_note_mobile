@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'cafe_form_state.dart';
+part of 'create_cafe_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,10 +15,10 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$CafeFormStateTearOff {
-  const _$CafeFormStateTearOff();
+class _$CreateCafeStateTearOff {
+  const _$CreateCafeStateTearOff();
 
-  CafeFormStateData call(
+  CreateCafeStateData call(
       {required GlobalKey<FormState> formKey,
       String? name,
       String? address,
@@ -34,7 +34,7 @@ class _$CafeFormStateTearOff {
       String? memo,
       String? imgPath,
       String? tabelogUrl}) {
-    return CafeFormStateData(
+    return CreateCafeStateData(
       formKey: formKey,
       name: name,
       address: address,
@@ -55,10 +55,10 @@ class _$CafeFormStateTearOff {
 }
 
 /// @nodoc
-const $CafeFormState = _$CafeFormStateTearOff();
+const $CreateCafeState = _$CreateCafeStateTearOff();
 
 /// @nodoc
-mixin _$CafeFormState {
+mixin _$CreateCafeState {
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
@@ -76,15 +76,15 @@ mixin _$CafeFormState {
   String? get tabelogUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CafeFormStateCopyWith<CafeFormState> get copyWith =>
+  $CreateCafeStateCopyWith<CreateCafeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CafeFormStateCopyWith<$Res> {
-  factory $CafeFormStateCopyWith(
-          CafeFormState value, $Res Function(CafeFormState) then) =
-      _$CafeFormStateCopyWithImpl<$Res>;
+abstract class $CreateCafeStateCopyWith<$Res> {
+  factory $CreateCafeStateCopyWith(
+          CreateCafeState value, $Res Function(CreateCafeState) then) =
+      _$CreateCafeStateCopyWithImpl<$Res>;
   $Res call(
       {GlobalKey<FormState> formKey,
       String? name,
@@ -104,13 +104,13 @@ abstract class $CafeFormStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CafeFormStateCopyWithImpl<$Res>
-    implements $CafeFormStateCopyWith<$Res> {
-  _$CafeFormStateCopyWithImpl(this._value, this._then);
+class _$CreateCafeStateCopyWithImpl<$Res>
+    implements $CreateCafeStateCopyWith<$Res> {
+  _$CreateCafeStateCopyWithImpl(this._value, this._then);
 
-  final CafeFormState _value;
+  final CreateCafeState _value;
   // ignore: unused_field
-  final $Res Function(CafeFormState) _then;
+  final $Res Function(CreateCafeState) _then;
 
   @override
   $Res call({
@@ -196,11 +196,11 @@ class _$CafeFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CafeFormStateDataCopyWith<$Res>
-    implements $CafeFormStateCopyWith<$Res> {
-  factory $CafeFormStateDataCopyWith(
-          CafeFormStateData value, $Res Function(CafeFormStateData) then) =
-      _$CafeFormStateDataCopyWithImpl<$Res>;
+abstract class $CreateCafeStateDataCopyWith<$Res>
+    implements $CreateCafeStateCopyWith<$Res> {
+  factory $CreateCafeStateDataCopyWith(
+          CreateCafeStateData value, $Res Function(CreateCafeStateData) then) =
+      _$CreateCafeStateDataCopyWithImpl<$Res>;
   @override
   $Res call(
       {GlobalKey<FormState> formKey,
@@ -221,15 +221,15 @@ abstract class $CafeFormStateDataCopyWith<$Res>
 }
 
 /// @nodoc
-class _$CafeFormStateDataCopyWithImpl<$Res>
-    extends _$CafeFormStateCopyWithImpl<$Res>
-    implements $CafeFormStateDataCopyWith<$Res> {
-  _$CafeFormStateDataCopyWithImpl(
-      CafeFormStateData _value, $Res Function(CafeFormStateData) _then)
-      : super(_value, (v) => _then(v as CafeFormStateData));
+class _$CreateCafeStateDataCopyWithImpl<$Res>
+    extends _$CreateCafeStateCopyWithImpl<$Res>
+    implements $CreateCafeStateDataCopyWith<$Res> {
+  _$CreateCafeStateDataCopyWithImpl(
+      CreateCafeStateData _value, $Res Function(CreateCafeStateData) _then)
+      : super(_value, (v) => _then(v as CreateCafeStateData));
 
   @override
-  CafeFormStateData get _value => super._value as CafeFormStateData;
+  CreateCafeStateData get _value => super._value as CreateCafeStateData;
 
   @override
   $Res call({
@@ -249,7 +249,7 @@ class _$CafeFormStateDataCopyWithImpl<$Res>
     Object? imgPath = freezed,
     Object? tabelogUrl = freezed,
   }) {
-    return _then(CafeFormStateData(
+    return _then(CreateCafeStateData(
       formKey: formKey == freezed
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
@@ -316,8 +316,8 @@ class _$CafeFormStateDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CafeFormStateData implements CafeFormStateData {
-  const _$CafeFormStateData(
+class _$CreateCafeStateData implements CreateCafeStateData {
+  const _$CreateCafeStateData(
       {required this.formKey,
       this.name,
       this.address,
@@ -372,14 +372,14 @@ class _$CafeFormStateData implements CafeFormStateData {
 
   @override
   String toString() {
-    return 'CafeFormState(formKey: $formKey, name: $name, address: $address, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
+    return 'CreateCafeState(formKey: $formKey, name: $name, address: $address, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CafeFormStateData &&
+            other is CreateCafeStateData &&
             const DeepCollectionEquality().equals(other.formKey, formKey) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.address, address) &&
@@ -427,12 +427,12 @@ class _$CafeFormStateData implements CafeFormStateData {
 
   @JsonKey(ignore: true)
   @override
-  $CafeFormStateDataCopyWith<CafeFormStateData> get copyWith =>
-      _$CafeFormStateDataCopyWithImpl<CafeFormStateData>(this, _$identity);
+  $CreateCafeStateDataCopyWith<CreateCafeStateData> get copyWith =>
+      _$CreateCafeStateDataCopyWithImpl<CreateCafeStateData>(this, _$identity);
 }
 
-abstract class CafeFormStateData implements CafeFormState {
-  const factory CafeFormStateData(
+abstract class CreateCafeStateData implements CreateCafeState {
+  const factory CreateCafeStateData(
       {required GlobalKey<FormState> formKey,
       String? name,
       String? address,
@@ -447,7 +447,7 @@ abstract class CafeFormStateData implements CafeFormState {
       bool? canSmoking,
       String? memo,
       String? imgPath,
-      String? tabelogUrl}) = _$CafeFormStateData;
+      String? tabelogUrl}) = _$CreateCafeStateData;
 
   @override
   GlobalKey<FormState> get formKey;
@@ -481,6 +481,6 @@ abstract class CafeFormStateData implements CafeFormState {
   String? get tabelogUrl;
   @override
   @JsonKey(ignore: true)
-  $CafeFormStateDataCopyWith<CafeFormStateData> get copyWith =>
+  $CreateCafeStateDataCopyWith<CreateCafeStateData> get copyWith =>
       throw _privateConstructorUsedError;
 }
