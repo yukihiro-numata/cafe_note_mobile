@@ -16,7 +16,7 @@ class CreateCafePage extends StatelessWidget {
     final _validator = CafeFormValidator();
 
     return Scaffold(
-      appBar: _controller.buildAppBar(),
+      appBar: _controller.buildAppBar(context),
       body: SingleChildScrollView(
         child: Form(
           key: _state.formKey,

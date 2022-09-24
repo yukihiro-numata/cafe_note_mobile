@@ -33,7 +33,13 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
 
   final CafeService _service = CafeService();
 
-  PreferredSizeWidget buildAppBar() => AppBar(title: const Text("カフェ登録"));
+  PreferredSizeWidget buildAppBar(BuildContext context) => AppBar(
+        title: const Text("カフェ登録"),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () => handleCloseCreateCafe(context),
+        ),
+      );
 
   void changeStringInput({
     required String key,
@@ -107,6 +113,13 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
       default:
         assert(false, "argument error");
     }
+  }
+
+  void handleCloseCreateCafe(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      RouteConfig.cafes,
+    );
   }
 
   void handleToBasicInfo(BuildContext context) {
