@@ -23,7 +23,11 @@ class CafeService {
 
   Future create({
     required String name,
+    required String postCode,
+    required String prefecture,
+    required String city,
     required String address,
+    required String building,
     required String nearestStation,
     required String transportation,
     required String businessHours,
@@ -39,7 +43,11 @@ class CafeService {
   }) async {
     final params = {
       "name": name,
+      "post_code": postCode,
+      "prefecture": prefecture,
+      "city": city,
       "address": address,
+      "building": building,
       "nearest_station": nearestStation,
       "transportation": transportation,
       "business_hours": businessHours,

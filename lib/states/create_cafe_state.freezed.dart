@@ -20,8 +20,13 @@ class _$CreateCafeStateTearOff {
 
   CreateCafeStateData call(
       {required GlobalKey<FormState> formKey,
+      required GlobalKey<FormState> basicInfoFormKey,
       String? name,
+      String? postCode,
+      String? prefecture,
+      String? city,
       String? address,
+      String? building,
       String? nearestStation,
       String? transportation,
       String? businessHours,
@@ -36,8 +41,13 @@ class _$CreateCafeStateTearOff {
       String? tabelogUrl}) {
     return CreateCafeStateData(
       formKey: formKey,
+      basicInfoFormKey: basicInfoFormKey,
       name: name,
+      postCode: postCode,
+      prefecture: prefecture,
+      city: city,
       address: address,
+      building: building,
       nearestStation: nearestStation,
       transportation: transportation,
       businessHours: businessHours,
@@ -60,8 +70,14 @@ const $CreateCafeState = _$CreateCafeStateTearOff();
 /// @nodoc
 mixin _$CreateCafeState {
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
+  GlobalKey<FormState> get basicInfoFormKey =>
+      throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  String? get postCode => throw _privateConstructorUsedError;
+  String? get prefecture => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
+  String? get building => throw _privateConstructorUsedError;
   String? get nearestStation => throw _privateConstructorUsedError;
   String? get transportation => throw _privateConstructorUsedError;
   String? get businessHours => throw _privateConstructorUsedError;
@@ -87,8 +103,13 @@ abstract class $CreateCafeStateCopyWith<$Res> {
       _$CreateCafeStateCopyWithImpl<$Res>;
   $Res call(
       {GlobalKey<FormState> formKey,
+      GlobalKey<FormState> basicInfoFormKey,
       String? name,
+      String? postCode,
+      String? prefecture,
+      String? city,
       String? address,
+      String? building,
       String? nearestStation,
       String? transportation,
       String? businessHours,
@@ -115,8 +136,13 @@ class _$CreateCafeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? formKey = freezed,
+    Object? basicInfoFormKey = freezed,
     Object? name = freezed,
+    Object? postCode = freezed,
+    Object? prefecture = freezed,
+    Object? city = freezed,
     Object? address = freezed,
+    Object? building = freezed,
     Object? nearestStation = freezed,
     Object? transportation = freezed,
     Object? businessHours = freezed,
@@ -135,13 +161,33 @@ class _$CreateCafeStateCopyWithImpl<$Res>
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>,
+      basicInfoFormKey: basicInfoFormKey == freezed
+          ? _value.basicInfoFormKey
+          : basicInfoFormKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      postCode: postCode == freezed
+          ? _value.postCode
+          : postCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      prefecture: prefecture == freezed
+          ? _value.prefecture
+          : prefecture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      building: building == freezed
+          ? _value.building
+          : building // ignore: cast_nullable_to_non_nullable
               as String?,
       nearestStation: nearestStation == freezed
           ? _value.nearestStation
@@ -204,8 +250,13 @@ abstract class $CreateCafeStateDataCopyWith<$Res>
   @override
   $Res call(
       {GlobalKey<FormState> formKey,
+      GlobalKey<FormState> basicInfoFormKey,
       String? name,
+      String? postCode,
+      String? prefecture,
+      String? city,
       String? address,
+      String? building,
       String? nearestStation,
       String? transportation,
       String? businessHours,
@@ -234,8 +285,13 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? formKey = freezed,
+    Object? basicInfoFormKey = freezed,
     Object? name = freezed,
+    Object? postCode = freezed,
+    Object? prefecture = freezed,
+    Object? city = freezed,
     Object? address = freezed,
+    Object? building = freezed,
     Object? nearestStation = freezed,
     Object? transportation = freezed,
     Object? businessHours = freezed,
@@ -254,13 +310,33 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
           ? _value.formKey
           : formKey // ignore: cast_nullable_to_non_nullable
               as GlobalKey<FormState>,
+      basicInfoFormKey: basicInfoFormKey == freezed
+          ? _value.basicInfoFormKey
+          : basicInfoFormKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      postCode: postCode == freezed
+          ? _value.postCode
+          : postCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      prefecture: prefecture == freezed
+          ? _value.prefecture
+          : prefecture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
       address: address == freezed
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      building: building == freezed
+          ? _value.building
+          : building // ignore: cast_nullable_to_non_nullable
               as String?,
       nearestStation: nearestStation == freezed
           ? _value.nearestStation
@@ -319,8 +395,13 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
 class _$CreateCafeStateData implements CreateCafeStateData {
   const _$CreateCafeStateData(
       {required this.formKey,
+      required this.basicInfoFormKey,
       this.name,
+      this.postCode,
+      this.prefecture,
+      this.city,
       this.address,
+      this.building,
       this.nearestStation,
       this.transportation,
       this.businessHours,
@@ -337,9 +418,19 @@ class _$CreateCafeStateData implements CreateCafeStateData {
   @override
   final GlobalKey<FormState> formKey;
   @override
+  final GlobalKey<FormState> basicInfoFormKey;
+  @override
   final String? name;
   @override
+  final String? postCode;
+  @override
+  final String? prefecture;
+  @override
+  final String? city;
+  @override
   final String? address;
+  @override
+  final String? building;
   @override
   final String? nearestStation;
   @override
@@ -372,7 +463,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
 
   @override
   String toString() {
-    return 'CreateCafeState(formKey: $formKey, name: $name, address: $address, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
+    return 'CreateCafeState(formKey: $formKey, basicInfoFormKey: $basicInfoFormKey, name: $name, postCode: $postCode, prefecture: $prefecture, city: $city, address: $address, building: $building, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
   }
 
   @override
@@ -381,8 +472,15 @@ class _$CreateCafeStateData implements CreateCafeStateData {
         (other.runtimeType == runtimeType &&
             other is CreateCafeStateData &&
             const DeepCollectionEquality().equals(other.formKey, formKey) &&
+            const DeepCollectionEquality()
+                .equals(other.basicInfoFormKey, basicInfoFormKey) &&
             const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.postCode, postCode) &&
+            const DeepCollectionEquality()
+                .equals(other.prefecture, prefecture) &&
+            const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.building, building) &&
             const DeepCollectionEquality()
                 .equals(other.nearestStation, nearestStation) &&
             const DeepCollectionEquality()
@@ -407,23 +505,29 @@ class _$CreateCafeStateData implements CreateCafeStateData {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(formKey),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(nearestStation),
-      const DeepCollectionEquality().hash(transportation),
-      const DeepCollectionEquality().hash(businessHours),
-      const DeepCollectionEquality().hash(regularHoliday),
-      const DeepCollectionEquality().hash(canTakeout),
-      const DeepCollectionEquality().hash(hasParking),
-      const DeepCollectionEquality().hash(hasWifi),
-      const DeepCollectionEquality().hash(hasPowerSupply),
-      const DeepCollectionEquality().hash(canSmoking),
-      const DeepCollectionEquality().hash(memo),
-      const DeepCollectionEquality().hash(imgPath),
-      const DeepCollectionEquality().hash(tabelogUrl));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(formKey),
+        const DeepCollectionEquality().hash(basicInfoFormKey),
+        const DeepCollectionEquality().hash(name),
+        const DeepCollectionEquality().hash(postCode),
+        const DeepCollectionEquality().hash(prefecture),
+        const DeepCollectionEquality().hash(city),
+        const DeepCollectionEquality().hash(address),
+        const DeepCollectionEquality().hash(building),
+        const DeepCollectionEquality().hash(nearestStation),
+        const DeepCollectionEquality().hash(transportation),
+        const DeepCollectionEquality().hash(businessHours),
+        const DeepCollectionEquality().hash(regularHoliday),
+        const DeepCollectionEquality().hash(canTakeout),
+        const DeepCollectionEquality().hash(hasParking),
+        const DeepCollectionEquality().hash(hasWifi),
+        const DeepCollectionEquality().hash(hasPowerSupply),
+        const DeepCollectionEquality().hash(canSmoking),
+        const DeepCollectionEquality().hash(memo),
+        const DeepCollectionEquality().hash(imgPath),
+        const DeepCollectionEquality().hash(tabelogUrl)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -434,8 +538,13 @@ class _$CreateCafeStateData implements CreateCafeStateData {
 abstract class CreateCafeStateData implements CreateCafeState {
   const factory CreateCafeStateData(
       {required GlobalKey<FormState> formKey,
+      required GlobalKey<FormState> basicInfoFormKey,
       String? name,
+      String? postCode,
+      String? prefecture,
+      String? city,
       String? address,
+      String? building,
       String? nearestStation,
       String? transportation,
       String? businessHours,
@@ -452,9 +561,19 @@ abstract class CreateCafeStateData implements CreateCafeState {
   @override
   GlobalKey<FormState> get formKey;
   @override
+  GlobalKey<FormState> get basicInfoFormKey;
+  @override
   String? get name;
   @override
+  String? get postCode;
+  @override
+  String? get prefecture;
+  @override
+  String? get city;
+  @override
   String? get address;
+  @override
+  String? get building;
   @override
   String? get nearestStation;
   @override

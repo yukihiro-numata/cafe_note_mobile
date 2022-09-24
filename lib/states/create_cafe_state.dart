@@ -7,8 +7,13 @@ part 'create_cafe_state.freezed.dart';
 abstract class CreateCafeState with _$CreateCafeState {
   const factory CreateCafeState({
     required GlobalKey<FormState> formKey,
+    required GlobalKey<FormState> basicInfoFormKey,
     String? name,
+    String? postCode,
+    String? prefecture,
+    String? city,
     String? address,
+    String? building,
     String? nearestStation,
     String? transportation,
     String? businessHours,

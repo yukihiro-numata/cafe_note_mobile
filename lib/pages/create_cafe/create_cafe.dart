@@ -1,6 +1,5 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
-import 'package:cafe_note_mobile/components/atoms/radio_with_text.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/cafe_form_validator.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
@@ -17,7 +16,7 @@ class CreateCafePage extends StatelessWidget {
     final _validator = CafeFormValidator();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("カフェ登録")),
+      appBar: _controller.buildAppBar(),
       body: SingleChildScrollView(
         child: Form(
           key: _state.formKey,
@@ -26,20 +25,46 @@ class CreateCafePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const FormLabel(text: "名前"),
+                const FormLabel(text: "郵便番号"),
                 FormContainer(
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.name(value),
-                    onSaved: (String? value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyName,
+                    validator: (String? value) => _validator.postCode(value),
+                    onSaved: (value) => _controller.changeStringInput(
+                      key: CreateCafeController.formKeyPostCode,
                       value: value,
                     ),
                   ),
                 ),
-                const FormLabel(text: "住所"),
+                const FormLabel(text: "都道府県"),
+                FormContainer(
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (String? value) => _validator.prefecture(value),
+                    onSaved: (value) => _controller.changeStringInput(
+                      key: CreateCafeController.formKeyPrefecture,
+                      value: value,
+                    ),
+                  ),
+                ),
+                const FormLabel(text: "市区町村"),
+                FormContainer(
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                    ),
+                    validator: (String? value) => _validator.city(value),
+                    onSaved: (value) => _controller.changeStringInput(
+                      key: CreateCafeController.formKeyCity,
+                      value: value,
+                    ),
+                  ),
+                ),
+                const FormLabel(text: "番地"),
                 FormContainer(
                   child: TextFormField(
                     decoration: const InputDecoration(
@@ -52,198 +77,15 @@ class CreateCafePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const FormLabel(text: "最寄り駅"),
+                const FormLabel(text: "建物名"),
                 FormContainer(
                   child: TextFormField(
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) =>
-                        _validator.nearestStation(value),
+                    validator: (String? value) => _validator.building(value),
                     onSaved: (value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyNearestStation,
-                      value: value,
-                    ),
-                  ),
-                ),
-                const FormLabel(text: "交通アクセス"),
-                FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) =>
-                        _validator.transportation(value),
-                    onSaved: (value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyTransportation,
-                      value: value,
-                    ),
-                  ),
-                ),
-                const FormLabel(text: "営業時間"),
-                FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) =>
-                        _validator.businessHours(value),
-                    onSaved: (value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyBusinessHours,
-                      value: value,
-                    ),
-                  ),
-                ),
-                const FormLabel(text: "定休日"),
-                FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) =>
-                        _validator.regularHoliday(value),
-                    onSaved: (value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyRegularHoliday,
-                      value: value,
-                    ),
-                  ),
-                ),
-                const FormLabel(text: "テイクアウト"),
-                FormContainer(
-                  child: Row(children:
-                      // [true, false]
-                      //     .map(
-                      //       (v) => RadioWithText(
-                      //         text: v ? "有" : "無",
-                      //         value: v,
-                      //         groupValue: _state.canTakeout,
-                      //         onChanged: (bool? value) =>
-                      //             _controller.changeBoolInput(
-                      //           key: CreateCafeController.formKeyCanTakeout,
-                      //           value: value,
-                      //         ),
-                      //       ),
-                      //     )
-                      //     .toList(),
-                      [
-                    RadioWithText(
-                      text: "有",
-                      value: true,
-                      groupValue: _state.canTakeout,
-                      onChanged: (bool? value) => _controller.changeBoolInput(
-                        key: CreateCafeController.formKeyCanTakeout,
-                        value: value,
-                      ),
-                    ),
-                    RadioWithText(
-                      text: "無",
-                      value: false,
-                      groupValue: _state.canTakeout,
-                      onChanged: (bool? value) => _controller.changeBoolInput(
-                        key: CreateCafeController.formKeyCanTakeout,
-                        value: value,
-                      ),
-                    ),
-                  ]),
-                ),
-                const FormLabel(text: "駐車場"),
-                FormContainer(
-                  child: Row(
-                    children: [true, false]
-                        .map(
-                          (v) => RadioWithText(
-                            text: v ? "有" : "無",
-                            value: v,
-                            groupValue: _state.hasParking,
-                            onChanged: (bool? value) =>
-                                _controller.changeBoolInput(
-                              key: CreateCafeController.formKeyHasParking,
-                              value: value,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-                const FormLabel(text: "wifi"),
-                FormContainer(
-                  child: Row(
-                    children: [true, false]
-                        .map(
-                          (v) => RadioWithText(
-                            text: v ? "有" : "無",
-                            value: v,
-                            groupValue: _state.hasWifi,
-                            onChanged: (bool? value) =>
-                                _controller.changeBoolInput(
-                              key: CreateCafeController.formKeyHasWifi,
-                              value: value,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-                const FormLabel(text: "電源"),
-                FormContainer(
-                  child: Row(
-                    children: [true, false]
-                        .map(
-                          (v) => RadioWithText(
-                            text: v ? "有" : "無",
-                            value: v,
-                            groupValue: _state.hasPowerSupply,
-                            onChanged: (bool? value) =>
-                                _controller.changeBoolInput(
-                              key: CreateCafeController.formKeyHasPowerSupply,
-                              value: value,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-                const FormLabel(text: "喫煙"),
-                FormContainer(
-                  child: Row(
-                    children: [true, false]
-                        .map(
-                          (v) => RadioWithText(
-                            text: v ? "可" : "不可",
-                            value: v,
-                            groupValue: _state.canSmoking,
-                            onChanged: (bool? value) =>
-                                _controller.changeBoolInput(
-                              key: CreateCafeController.formKeyCanSmoking,
-                              value: value,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
-                const FormLabel(text: "メモ"),
-                FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) => _validator.memo(value),
-                    onSaved: (String? value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyMemo,
-                      value: value,
-                    ),
-                  ),
-                ),
-                const FormLabel(text: "食べログURL"),
-                FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) => _validator.tabelogUrl(value),
-                    onSaved: (String? value) => _controller.changeStringInput(
-                      key: CreateCafeController.formKeyTabelogUrl,
+                      key: CreateCafeController.formKeyBuilding,
                       value: value,
                     ),
                   ),
@@ -256,8 +98,8 @@ class CreateCafePage extends StatelessWidget {
                     vertical: 16,
                   ),
                   child: ElevatedButton(
-                    child: const Text("登録"),
-                    onPressed: () => _controller.handleSubmitButtonPressed(),
+                    child: const Text("次へ"),
+                    onPressed: () => _controller.handleToBasicInfo(context),
                   ),
                 ),
               ],

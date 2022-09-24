@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +7,17 @@ import 'package:state_notifier/state_notifier.dart';
 class CreateCafeController extends StateNotifier<CreateCafeState>
     with LocatorMixin {
   CreateCafeController()
-      : super(CreateCafeState(formKey: GlobalKey<FormState>()));
+      : super(CreateCafeState(
+          formKey: GlobalKey<FormState>(),
+          basicInfoFormKey: GlobalKey<FormState>(),
+        ));
 
   static const String formKeyName = "name";
+  static const String formKeyPostCode = "postCode";
+  static const String formKeyPrefecture = "prefecture";
+  static const String formKeyCity = "city";
   static const String formKeyAddress = "address";
+  static const String formKeyBuilding = "building";
   static const String formKeyNearestStation = "nearestStation";
   static const String formKeyTransportation = "transportation";
   static const String formKeyBusinessHours = "businessHours";
@@ -25,16 +33,30 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
 
   final CafeService _service = CafeService();
 
+  PreferredSizeWidget buildAppBar() => AppBar(title: const Text("カフェ登録"));
+
   void changeStringInput({
     required String key,
     required String? value,
   }) {
     switch (key) {
-      case formKeyName:
-        state = state.copyWith(name: value);
+      case formKeyPostCode:
+        state = state.copyWith(postCode: value);
+        break;
+      case formKeyPrefecture:
+        state = state.copyWith(prefecture: value);
+        break;
+      case formKeyCity:
+        state = state.copyWith(city: value);
         break;
       case formKeyAddress:
         state = state.copyWith(address: value);
+        break;
+      case formKeyBuilding:
+        state = state.copyWith(building: value);
+        break;
+      case formKeyName:
+        state = state.copyWith(name: value);
         break;
       case formKeyNearestStation:
         state = state.copyWith(nearestStation: value);
@@ -87,15 +109,31 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     }
   }
 
-  Future<void> handleSubmitButtonPressed() async {
+  void handleToBasicInfo(BuildContext context) {
     if (!(state.formKey.currentState?.validate() ?? false)) {
       return;
     }
     state.formKey.currentState?.save();
 
+    Navigator.pushNamed(
+      context,
+      RouteConfig.createCafeBasicInfo,
+    );
+  }
+
+  Future<void> handleSubmitButtonPressed() async {
+    if (!(state.basicInfoFormKey.currentState?.validate() ?? false)) {
+      return;
+    }
+    state.basicInfoFormKey.currentState?.save();
+
     await _service.create(
       name: state.name!,
+      postCode: state.postCode!,
+      prefecture: state.prefecture!,
+      city: state.city!,
       address: state.address!,
+      building: state.building!,
       nearestStation: state.nearestStation!,
       transportation: state.transportation!,
       businessHours: state.businessHours!,
