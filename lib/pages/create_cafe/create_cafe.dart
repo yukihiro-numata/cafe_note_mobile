@@ -40,16 +40,20 @@ class CreateCafePage extends StatelessWidget {
                 ),
                 const FormLabel(text: "都道府県"),
                 FormContainer(
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (String? value) =>
-                        CafeFormValidator.prefecture(value),
-                    onSaved: (value) => _controller.changeStringInput(
+                  child: DropdownButton(
+                    value: _state.prefecture,
+                    onChanged: (String? value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyPrefecture,
                       value: value,
                     ),
+                    items: CreateCafeController.prefectures
+                        .map(
+                          (String value) => DropdownMenuItem(
+                            child: Text(value),
+                            value: value,
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
                 const FormLabel(text: "市区町村"),
