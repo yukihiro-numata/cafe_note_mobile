@@ -14,7 +14,6 @@ class CreateCafeBasicInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final _state = context.watch<CreateCafeState>();
     final _controller = context.read<CreateCafeController>();
-    final _validator = CafeFormValidator();
 
     return Scaffold(
       appBar: _controller.buildAppBar(context),
@@ -32,7 +31,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.name(value),
+                    validator: (String? value) => CafeFormValidator.name(value),
                     onSaved: (String? value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyName,
                       value: value,
@@ -46,7 +45,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                     validator: (String? value) =>
-                        _validator.nearestStation(value),
+                        CafeFormValidator.nearestStation(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyNearestStation,
                       value: value,
@@ -60,7 +59,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                     validator: (String? value) =>
-                        _validator.transportation(value),
+                        CafeFormValidator.transportation(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyTransportation,
                       value: value,
@@ -74,7 +73,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                     validator: (String? value) =>
-                        _validator.businessHours(value),
+                        CafeFormValidator.businessHours(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyBusinessHours,
                       value: value,
@@ -88,7 +87,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                       border: OutlineInputBorder(),
                     ),
                     validator: (String? value) =>
-                        _validator.regularHoliday(value),
+                        CafeFormValidator.regularHoliday(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyRegularHoliday,
                       value: value,

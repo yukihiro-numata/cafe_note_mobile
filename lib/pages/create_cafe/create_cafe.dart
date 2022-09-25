@@ -13,7 +13,6 @@ class CreateCafePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _state = context.watch<CreateCafeState>();
     final _controller = context.read<CreateCafeController>();
-    final _validator = CafeFormValidator();
 
     return Scaffold(
       appBar: _controller.buildAppBar(context),
@@ -31,7 +30,8 @@ class CreateCafePage extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.postCode(value),
+                    validator: (String? value) =>
+                        CafeFormValidator.postCode(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyPostCode,
                       value: value,
@@ -44,7 +44,8 @@ class CreateCafePage extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.prefecture(value),
+                    validator: (String? value) =>
+                        CafeFormValidator.prefecture(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyPrefecture,
                       value: value,
@@ -57,7 +58,7 @@ class CreateCafePage extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.city(value),
+                    validator: (String? value) => CafeFormValidator.city(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyCity,
                       value: value,
@@ -70,7 +71,8 @@ class CreateCafePage extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.address(value),
+                    validator: (String? value) =>
+                        CafeFormValidator.address(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyAddress,
                       value: value,
@@ -83,7 +85,8 @@ class CreateCafePage extends StatelessWidget {
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
-                    validator: (String? value) => _validator.building(value),
+                    validator: (String? value) =>
+                        CafeFormValidator.building(value),
                     onSaved: (value) => _controller.changeStringInput(
                       key: CreateCafeController.formKeyBuilding,
                       value: value,
