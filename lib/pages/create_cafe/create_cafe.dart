@@ -27,6 +27,7 @@ class CreateCafePage extends StatelessWidget {
                 const FormLabel(text: "郵便番号"),
                 FormContainer(
                   child: TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                     ),
