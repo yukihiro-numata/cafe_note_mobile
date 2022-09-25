@@ -1,25 +1,36 @@
+import 'package:cafe_note_mobile/helpers/validators/common_validator.dart';
+
 class CafeFormValidator {
+  static const postCodeDigit = 7;
+  final _commonValidator = CommonValidator();
+
   String? name(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return _commonValidator.checkIsEmpty(value) ? "必須入力です" : null;
   }
 
   String? postCode(String? value) {
-    if (value?.isEmpty ?? true) return "必須入力です";
-    if (int.tryParse(value!) == null) return "数値で入力してください";
-    if (value!.length != 7) return "7桁で入力してください";
+    if (_commonValidator.checkIsEmpty(value)) return "必須入力です";
+    if (_commonValidator.checkIsInt(value!)) return "数値で入力してください";
+    if (_commonValidator.checkDigit(
+      value: value,
+      digit: postCodeDigit,
+    )) {
+      return "7桁で入力してください";
+    }
+
     return null;
   }
 
   String? prefecture(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? city(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? address(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? building(String? value) {
@@ -27,23 +38,23 @@ class CafeFormValidator {
   }
 
   String? nearestStation(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? transportation(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? businessHours(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? regularHoliday(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? memo(String? value) {
-    return (value?.isEmpty ?? true) ? "必須入力です" : null;
+    return (_commonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
 
   String? tabelogUrl(String? value) {
