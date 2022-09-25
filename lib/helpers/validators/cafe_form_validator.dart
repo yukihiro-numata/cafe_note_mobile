@@ -5,6 +5,7 @@ class CafeFormValidator {
 
   String? postCode(String? value) {
     if (value?.isEmpty ?? true) return "必須入力です";
+    if (int.tryParse(value!) == null) return "数値で入力してください";
     if (value!.length != 7) return "7桁で入力してください";
     return null;
   }
