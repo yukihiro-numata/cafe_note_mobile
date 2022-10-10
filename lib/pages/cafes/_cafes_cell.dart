@@ -46,10 +46,6 @@ class CafesCell extends StatelessWidget {
                       softWrap: true,
                       style: const TextStyle(fontSize: 18),
                     ),
-                    Text(
-                      cafe.address,
-                      style: const TextStyle(fontSize: 12),
-                    ),
                   ],
                 ),
               ),
