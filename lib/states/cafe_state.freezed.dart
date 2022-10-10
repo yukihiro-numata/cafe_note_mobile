@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CafeStateTearOff {
   const _$CafeStateTearOff();
 
-  CafeStateData call({Cafe? cafe = null, bool isLoading = false}) {
+  CafeStateData call({CafeDetail? cafe = null, bool isLoading = false}) {
     return CafeStateData(
       cafe: cafe,
       isLoading: isLoading,
@@ -31,7 +31,7 @@ const $CafeState = _$CafeStateTearOff();
 
 /// @nodoc
 mixin _$CafeState {
-  Cafe? get cafe => throw _privateConstructorUsedError;
+  CafeDetail? get cafe => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,9 +43,9 @@ mixin _$CafeState {
 abstract class $CafeStateCopyWith<$Res> {
   factory $CafeStateCopyWith(CafeState value, $Res Function(CafeState) then) =
       _$CafeStateCopyWithImpl<$Res>;
-  $Res call({Cafe? cafe, bool isLoading});
+  $Res call({CafeDetail? cafe, bool isLoading});
 
-  $CafeCopyWith<$Res>? get cafe;
+  $CafeDetailCopyWith<$Res>? get cafe;
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$CafeStateCopyWithImpl<$Res> implements $CafeStateCopyWith<$Res> {
       cafe: cafe == freezed
           ? _value.cafe
           : cafe // ignore: cast_nullable_to_non_nullable
-              as Cafe?,
+              as CafeDetail?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -74,12 +74,12 @@ class _$CafeStateCopyWithImpl<$Res> implements $CafeStateCopyWith<$Res> {
   }
 
   @override
-  $CafeCopyWith<$Res>? get cafe {
+  $CafeDetailCopyWith<$Res>? get cafe {
     if (_value.cafe == null) {
       return null;
     }
 
-    return $CafeCopyWith<$Res>(_value.cafe!, (value) {
+    return $CafeDetailCopyWith<$Res>(_value.cafe!, (value) {
       return _then(_value.copyWith(cafe: value));
     });
   }
@@ -92,10 +92,10 @@ abstract class $CafeStateDataCopyWith<$Res>
           CafeStateData value, $Res Function(CafeStateData) then) =
       _$CafeStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({Cafe? cafe, bool isLoading});
+  $Res call({CafeDetail? cafe, bool isLoading});
 
   @override
-  $CafeCopyWith<$Res>? get cafe;
+  $CafeDetailCopyWith<$Res>? get cafe;
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class _$CafeStateDataCopyWithImpl<$Res> extends _$CafeStateCopyWithImpl<$Res>
       cafe: cafe == freezed
           ? _value.cafe
           : cafe // ignore: cast_nullable_to_non_nullable
-              as Cafe?,
+              as CafeDetail?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -133,7 +133,7 @@ class _$CafeStateData implements CafeStateData {
 
   @JsonKey()
   @override
-  final Cafe? cafe;
+  final CafeDetail? cafe;
   @JsonKey()
   @override
   final bool isLoading;
@@ -165,10 +165,11 @@ class _$CafeStateData implements CafeStateData {
 }
 
 abstract class CafeStateData implements CafeState {
-  const factory CafeStateData({Cafe? cafe, bool isLoading}) = _$CafeStateData;
+  const factory CafeStateData({CafeDetail? cafe, bool isLoading}) =
+      _$CafeStateData;
 
   @override
-  Cafe? get cafe;
+  CafeDetail? get cafe;
   @override
   bool get isLoading;
   @override

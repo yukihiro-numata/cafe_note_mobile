@@ -37,10 +37,6 @@ class CafePage extends StatelessWidget {
                     text: cafe?.nearestStation ?? "",
                   ),
                   CafeCell(
-                    title: "住所",
-                    text: cafe?.address ?? "",
-                  ),
-                  CafeCell(
                     title: "営業時間",
                     text: cafe?.businessHours ?? "",
                   ),
@@ -57,12 +53,24 @@ class CafePage extends StatelessWidget {
                     text: (cafe?.canSmoking ?? false) ? "有" : "無",
                   ),
                   CafeCell(
-                    title: "メモ",
-                    text: cafe?.memo ?? "",
+                    title: "郵便番号",
+                    text: cafe?.address.postCode ?? "",
                   ),
                   CafeCell(
-                    title: "食べログURL",
-                    text: cafe?.tabelogUrl ?? "",
+                    title: "都道府県",
+                    text: cafe?.address.prefecture ?? "",
+                  ),
+                  CafeCell(
+                    title: "市区町村",
+                    text: cafe?.address.city ?? "",
+                  ),
+                  CafeCell(
+                    title: "番地",
+                    text: cafe?.address.address ?? "",
+                  ),
+                  CafeCell(
+                    title: "建物名",
+                    text: cafe?.address.building ?? "",
                   ),
                 ],
               ),

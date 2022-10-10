@@ -1,4 +1,5 @@
 import 'package:cafe_note_mobile/entities/cafe.dart';
+import 'package:cafe_note_mobile/entities/cafe_detail.dart';
 import 'package:cafe_note_mobile/services/http_service.dart';
 
 class CafeService {
@@ -16,9 +17,9 @@ class CafeService {
         .cast<Cafe>();
   }
 
-  Future<Cafe> get(int id) async {
+  Future<CafeDetail> get(int id) async {
     final result = await _apiClient.get("/cafes/$id");
-    return Cafe.fromJson(result["data"]);
+    return CafeDetail.fromJson(result["data"]);
   }
 
   Future create({
