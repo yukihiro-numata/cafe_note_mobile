@@ -25,7 +25,6 @@ class _$CafeDetailTearOff {
   _CafeDetail call(
       {@JsonKey(name: 'id') required int id,
       @JsonKey(name: 'name') required String name,
-      @JsonKey(name: 'address') required String address,
       @JsonKey(name: 'nearest_station') required String nearestStation,
       @JsonKey(name: 'transportation') required String transportation,
       @JsonKey(name: 'business_hours') required String businessHours,
@@ -35,13 +34,11 @@ class _$CafeDetailTearOff {
       @JsonKey(name: 'has_wifi') required bool hasWifi,
       @JsonKey(name: 'has_power_supply') required bool hasPowerSupply,
       @JsonKey(name: 'can_smoking') required bool canSmoking,
-      @JsonKey(name: 'memo') required String memo,
       @JsonKey(name: 'img_path') required String imgPath,
-      @JsonKey(name: 'tabelog_url') String? tabelogUrl}) {
+      @JsonKey(name: 'cafe_address') required CafeAddress address}) {
     return _CafeDetail(
       id: id,
       name: name,
-      address: address,
       nearestStation: nearestStation,
       transportation: transportation,
       businessHours: businessHours,
@@ -51,9 +48,8 @@ class _$CafeDetailTearOff {
       hasWifi: hasWifi,
       hasPowerSupply: hasPowerSupply,
       canSmoking: canSmoking,
-      memo: memo,
       imgPath: imgPath,
-      tabelogUrl: tabelogUrl,
+      address: address,
     );
   }
 
@@ -71,8 +67,6 @@ mixin _$CafeDetail {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'address')
-  String get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'nearest_station')
   String get nearestStation => throw _privateConstructorUsedError;
   @JsonKey(name: 'transportation')
@@ -91,12 +85,10 @@ mixin _$CafeDetail {
   bool get hasPowerSupply => throw _privateConstructorUsedError;
   @JsonKey(name: 'can_smoking')
   bool get canSmoking => throw _privateConstructorUsedError;
-  @JsonKey(name: 'memo')
-  String get memo => throw _privateConstructorUsedError;
   @JsonKey(name: 'img_path')
   String get imgPath => throw _privateConstructorUsedError;
-  @JsonKey(name: 'tabelog_url')
-  String? get tabelogUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'cafe_address')
+  CafeAddress get address => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -112,7 +104,6 @@ abstract class $CafeDetailCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'address') String address,
       @JsonKey(name: 'nearest_station') String nearestStation,
       @JsonKey(name: 'transportation') String transportation,
       @JsonKey(name: 'business_hours') String businessHours,
@@ -122,9 +113,10 @@ abstract class $CafeDetailCopyWith<$Res> {
       @JsonKey(name: 'has_wifi') bool hasWifi,
       @JsonKey(name: 'has_power_supply') bool hasPowerSupply,
       @JsonKey(name: 'can_smoking') bool canSmoking,
-      @JsonKey(name: 'memo') String memo,
       @JsonKey(name: 'img_path') String imgPath,
-      @JsonKey(name: 'tabelog_url') String? tabelogUrl});
+      @JsonKey(name: 'cafe_address') CafeAddress address});
+
+  $CafeAddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -139,7 +131,6 @@ class _$CafeDetailCopyWithImpl<$Res> implements $CafeDetailCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? address = freezed,
     Object? nearestStation = freezed,
     Object? transportation = freezed,
     Object? businessHours = freezed,
@@ -149,9 +140,8 @@ class _$CafeDetailCopyWithImpl<$Res> implements $CafeDetailCopyWith<$Res> {
     Object? hasWifi = freezed,
     Object? hasPowerSupply = freezed,
     Object? canSmoking = freezed,
-    Object? memo = freezed,
     Object? imgPath = freezed,
-    Object? tabelogUrl = freezed,
+    Object? address = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -161,10 +151,6 @@ class _$CafeDetailCopyWithImpl<$Res> implements $CafeDetailCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
               as String,
       nearestStation: nearestStation == freezed
           ? _value.nearestStation
@@ -202,19 +188,22 @@ class _$CafeDetailCopyWithImpl<$Res> implements $CafeDetailCopyWith<$Res> {
           ? _value.canSmoking
           : canSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
-      memo: memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String,
       imgPath: imgPath == freezed
           ? _value.imgPath
           : imgPath // ignore: cast_nullable_to_non_nullable
               as String,
-      tabelogUrl: tabelogUrl == freezed
-          ? _value.tabelogUrl
-          : tabelogUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as CafeAddress,
     ));
+  }
+
+  @override
+  $CafeAddressCopyWith<$Res> get address {
+    return $CafeAddressCopyWith<$Res>(_value.address, (value) {
+      return _then(_value.copyWith(address: value));
+    });
   }
 }
 
@@ -227,7 +216,6 @@ abstract class _$CafeDetailCopyWith<$Res> implements $CafeDetailCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'address') String address,
       @JsonKey(name: 'nearest_station') String nearestStation,
       @JsonKey(name: 'transportation') String transportation,
       @JsonKey(name: 'business_hours') String businessHours,
@@ -237,9 +225,11 @@ abstract class _$CafeDetailCopyWith<$Res> implements $CafeDetailCopyWith<$Res> {
       @JsonKey(name: 'has_wifi') bool hasWifi,
       @JsonKey(name: 'has_power_supply') bool hasPowerSupply,
       @JsonKey(name: 'can_smoking') bool canSmoking,
-      @JsonKey(name: 'memo') String memo,
       @JsonKey(name: 'img_path') String imgPath,
-      @JsonKey(name: 'tabelog_url') String? tabelogUrl});
+      @JsonKey(name: 'cafe_address') CafeAddress address});
+
+  @override
+  $CafeAddressCopyWith<$Res> get address;
 }
 
 /// @nodoc
@@ -256,7 +246,6 @@ class __$CafeDetailCopyWithImpl<$Res> extends _$CafeDetailCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? address = freezed,
     Object? nearestStation = freezed,
     Object? transportation = freezed,
     Object? businessHours = freezed,
@@ -266,9 +255,8 @@ class __$CafeDetailCopyWithImpl<$Res> extends _$CafeDetailCopyWithImpl<$Res>
     Object? hasWifi = freezed,
     Object? hasPowerSupply = freezed,
     Object? canSmoking = freezed,
-    Object? memo = freezed,
     Object? imgPath = freezed,
-    Object? tabelogUrl = freezed,
+    Object? address = freezed,
   }) {
     return _then(_CafeDetail(
       id: id == freezed
@@ -278,10 +266,6 @@ class __$CafeDetailCopyWithImpl<$Res> extends _$CafeDetailCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
               as String,
       nearestStation: nearestStation == freezed
           ? _value.nearestStation
@@ -319,18 +303,14 @@ class __$CafeDetailCopyWithImpl<$Res> extends _$CafeDetailCopyWithImpl<$Res>
           ? _value.canSmoking
           : canSmoking // ignore: cast_nullable_to_non_nullable
               as bool,
-      memo: memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String,
       imgPath: imgPath == freezed
           ? _value.imgPath
           : imgPath // ignore: cast_nullable_to_non_nullable
               as String,
-      tabelogUrl: tabelogUrl == freezed
-          ? _value.tabelogUrl
-          : tabelogUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as CafeAddress,
     ));
   }
 }
@@ -341,7 +321,6 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
   const _$_CafeDetail(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'address') required this.address,
       @JsonKey(name: 'nearest_station') required this.nearestStation,
       @JsonKey(name: 'transportation') required this.transportation,
       @JsonKey(name: 'business_hours') required this.businessHours,
@@ -351,9 +330,8 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
       @JsonKey(name: 'has_wifi') required this.hasWifi,
       @JsonKey(name: 'has_power_supply') required this.hasPowerSupply,
       @JsonKey(name: 'can_smoking') required this.canSmoking,
-      @JsonKey(name: 'memo') required this.memo,
       @JsonKey(name: 'img_path') required this.imgPath,
-      @JsonKey(name: 'tabelog_url') this.tabelogUrl})
+      @JsonKey(name: 'cafe_address') required this.address})
       : super._();
 
   factory _$_CafeDetail.fromJson(Map<String, dynamic> json) =>
@@ -365,9 +343,6 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
   @override
   @JsonKey(name: 'name')
   final String name;
-  @override
-  @JsonKey(name: 'address')
-  final String address;
   @override
   @JsonKey(name: 'nearest_station')
   final String nearestStation;
@@ -396,18 +371,15 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
   @JsonKey(name: 'can_smoking')
   final bool canSmoking;
   @override
-  @JsonKey(name: 'memo')
-  final String memo;
-  @override
   @JsonKey(name: 'img_path')
   final String imgPath;
   @override
-  @JsonKey(name: 'tabelog_url')
-  final String? tabelogUrl;
+  @JsonKey(name: 'cafe_address')
+  final CafeAddress address;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CafeDetail(id: $id, name: $name, address: $address, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
+    return 'CafeDetail(id: $id, name: $name, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, imgPath: $imgPath, address: $address)';
   }
 
   @override
@@ -417,7 +389,6 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'CafeDetail'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('address', address))
       ..add(DiagnosticsProperty('nearestStation', nearestStation))
       ..add(DiagnosticsProperty('transportation', transportation))
       ..add(DiagnosticsProperty('businessHours', businessHours))
@@ -427,9 +398,8 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('hasWifi', hasWifi))
       ..add(DiagnosticsProperty('hasPowerSupply', hasPowerSupply))
       ..add(DiagnosticsProperty('canSmoking', canSmoking))
-      ..add(DiagnosticsProperty('memo', memo))
       ..add(DiagnosticsProperty('imgPath', imgPath))
-      ..add(DiagnosticsProperty('tabelogUrl', tabelogUrl));
+      ..add(DiagnosticsProperty('address', address));
   }
 
   @override
@@ -439,7 +409,6 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
             other is _CafeDetail &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
             const DeepCollectionEquality()
                 .equals(other.nearestStation, nearestStation) &&
             const DeepCollectionEquality()
@@ -457,10 +426,8 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
                 .equals(other.hasPowerSupply, hasPowerSupply) &&
             const DeepCollectionEquality()
                 .equals(other.canSmoking, canSmoking) &&
-            const DeepCollectionEquality().equals(other.memo, memo) &&
             const DeepCollectionEquality().equals(other.imgPath, imgPath) &&
-            const DeepCollectionEquality()
-                .equals(other.tabelogUrl, tabelogUrl));
+            const DeepCollectionEquality().equals(other.address, address));
   }
 
   @override
@@ -468,7 +435,6 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(address),
       const DeepCollectionEquality().hash(nearestStation),
       const DeepCollectionEquality().hash(transportation),
       const DeepCollectionEquality().hash(businessHours),
@@ -478,9 +444,8 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(hasWifi),
       const DeepCollectionEquality().hash(hasPowerSupply),
       const DeepCollectionEquality().hash(canSmoking),
-      const DeepCollectionEquality().hash(memo),
       const DeepCollectionEquality().hash(imgPath),
-      const DeepCollectionEquality().hash(tabelogUrl));
+      const DeepCollectionEquality().hash(address));
 
   @JsonKey(ignore: true)
   @override
@@ -495,21 +460,20 @@ class _$_CafeDetail extends _CafeDetail with DiagnosticableTreeMixin {
 
 abstract class _CafeDetail extends CafeDetail {
   const factory _CafeDetail(
-      {@JsonKey(name: 'id') required int id,
-      @JsonKey(name: 'name') required String name,
-      @JsonKey(name: 'address') required String address,
-      @JsonKey(name: 'nearest_station') required String nearestStation,
-      @JsonKey(name: 'transportation') required String transportation,
-      @JsonKey(name: 'business_hours') required String businessHours,
-      @JsonKey(name: 'regular_holiday') required String regularHoliday,
-      @JsonKey(name: 'can_takeout') required bool canTakeout,
-      @JsonKey(name: 'has_parking') required bool hasParking,
-      @JsonKey(name: 'has_wifi') required bool hasWifi,
-      @JsonKey(name: 'has_power_supply') required bool hasPowerSupply,
-      @JsonKey(name: 'can_smoking') required bool canSmoking,
-      @JsonKey(name: 'memo') required String memo,
-      @JsonKey(name: 'img_path') required String imgPath,
-      @JsonKey(name: 'tabelog_url') String? tabelogUrl}) = _$_CafeDetail;
+          {@JsonKey(name: 'id') required int id,
+          @JsonKey(name: 'name') required String name,
+          @JsonKey(name: 'nearest_station') required String nearestStation,
+          @JsonKey(name: 'transportation') required String transportation,
+          @JsonKey(name: 'business_hours') required String businessHours,
+          @JsonKey(name: 'regular_holiday') required String regularHoliday,
+          @JsonKey(name: 'can_takeout') required bool canTakeout,
+          @JsonKey(name: 'has_parking') required bool hasParking,
+          @JsonKey(name: 'has_wifi') required bool hasWifi,
+          @JsonKey(name: 'has_power_supply') required bool hasPowerSupply,
+          @JsonKey(name: 'can_smoking') required bool canSmoking,
+          @JsonKey(name: 'img_path') required String imgPath,
+          @JsonKey(name: 'cafe_address') required CafeAddress address}) =
+      _$_CafeDetail;
   const _CafeDetail._() : super._();
 
   factory _CafeDetail.fromJson(Map<String, dynamic> json) =
@@ -521,9 +485,6 @@ abstract class _CafeDetail extends CafeDetail {
   @override
   @JsonKey(name: 'name')
   String get name;
-  @override
-  @JsonKey(name: 'address')
-  String get address;
   @override
   @JsonKey(name: 'nearest_station')
   String get nearestStation;
@@ -552,14 +513,11 @@ abstract class _CafeDetail extends CafeDetail {
   @JsonKey(name: 'can_smoking')
   bool get canSmoking;
   @override
-  @JsonKey(name: 'memo')
-  String get memo;
-  @override
   @JsonKey(name: 'img_path')
   String get imgPath;
   @override
-  @JsonKey(name: 'tabelog_url')
-  String? get tabelogUrl;
+  @JsonKey(name: 'cafe_address')
+  CafeAddress get address;
   @override
   @JsonKey(ignore: true)
   _$CafeDetailCopyWith<_CafeDetail> get copyWith =>
