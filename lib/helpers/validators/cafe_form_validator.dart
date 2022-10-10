@@ -9,8 +9,8 @@ class CafeFormValidator {
 
   static String? postCode(String? value) {
     if (CommonValidator.checkIsEmpty(value)) return "必須入力です";
-    if (CommonValidator.checkIsInt(value!)) return "数値で入力してください";
-    if (CommonValidator.checkDigit(
+    if (!CommonValidator.checkIsInt(value!)) return "数値で入力してください";
+    if (!CommonValidator.checkDigit(
       value: value,
       digit: postCodeDigit,
     )) {
