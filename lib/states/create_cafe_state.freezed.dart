@@ -19,9 +19,7 @@ class _$CreateCafeStateTearOff {
   const _$CreateCafeStateTearOff();
 
   CreateCafeStateData call(
-      {required GlobalKey<FormState> formKey,
-      required GlobalKey<FormState> basicInfoFormKey,
-      String? name,
+      {String? name,
       String? postCode,
       String? prefecture,
       String? city,
@@ -40,8 +38,6 @@ class _$CreateCafeStateTearOff {
       String? imgPath,
       String? tabelogUrl}) {
     return CreateCafeStateData(
-      formKey: formKey,
-      basicInfoFormKey: basicInfoFormKey,
       name: name,
       postCode: postCode,
       prefecture: prefecture,
@@ -69,9 +65,6 @@ const $CreateCafeState = _$CreateCafeStateTearOff();
 
 /// @nodoc
 mixin _$CreateCafeState {
-  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
-  GlobalKey<FormState> get basicInfoFormKey =>
-      throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get postCode => throw _privateConstructorUsedError;
   String? get prefecture => throw _privateConstructorUsedError;
@@ -102,9 +95,7 @@ abstract class $CreateCafeStateCopyWith<$Res> {
           CreateCafeState value, $Res Function(CreateCafeState) then) =
       _$CreateCafeStateCopyWithImpl<$Res>;
   $Res call(
-      {GlobalKey<FormState> formKey,
-      GlobalKey<FormState> basicInfoFormKey,
-      String? name,
+      {String? name,
       String? postCode,
       String? prefecture,
       String? city,
@@ -135,8 +126,6 @@ class _$CreateCafeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? formKey = freezed,
-    Object? basicInfoFormKey = freezed,
     Object? name = freezed,
     Object? postCode = freezed,
     Object? prefecture = freezed,
@@ -157,14 +146,6 @@ class _$CreateCafeStateCopyWithImpl<$Res>
     Object? tabelogUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      formKey: formKey == freezed
-          ? _value.formKey
-          : formKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<FormState>,
-      basicInfoFormKey: basicInfoFormKey == freezed
-          ? _value.basicInfoFormKey
-          : basicInfoFormKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<FormState>,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -249,9 +230,7 @@ abstract class $CreateCafeStateDataCopyWith<$Res>
       _$CreateCafeStateDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {GlobalKey<FormState> formKey,
-      GlobalKey<FormState> basicInfoFormKey,
-      String? name,
+      {String? name,
       String? postCode,
       String? prefecture,
       String? city,
@@ -284,8 +263,6 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? formKey = freezed,
-    Object? basicInfoFormKey = freezed,
     Object? name = freezed,
     Object? postCode = freezed,
     Object? prefecture = freezed,
@@ -306,14 +283,6 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
     Object? tabelogUrl = freezed,
   }) {
     return _then(CreateCafeStateData(
-      formKey: formKey == freezed
-          ? _value.formKey
-          : formKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<FormState>,
-      basicInfoFormKey: basicInfoFormKey == freezed
-          ? _value.basicInfoFormKey
-          : basicInfoFormKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<FormState>,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -394,9 +363,7 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
 
 class _$CreateCafeStateData implements CreateCafeStateData {
   const _$CreateCafeStateData(
-      {required this.formKey,
-      required this.basicInfoFormKey,
-      this.name,
+      {this.name,
       this.postCode,
       this.prefecture,
       this.city,
@@ -415,10 +382,6 @@ class _$CreateCafeStateData implements CreateCafeStateData {
       this.imgPath,
       this.tabelogUrl});
 
-  @override
-  final GlobalKey<FormState> formKey;
-  @override
-  final GlobalKey<FormState> basicInfoFormKey;
   @override
   final String? name;
   @override
@@ -463,7 +426,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
 
   @override
   String toString() {
-    return 'CreateCafeState(formKey: $formKey, basicInfoFormKey: $basicInfoFormKey, name: $name, postCode: $postCode, prefecture: $prefecture, city: $city, address: $address, building: $building, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
+    return 'CreateCafeState(name: $name, postCode: $postCode, prefecture: $prefecture, city: $city, address: $address, building: $building, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
   }
 
   @override
@@ -471,9 +434,6 @@ class _$CreateCafeStateData implements CreateCafeStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CreateCafeStateData &&
-            const DeepCollectionEquality().equals(other.formKey, formKey) &&
-            const DeepCollectionEquality()
-                .equals(other.basicInfoFormKey, basicInfoFormKey) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.postCode, postCode) &&
             const DeepCollectionEquality()
@@ -505,29 +465,26 @@ class _$CreateCafeStateData implements CreateCafeStateData {
   }
 
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        const DeepCollectionEquality().hash(formKey),
-        const DeepCollectionEquality().hash(basicInfoFormKey),
-        const DeepCollectionEquality().hash(name),
-        const DeepCollectionEquality().hash(postCode),
-        const DeepCollectionEquality().hash(prefecture),
-        const DeepCollectionEquality().hash(city),
-        const DeepCollectionEquality().hash(address),
-        const DeepCollectionEquality().hash(building),
-        const DeepCollectionEquality().hash(nearestStation),
-        const DeepCollectionEquality().hash(transportation),
-        const DeepCollectionEquality().hash(businessHours),
-        const DeepCollectionEquality().hash(regularHoliday),
-        const DeepCollectionEquality().hash(canTakeout),
-        const DeepCollectionEquality().hash(hasParking),
-        const DeepCollectionEquality().hash(hasWifi),
-        const DeepCollectionEquality().hash(hasPowerSupply),
-        const DeepCollectionEquality().hash(canSmoking),
-        const DeepCollectionEquality().hash(memo),
-        const DeepCollectionEquality().hash(imgPath),
-        const DeepCollectionEquality().hash(tabelogUrl)
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(postCode),
+      const DeepCollectionEquality().hash(prefecture),
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(address),
+      const DeepCollectionEquality().hash(building),
+      const DeepCollectionEquality().hash(nearestStation),
+      const DeepCollectionEquality().hash(transportation),
+      const DeepCollectionEquality().hash(businessHours),
+      const DeepCollectionEquality().hash(regularHoliday),
+      const DeepCollectionEquality().hash(canTakeout),
+      const DeepCollectionEquality().hash(hasParking),
+      const DeepCollectionEquality().hash(hasWifi),
+      const DeepCollectionEquality().hash(hasPowerSupply),
+      const DeepCollectionEquality().hash(canSmoking),
+      const DeepCollectionEquality().hash(memo),
+      const DeepCollectionEquality().hash(imgPath),
+      const DeepCollectionEquality().hash(tabelogUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -537,9 +494,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
 
 abstract class CreateCafeStateData implements CreateCafeState {
   const factory CreateCafeStateData(
-      {required GlobalKey<FormState> formKey,
-      required GlobalKey<FormState> basicInfoFormKey,
-      String? name,
+      {String? name,
       String? postCode,
       String? prefecture,
       String? city,
@@ -558,10 +513,6 @@ abstract class CreateCafeStateData implements CreateCafeState {
       String? imgPath,
       String? tabelogUrl}) = _$CreateCafeStateData;
 
-  @override
-  GlobalKey<FormState> get formKey;
-  @override
-  GlobalKey<FormState> get basicInfoFormKey;
   @override
   String? get name;
   @override

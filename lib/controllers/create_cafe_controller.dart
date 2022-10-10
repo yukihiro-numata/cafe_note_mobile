@@ -6,11 +6,7 @@ import 'package:state_notifier/state_notifier.dart';
 
 class CreateCafeController extends StateNotifier<CreateCafeState>
     with LocatorMixin {
-  CreateCafeController()
-      : super(CreateCafeState(
-          formKey: GlobalKey<FormState>(),
-          basicInfoFormKey: GlobalKey<FormState>(),
-        ));
+  CreateCafeController() : super(const CreateCafeState());
 
   static const String formKeyName = "name";
   static const String formKeyPostCode = "postCode";
@@ -171,11 +167,14 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     );
   }
 
-  void handleToBasicInfo(BuildContext context) {
-    if (!(state.formKey.currentState?.validate() ?? false)) {
+  void handleToBasicInfo(
+    BuildContext context,
+    GlobalKey<FormState> formKey,
+  ) {
+    if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
-    state.formKey.currentState?.save();
+    formKey.currentState?.save();
 
     Navigator.pushNamed(
       context,
@@ -183,11 +182,11 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     );
   }
 
-  Future<void> handleSubmitButtonPressed() async {
-    if (!(state.basicInfoFormKey.currentState?.validate() ?? false)) {
+  Future<void> handleSubmitButtonPressed(GlobalKey<FormState> formKey) async {
+    if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
-    state.basicInfoFormKey.currentState?.save();
+    formKey.currentState?.save();
 
     await _service.create(
       name: state.name!,

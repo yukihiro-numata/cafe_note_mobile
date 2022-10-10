@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'create_cafe_state.freezed.dart';
@@ -6,8 +5,6 @@ part 'create_cafe_state.freezed.dart';
 @freezed
 abstract class CreateCafeState with _$CreateCafeState {
   const factory CreateCafeState({
-    required GlobalKey<FormState> formKey,
-    required GlobalKey<FormState> basicInfoFormKey,
     String? name,
     String? postCode,
     String? prefecture,

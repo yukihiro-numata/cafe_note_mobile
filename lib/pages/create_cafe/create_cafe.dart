@@ -13,12 +13,13 @@ class CreateCafePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _state = context.watch<CreateCafeState>();
     final _controller = context.read<CreateCafeController>();
+    final formKey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: _controller.buildAppBar(context),
       body: SingleChildScrollView(
         child: Form(
-          key: _state.formKey,
+          key: formKey,
           child: Container(
             margin: const EdgeInsets.all(16),
             child: Column(
@@ -107,7 +108,10 @@ class CreateCafePage extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     child: const Text("次へ"),
-                    onPressed: () => _controller.handleToBasicInfo(context),
+                    onPressed: () => _controller.handleToBasicInfo(
+                      context,
+                      formKey,
+                    ),
                   ),
                 ),
               ],
