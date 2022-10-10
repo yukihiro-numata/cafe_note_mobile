@@ -20,8 +20,6 @@ abstract class CreateCafeState with _$CreateCafeState {
     @Default(false) bool? hasWifi,
     @Default(false) bool? hasPowerSupply,
     @Default(false) bool? canSmoking,
-    String? memo,
     String? imgPath,
-    String? tabelogUrl,
   }) = CreateCafeStateData;
 }

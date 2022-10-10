@@ -18,9 +18,7 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
   static const String formKeyTransportation = "transportation";
   static const String formKeyBusinessHours = "businessHours";
   static const String formKeyRegularHoliday = "regularHoliday";
-  static const String formKeyMemo = "memo";
   static const String formKeyImgPath = "imgPath";
-  static const String formKeyTabelogUrl = "tabelogUrl";
   static const String formKeyCanTakeout = "canTakeout";
   static const String formKeyHasParking = "hasParking";
   static const String formKeyHasWifi = "hasWifi";
@@ -121,14 +119,8 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
       case formKeyRegularHoliday:
         state = state.copyWith(regularHoliday: value);
         break;
-      case formKeyMemo:
-        state = state.copyWith(memo: value);
-        break;
       case formKeyImgPath:
         state = state.copyWith(imgPath: value);
-        break;
-      case formKeyTabelogUrl:
-        state = state.copyWith(tabelogUrl: value);
         break;
       default:
         assert(false, "argument error");
@@ -204,9 +196,7 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
       hasWifi: state.hasWifi!,
       hasPowerSupply: state.hasPowerSupply!,
       canSmoking: state.canSmoking!,
-      memo: state.memo!,
       imgPath: "assets/icon/coffee-1.svg",
-      tabelogUrl: state.tabelogUrl,
     );
   }
 }

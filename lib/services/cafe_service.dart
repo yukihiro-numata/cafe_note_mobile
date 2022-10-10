@@ -37,9 +37,7 @@ class CafeService {
     required bool hasWifi,
     required bool hasPowerSupply,
     required bool canSmoking,
-    required String memo,
     required String imgPath,
-    String? tabelogUrl,
   }) async {
     final params = {
       "name": name,
@@ -57,9 +55,7 @@ class CafeService {
       "has_wifi": hasWifi.toString(),
       "has_power_supply": hasPowerSupply.toString(),
       "can_smoking": canSmoking.toString(),
-      "memo": memo,
       "img_path": imgPath,
-      "tabelog_url": tabelogUrl,
     };
     await _apiClient.post("/cafes", params);
   }

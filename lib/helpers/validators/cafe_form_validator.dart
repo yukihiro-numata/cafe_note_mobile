@@ -51,13 +51,4 @@ class CafeFormValidator {
   static String? regularHoliday(String? value) {
     return (CommonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
   }
-
-  static String? memo(String? value) {
-    return (CommonValidator.checkIsEmpty(value)) ? "必須入力です" : null;
-  }
-
-  static String? tabelogUrl(String? value) {
-    // TODO: URL形式チェック
-    return null;
-  }
 }

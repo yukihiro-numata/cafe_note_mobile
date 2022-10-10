@@ -34,9 +34,7 @@ class _$CreateCafeStateTearOff {
       bool? hasWifi = false,
       bool? hasPowerSupply = false,
       bool? canSmoking = false,
-      String? memo,
-      String? imgPath,
-      String? tabelogUrl}) {
+      String? imgPath}) {
     return CreateCafeStateData(
       name: name,
       postCode: postCode,
@@ -53,9 +51,7 @@ class _$CreateCafeStateTearOff {
       hasWifi: hasWifi,
       hasPowerSupply: hasPowerSupply,
       canSmoking: canSmoking,
-      memo: memo,
       imgPath: imgPath,
-      tabelogUrl: tabelogUrl,
     );
   }
 }
@@ -80,9 +76,7 @@ mixin _$CreateCafeState {
   bool? get hasWifi => throw _privateConstructorUsedError;
   bool? get hasPowerSupply => throw _privateConstructorUsedError;
   bool? get canSmoking => throw _privateConstructorUsedError;
-  String? get memo => throw _privateConstructorUsedError;
   String? get imgPath => throw _privateConstructorUsedError;
-  String? get tabelogUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateCafeStateCopyWith<CreateCafeState> get copyWith =>
@@ -110,9 +104,7 @@ abstract class $CreateCafeStateCopyWith<$Res> {
       bool? hasWifi,
       bool? hasPowerSupply,
       bool? canSmoking,
-      String? memo,
-      String? imgPath,
-      String? tabelogUrl});
+      String? imgPath});
 }
 
 /// @nodoc
@@ -141,9 +133,7 @@ class _$CreateCafeStateCopyWithImpl<$Res>
     Object? hasWifi = freezed,
     Object? hasPowerSupply = freezed,
     Object? canSmoking = freezed,
-    Object? memo = freezed,
     Object? imgPath = freezed,
-    Object? tabelogUrl = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -206,17 +196,9 @@ class _$CreateCafeStateCopyWithImpl<$Res>
           ? _value.canSmoking
           : canSmoking // ignore: cast_nullable_to_non_nullable
               as bool?,
-      memo: memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String?,
       imgPath: imgPath == freezed
           ? _value.imgPath
           : imgPath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tabelogUrl: tabelogUrl == freezed
-          ? _value.tabelogUrl
-          : tabelogUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -245,9 +227,7 @@ abstract class $CreateCafeStateDataCopyWith<$Res>
       bool? hasWifi,
       bool? hasPowerSupply,
       bool? canSmoking,
-      String? memo,
-      String? imgPath,
-      String? tabelogUrl});
+      String? imgPath});
 }
 
 /// @nodoc
@@ -278,9 +258,7 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
     Object? hasWifi = freezed,
     Object? hasPowerSupply = freezed,
     Object? canSmoking = freezed,
-    Object? memo = freezed,
     Object? imgPath = freezed,
-    Object? tabelogUrl = freezed,
   }) {
     return _then(CreateCafeStateData(
       name: name == freezed
@@ -343,17 +321,9 @@ class _$CreateCafeStateDataCopyWithImpl<$Res>
           ? _value.canSmoking
           : canSmoking // ignore: cast_nullable_to_non_nullable
               as bool?,
-      memo: memo == freezed
-          ? _value.memo
-          : memo // ignore: cast_nullable_to_non_nullable
-              as String?,
       imgPath: imgPath == freezed
           ? _value.imgPath
           : imgPath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tabelogUrl: tabelogUrl == freezed
-          ? _value.tabelogUrl
-          : tabelogUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -378,9 +348,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
       this.hasWifi = false,
       this.hasPowerSupply = false,
       this.canSmoking = false,
-      this.memo,
-      this.imgPath,
-      this.tabelogUrl});
+      this.imgPath});
 
   @override
   final String? name;
@@ -418,15 +386,11 @@ class _$CreateCafeStateData implements CreateCafeStateData {
   @override
   final bool? canSmoking;
   @override
-  final String? memo;
-  @override
   final String? imgPath;
-  @override
-  final String? tabelogUrl;
 
   @override
   String toString() {
-    return 'CreateCafeState(name: $name, postCode: $postCode, prefecture: $prefecture, city: $city, address: $address, building: $building, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, memo: $memo, imgPath: $imgPath, tabelogUrl: $tabelogUrl)';
+    return 'CreateCafeState(name: $name, postCode: $postCode, prefecture: $prefecture, city: $city, address: $address, building: $building, nearestStation: $nearestStation, transportation: $transportation, businessHours: $businessHours, regularHoliday: $regularHoliday, canTakeout: $canTakeout, hasParking: $hasParking, hasWifi: $hasWifi, hasPowerSupply: $hasPowerSupply, canSmoking: $canSmoking, imgPath: $imgPath)';
   }
 
   @override
@@ -458,10 +422,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
                 .equals(other.hasPowerSupply, hasPowerSupply) &&
             const DeepCollectionEquality()
                 .equals(other.canSmoking, canSmoking) &&
-            const DeepCollectionEquality().equals(other.memo, memo) &&
-            const DeepCollectionEquality().equals(other.imgPath, imgPath) &&
-            const DeepCollectionEquality()
-                .equals(other.tabelogUrl, tabelogUrl));
+            const DeepCollectionEquality().equals(other.imgPath, imgPath));
   }
 
   @override
@@ -482,9 +443,7 @@ class _$CreateCafeStateData implements CreateCafeStateData {
       const DeepCollectionEquality().hash(hasWifi),
       const DeepCollectionEquality().hash(hasPowerSupply),
       const DeepCollectionEquality().hash(canSmoking),
-      const DeepCollectionEquality().hash(memo),
-      const DeepCollectionEquality().hash(imgPath),
-      const DeepCollectionEquality().hash(tabelogUrl));
+      const DeepCollectionEquality().hash(imgPath));
 
   @JsonKey(ignore: true)
   @override
@@ -509,9 +468,7 @@ abstract class CreateCafeStateData implements CreateCafeState {
       bool? hasWifi,
       bool? hasPowerSupply,
       bool? canSmoking,
-      String? memo,
-      String? imgPath,
-      String? tabelogUrl}) = _$CreateCafeStateData;
+      String? imgPath}) = _$CreateCafeStateData;
 
   @override
   String? get name;
@@ -544,11 +501,7 @@ abstract class CreateCafeStateData implements CreateCafeState {
   @override
   bool? get canSmoking;
   @override
-  String? get memo;
-  @override
   String? get imgPath;
-  @override
-  String? get tabelogUrl;
   @override
   @JsonKey(ignore: true)
   $CreateCafeStateDataCopyWith<CreateCafeStateData> get copyWith =>
