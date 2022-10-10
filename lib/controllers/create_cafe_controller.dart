@@ -207,7 +207,21 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
         RouteConfig.cafes,
       );
     } catch (e) {
-      // TODO
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: const Text('登録に失敗しました。はじめからやり直してください。'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pushNamed(
+                context,
+                RouteConfig.createCafe,
+              ),
+              child: const Text('OK'),
+            )
+          ],
+        ),
+      );
     }
   }
 }

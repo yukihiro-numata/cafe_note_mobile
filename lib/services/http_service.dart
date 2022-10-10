@@ -16,7 +16,9 @@ class HttpService<T> {
       String path, Map<String, String?> body) async {
     final url = Uri.parse(_baseUrl + path);
     final response = await http.post(url, body: body);
-    // TODO: エラーハンドリング
+    if (response.statusCode != 200) {
+      throw Exception();
+    }
     return jsonDecode(response.body);
   }
 }
