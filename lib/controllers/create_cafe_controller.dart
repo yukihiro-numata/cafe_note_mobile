@@ -174,29 +174,40 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     );
   }
 
-  Future<void> handleSubmitButtonPressed(GlobalKey<FormState> formKey) async {
+  Future<void> handleSubmitButtonPressed(
+    BuildContext context,
+    GlobalKey<FormState> formKey,
+  ) async {
     if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
     formKey.currentState?.save();
 
-    await _service.create(
-      name: state.name!,
-      postCode: state.postCode!,
-      prefecture: state.prefecture!,
-      city: state.city!,
-      address: state.address!,
-      building: state.building!,
-      nearestStation: state.nearestStation!,
-      transportation: state.transportation!,
-      businessHours: state.businessHours!,
-      regularHoliday: state.regularHoliday!,
-      canTakeout: state.canTakeout!,
-      hasParking: state.hasParking!,
-      hasWifi: state.hasWifi!,
-      hasPowerSupply: state.hasPowerSupply!,
-      canSmoking: state.canSmoking!,
-      imgPath: "assets/icon/coffee-1.svg",
-    );
+    try {
+      await _service.create(
+        name: state.name!,
+        postCode: state.postCode!,
+        prefecture: state.prefecture!,
+        city: state.city!,
+        address: state.address!,
+        building: state.building!,
+        nearestStation: state.nearestStation!,
+        transportation: state.transportation!,
+        businessHours: state.businessHours!,
+        regularHoliday: state.regularHoliday!,
+        canTakeout: state.canTakeout!,
+        hasParking: state.hasParking!,
+        hasWifi: state.hasWifi!,
+        hasPowerSupply: state.hasPowerSupply!,
+        canSmoking: state.canSmoking!,
+        imgPath: "assets/icon/coffee-1.svg",
+      );
+      Navigator.pushNamed(
+        context,
+        RouteConfig.cafes,
+      );
+    } catch (e) {
+      // TODO
+    }
   }
 }

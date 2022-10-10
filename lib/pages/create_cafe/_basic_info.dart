@@ -199,8 +199,10 @@ class CreateCafeBasicInfo extends StatelessWidget {
                   ),
                   child: ElevatedButton(
                     child: const Text("登録"),
-                    onPressed: () =>
-                        _controller.handleSubmitButtonPressed(formKey),
+                    onPressed: () => _controller.handleSubmitButtonPressed(
+                      context,
+                      formKey,
+                    ),
                   ),
                 ),
               ],
