@@ -55,6 +55,13 @@ class MyHomePage extends StatelessWidget {
               onPressed: () => Navigator.pushNamed(context, RouteConfig.cafes),
               child: const Text("navigate to cafes page."),
             ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(
+                context,
+                RouteConfig.signup,
+              ),
+              child: const Text('navigate to signup page.'),
+            ),
           ],
         ),
       ),
