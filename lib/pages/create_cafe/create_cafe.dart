@@ -1,5 +1,6 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
+import 'package:cafe_note_mobile/components/organisms/create_cafe/image_form_container.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/cafe_form_validator.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
@@ -99,6 +100,8 @@ class CreateCafePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                const FormLabel(text: '写真'),
+                ImageFormContainer(onTap: _controller.handleImageFormTapped),
                 Container(
                   height: 44,
                   width: double.infinity,

@@ -1,8 +1,14 @@
+import 'dart:io';
+
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
+import 'package:permission_handler/permission_handler.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'package:ulid/ulid.dart';
 
 class CreateCafeController extends StateNotifier<CreateCafeState>
     with LocatorMixin {
@@ -223,5 +229,16 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
         ),
       );
     }
+  }
+
+  Future<void> handleImageFormTapped() async {
+    final status = await Permission.photos.request();
+    if (status != PermissionStatus.granted) {
+      await openAppSettings();
+      return;
+    }
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final imageFile = File(image!.path);
+    final imageName = "${Ulid()}${p.extension(imageFile.path)}";
   }
 }
