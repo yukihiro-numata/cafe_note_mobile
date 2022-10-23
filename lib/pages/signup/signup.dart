@@ -1,12 +1,15 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
+import 'package:cafe_note_mobile/controllers/signup_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final _controller = context.read<SignupController>();
     final formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -25,6 +28,10 @@ class SignupPage extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  onSaved: (value) => _controller.handleChangeInput(
+                    key: SignupController.formKeyEmail,
+                    value: value,
+                  ),
                 ),
               ),
               const FormLabel(text: 'パスワード'),
@@ -33,6 +40,10 @@ class SignupPage extends StatelessWidget {
                   obscureText: true,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
+                  ),
+                  onSaved: (value) => _controller.handleChangeInput(
+                    key: SignupController.formKeyPassword,
+                    value: value,
                   ),
                 ),
               ),
