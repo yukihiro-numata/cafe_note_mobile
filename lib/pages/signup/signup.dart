@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/controllers/signup_controller.dart';
+import 'package:cafe_note_mobile/states/signup_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _state = context.read<SignupState>();
     final _controller = context.read<SignupController>();
     final formKey = GlobalKey<FormState>();
 
@@ -24,11 +26,12 @@ class SignupPage extends StatelessWidget {
               const FormLabel(text: 'メールアドレス'),
               FormContainer(
                 child: TextFormField(
+                  initialValue: _state.email,
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  onSaved: (value) => _controller.handleChangeInput(
+                  onChanged: (value) => _controller.handleChangeInput(
                     key: SignupController.formKeyEmail,
                     value: value,
                   ),
@@ -37,11 +40,12 @@ class SignupPage extends StatelessWidget {
               const FormLabel(text: 'パスワード'),
               FormContainer(
                 child: TextFormField(
+                  initialValue: _state.password,
                   obscureText: true,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
-                  onSaved: (value) => _controller.handleChangeInput(
+                  onChanged: (value) => _controller.handleChangeInput(
                     key: SignupController.formKeyPassword,
                     value: value,
                   ),
