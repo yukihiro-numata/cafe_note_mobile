@@ -33,6 +33,7 @@ dependencies:
   json_serializable: ^6.1.6
   flutter_svg: ^1.0.3
   dotted_border: 2.0.0+2
+  firebase_auth: ^3.3.8
 
 dev_dependencies:
   flutter_test:
