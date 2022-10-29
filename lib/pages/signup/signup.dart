@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/controllers/signup_controller.dart';
+import 'package:cafe_note_mobile/helpers/validators/signup_form_validator.dart';
 import 'package:cafe_note_mobile/states/signup_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,7 @@ class SignupPage extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  validator: SignupFormValidator.email,
                   onChanged: (value) => _controller.handleChangeInput(
                     key: SignupController.formKeyEmail,
                     value: value,
@@ -45,6 +47,7 @@ class SignupPage extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  validator: SignupFormValidator.password,
                   onChanged: (value) => _controller.handleChangeInput(
                     key: SignupController.formKeyPassword,
                     value: value,
@@ -60,7 +63,7 @@ class SignupPage extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   child: const Text('ユーザー登録'),
-                  onPressed: _controller.handleSubmitted,
+                  onPressed: () => _controller.handleSubmitted(formKey),
                 ),
               ),
             ],
