@@ -38,7 +38,7 @@ class SignupController extends StateNotifier<SignupState> with LocatorMixin {
         password: state.password!,
       );
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
 }
