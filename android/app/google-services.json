@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "729611235265",
+    "project_id": "cafenote-43486",
+    "storage_bucket": "cafenote-43486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729611235265:android:fa68211aff497dc64c8940",
+        "android_client_info": {
+          "package_name": "com.example.cafe_note_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729611235265-m0tgbl6aalsemm2tc8iqr39ra8b9av57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_pmMXfnJsiDtbd5st0qseHpgdg-qcKoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729611235265-m0tgbl6aalsemm2tc8iqr39ra8b9av57.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729611235265-pnmd1oggh6l2ruokolpjiqh05ooktqaq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cafeNoteMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

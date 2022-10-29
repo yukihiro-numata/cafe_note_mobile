@@ -2,14 +2,19 @@ import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
+import 'package:cafe_note_mobile/controllers/signup_controller.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
+import 'package:cafe_note_mobile/states/signup_state.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     MultiProvider(
       providers: [
@@ -21,6 +26,9 @@ void main() {
         ),
         StateNotifierProvider<CreateCafeController, CreateCafeState>(
           create: (_) => CreateCafeController(),
+        ),
+        StateNotifierProvider<SignupController, SignupState>(
+          create: (_) => SignupController(),
         ),
       ],
       child: MaterialApp(
@@ -54,6 +62,13 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, RouteConfig.cafes),
               child: const Text("navigate to cafes page."),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pushNamed(
+                context,
+                RouteConfig.signup,
+              ),
+              child: const Text('navigate to signup page.'),
             ),
           ],
         ),
