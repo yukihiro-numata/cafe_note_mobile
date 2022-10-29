@@ -37,42 +37,8 @@ void main() async {
           primarySwatch: Colors.blue,
         ),
         routes: RouteConfig.routes,
+        initialRoute: RouteConfig.main,
       ),
     ),
   );
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("cafe app"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // TODO:
-          // - 来店日を記録できるようにする
-          // - 画像を登録できるようにする（Firebase Cloud Storage）
-          // - 一覧ページにボトムナビを追加する
-          // - 一覧ページをルートにする
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, RouteConfig.cafes),
-              child: const Text("navigate to cafes page."),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.pushNamed(
-                context,
-                RouteConfig.signup,
-              ),
-              child: const Text('navigate to signup page.'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

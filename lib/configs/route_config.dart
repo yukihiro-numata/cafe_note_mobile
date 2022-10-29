@@ -1,4 +1,4 @@
-import 'package:cafe_note_mobile/main.dart';
+import 'package:cafe_note_mobile/pages/bottom_menu/bottom_menu.dart';
 import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/_basic_info.dart';
@@ -7,7 +7,7 @@ import 'package:cafe_note_mobile/pages/signup/signup.dart';
 import 'package:flutter/material.dart';
 
 class RouteConfig {
-  static String home = '/';
+  static String main = '/';
   static String cafes = '/cafes';
   static String cafe = '/cafes/detail';
   static String createCafe = 'cafes/create';
@@ -15,7 +15,7 @@ class RouteConfig {
   static String signup = '/signup';
 
   static Map<String, WidgetBuilder> routes = {
-    home: (context) => const MyHomePage(),
+    main: (context) => const BottomMenu(),
     cafes: (context) => const CafesPage(),
     cafe: (context) => const CafePage(),
     createCafe: (context) => const CreateCafePage(),
