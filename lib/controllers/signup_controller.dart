@@ -1,4 +1,5 @@
 import 'package:cafe_note_mobile/states/signup_state.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 class SignupController extends StateNotifier<SignupState> with LocatorMixin {
@@ -20,6 +21,17 @@ class SignupController extends StateNotifier<SignupState> with LocatorMixin {
         break;
       default:
         assert(false, 'argument error');
+    }
+  }
+
+  Future<void> handleSubmitted() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: state.email!,
+        password: state.password!,
+      );
+    } catch (e) {
+      print(e);
     }
   }
 }

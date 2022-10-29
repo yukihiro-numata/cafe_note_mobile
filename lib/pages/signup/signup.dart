@@ -60,7 +60,7 @@ class SignupPage extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   child: const Text('ユーザー登録'),
-                  onPressed: () => print(''),
+                  onPressed: _controller.handleSubmitted,
                 ),
               ),
             ],
