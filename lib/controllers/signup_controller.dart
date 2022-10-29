@@ -26,6 +26,7 @@ class SignupController extends StateNotifier<SignupState> with LocatorMixin {
 
   Future<void> handleSubmitted() async {
     try {
+      // TODO: メール検証を行う（ref: https://qiita.com/go__gou/items/6f2ea9a73df5255b0f05）
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: state.email!,
         password: state.password!,
