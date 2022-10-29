@@ -9,7 +9,7 @@ class CafeController extends StateNotifier<CafeState> with LocatorMixin {
   final CafeService _service = CafeService();
 
   Future<void> fetch(int id) async {
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       state = state.copyWith(isLoading: true);
     });
 
