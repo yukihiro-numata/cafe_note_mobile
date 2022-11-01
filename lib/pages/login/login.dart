@@ -59,7 +59,7 @@ class LoginPage extends StatelessWidget {
               ),
               PrimaryButton(
                 buttonLabel: 'ログイン',
-                onPressed: () => print(''),
+                onPressed: () => _controller.handleSubmitted(formKey),
               ),
             ],
           ),
