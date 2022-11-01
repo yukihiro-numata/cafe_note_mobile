@@ -1,6 +1,6 @@
 import 'package:cafe_note_mobile/pages/bottom_menu/_menu_content.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
-import 'package:cafe_note_mobile/pages/signup/signup.dart';
+import 'package:cafe_note_mobile/pages/my_page/my_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +25,7 @@ class BottomMenu extends StatelessWidget {
           case 0:
             return const MenuContent(content: CafesPage());
           case 1:
-            return const MenuContent(content: SignupPage());
+            return const MenuContent(content: MyPage());
           default:
             return const MenuContent(content: CafesPage());
         }
