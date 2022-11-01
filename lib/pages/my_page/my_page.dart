@@ -25,7 +25,7 @@ class MyPage extends StatelessWidget {
             ),
             TextLink(
               text: 'アカウント登録済みの場合はこちら',
-              onTap: () => print(''),
+              onTap: () => _controller.handleOnTappedToLogin(context),
             ),
           ],
         ),

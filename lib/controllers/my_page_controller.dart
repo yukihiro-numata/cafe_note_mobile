@@ -8,4 +8,11 @@ class MyPageController {
       RouteConfig.signup,
     );
   }
+
+  void handleOnTappedToLogin(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      RouteConfig.login,
+    );
+  }
 }
