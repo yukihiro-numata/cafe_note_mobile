@@ -2,6 +2,7 @@ import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/components/atoms/primary_button.dart';
 import 'package:cafe_note_mobile/controllers/login_controller.dart';
+import 'package:cafe_note_mobile/helpers/validators/login_form_validator.dart';
 import 'package:cafe_note_mobile/states/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,7 @@ class LoginPage extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  validator: LoginFormValidator.email,
                   onChanged: (value) => _controller.handleChangeInput(
                     key: LoginController.formKeyEmail,
                     value: value,
@@ -48,6 +50,7 @@ class LoginPage extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  validator: LoginFormValidator.password,
                   onChanged: (value) => _controller.handleChangeInput(
                     key: LoginController.formKeyPassword,
                     value: value,
