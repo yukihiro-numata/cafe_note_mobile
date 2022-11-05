@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/cafe_note_color.dart';
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
@@ -38,9 +39,7 @@ void main() async {
       ],
       child: MaterialApp(
         title: 'Cafe Note App',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: CafeNoteColor().theme,
         routes: RouteConfig.routes,
         initialRoute: RouteConfig.main,
       ),
