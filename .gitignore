@@ -22,4 +22,5 @@ doc/api/
 
 # editor
 .idea/*
+*.iml
 .vscode/*
