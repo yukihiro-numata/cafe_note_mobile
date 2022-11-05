@@ -1,6 +1,6 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
-import 'package:cafe_note_mobile/components/atoms/primary_button.dart';
+import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/controllers/login_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/login_form_validator.dart';
 import 'package:cafe_note_mobile/states/login_state.dart';
@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              PrimaryButton(
+              MainButton(
                 buttonLabel: 'ログイン',
                 onPressed: () => _controller.handleSubmitted(formKey),
               ),

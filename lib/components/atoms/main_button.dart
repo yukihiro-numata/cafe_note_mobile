@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
+class MainButton extends StatelessWidget {
   final String buttonLabel;
   final VoidCallback onPressed;
 
-  const PrimaryButton({
+  const MainButton({
     Key? key,
     required this.buttonLabel,
     required this.onPressed,
@@ -20,6 +20,10 @@ class PrimaryButton extends StatelessWidget {
         vertical: 16,
       ),
       child: ElevatedButton(
+        // style: ButtonStyle(
+        //   backgroundColor:
+        //       MaterialStatePropertyAll(Theme.of(context).primaryColor),
+        // ),
         child: Text(buttonLabel),
         onPressed: onPressed,
       ),

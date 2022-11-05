@@ -1,4 +1,4 @@
-import 'package:cafe_note_mobile/components/atoms/primary_button.dart';
+import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/components/atoms/text_link.dart';
 import 'package:cafe_note_mobile/controllers/my_page_controller.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class MyPage extends StatelessWidget {
         margin: const EdgeInsets.all(16),
         child: Column(
           children: [
-            PrimaryButton(
+            MainButton(
               buttonLabel: '新規登録',
               onPressed: () => _controller.handleOnPressedSignUpButton(context),
             ),

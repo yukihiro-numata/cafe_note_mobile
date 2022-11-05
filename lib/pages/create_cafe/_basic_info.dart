@@ -1,6 +1,6 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
-import 'package:cafe_note_mobile/components/atoms/primary_button.dart';
+import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/components/atoms/radio_with_text.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/cafe_form_validator.dart';
@@ -191,7 +191,7 @@ class CreateCafeBasicInfo extends StatelessWidget {
                         .toList(),
                   ),
                 ),
-                PrimaryButton(
+                MainButton(
                   buttonLabel: '登録',
                   onPressed: () => _controller.handleSubmitButtonPressed(
                     context,

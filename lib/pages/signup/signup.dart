@@ -1,6 +1,6 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
-import 'package:cafe_note_mobile/components/atoms/primary_button.dart';
+import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/controllers/signup_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/signup_form_validator.dart';
 import 'package:cafe_note_mobile/states/signup_state.dart';
@@ -55,7 +55,7 @@ class SignupPage extends StatelessWidget {
                   ),
                 ),
               ),
-              PrimaryButton(
+              MainButton(
                 buttonLabel: 'ユーザー登録',
                 onPressed: () => _controller.handleSubmitted(formKey),
               ),
