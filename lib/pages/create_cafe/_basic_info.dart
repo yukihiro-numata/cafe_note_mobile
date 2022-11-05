@@ -191,7 +191,9 @@ class CreateCafeBasicInfo extends StatelessWidget {
                         .toList(),
                   ),
                 ),
-                MainButton(
+                MainButton.fromButtonType(
+                  context: context,
+                  buttonType: ButtonType.primary,
                   buttonLabel: '登録',
                   onPressed: () => _controller.handleSubmitButtonPressed(
                     context,

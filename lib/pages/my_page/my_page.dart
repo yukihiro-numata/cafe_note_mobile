@@ -16,7 +16,9 @@ class MyPage extends StatelessWidget {
         margin: const EdgeInsets.all(16),
         child: Column(
           children: [
-            MainButton(
+            MainButton.fromButtonType(
+              context: context,
+              buttonType: ButtonType.primary,
               buttonLabel: '新規登録',
               onPressed: () => _controller.handleOnPressedSignUpButton(context),
             ),

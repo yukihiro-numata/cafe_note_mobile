@@ -55,7 +55,9 @@ class SignupPage extends StatelessWidget {
                   ),
                 ),
               ),
-              MainButton(
+              MainButton.fromButtonType(
+                context: context,
+                buttonType: ButtonType.primary,
                 buttonLabel: 'ユーザー登録',
                 onPressed: () => _controller.handleSubmitted(formKey),
               ),
