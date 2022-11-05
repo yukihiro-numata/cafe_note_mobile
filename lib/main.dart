@@ -4,11 +4,13 @@ import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/login_controller.dart';
+import 'package:cafe_note_mobile/controllers/my_page_controller.dart';
 import 'package:cafe_note_mobile/controllers/signup_controller.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:cafe_note_mobile/states/login_state.dart';
+import 'package:cafe_note_mobile/states/my_page_state.dart';
 import 'package:cafe_note_mobile/states/signup_state.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,9 @@ void main() async {
         ),
         StateNotifierProvider<LoginController, LoginState>(
           create: (_) => LoginController(),
+        ),
+        StateNotifierProvider<MyPageController, MyPageState>(
+          create: (_) => MyPageController(),
         ),
       ],
       child: MaterialApp(
