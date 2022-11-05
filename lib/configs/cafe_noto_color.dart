@@ -9,6 +9,7 @@ class CafeNoteColor {
   static const secondaryLight = Color(0xFFffbb93); // with black text
 
   static const background = Color(0xFFeeeeee);
+  static const sub = Color(0xFF757575);
 
   ThemeData get theme => ThemeData.from(
         colorScheme: const ColorScheme.light(

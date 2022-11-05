@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/cafe_noto_color.dart';
 import 'package:flutter/material.dart';
 
 enum ButtonType {
@@ -24,7 +25,7 @@ class MainButton extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(
         horizontal: 8,
-        vertical: 16,
+        vertical: 12,
       ),
       child: ElevatedButton(
         style: ButtonStyle(
@@ -48,7 +49,7 @@ class MainButton extends StatelessWidget {
         buttonColor = Theme.of(context).primaryColor;
         break;
       case ButtonType.sub:
-        buttonColor = Theme.of(context).backgroundColor;
+        buttonColor = CafeNoteColor.sub;
         break;
       default:
         buttonColor = Theme.of(context).primaryColor;
