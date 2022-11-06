@@ -59,7 +59,10 @@ class MyPage extends StatelessWidget {
                 context: context,
                 buttonType: ButtonType.primary,
                 buttonLabel: '新規登録',
-                onPressed: () => _controller.handleSignUpPressed(formKey),
+                onPressed: () => _controller.handleSignUpPressed(
+                  context: context,
+                  formKey: formKey,
+                ),
               ),
               MainButton.fromButtonType(
                 context: context,

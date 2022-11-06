@@ -25,7 +25,10 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     }
   }
 
-  Future<void> handleSignUpPressed(GlobalKey<FormState> formKey) async {
+  Future<void> handleSignUpPressed({
+    required BuildContext context,
+    required GlobalKey<FormState> formKey,
+  }) async {
     if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
@@ -37,6 +40,22 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
         email: state.email!,
         password: state.password!,
       );
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      if (e.code == 'email-already-in-use') {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            content: const Text('このメールアドレスは既に使われています。'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
     } catch (e) {
       debugPrint(e.toString());
     }
