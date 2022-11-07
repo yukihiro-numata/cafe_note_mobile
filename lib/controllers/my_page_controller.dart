@@ -43,17 +43,9 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());
       if (e.code == 'email-already-in-use') {
-        showDialog(
+        _showAlertDialog(
           context: context,
-          builder: (BuildContext context) => AlertDialog(
-            content: const Text('このメールアドレスは既に使われています。'),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('OK'),
-              ),
-            ],
-          ),
+          message: 'このメールアドレスは既に使われています。',
         );
       }
     } catch (e) {
@@ -61,7 +53,10 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     }
   }
 
-  Future<void> handleLoginPressed(GlobalKey<FormState> formKey) async {
+  Future<void> handleLoginPressed({
+    required BuildContext context,
+    required GlobalKey<FormState> formKey,
+  }) async {
     if (!(formKey.currentState?.validate() ?? false)) {
       return;
     }
@@ -72,8 +67,41 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
         email: state.email!,
         password: state.password!,
       );
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.toString());
+      switch (e.code) {
+        case 'user-not-found':
+          _showAlertDialog(
+            context: context,
+            message: 'ユーザーが見つかりません。新規登録してください。',
+          );
+          return;
+        case 'wrong-password':
+          _showAlertDialog(
+            context: context,
+            message: 'パスワードが間違っています。',
+          );
+          return;
+      }
     } catch (e) {
       debugPrint(e.toString());
     }
   }
+
+  void _showAlertDialog({
+    required BuildContext context,
+    required String message,
+  }) =>
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
 }

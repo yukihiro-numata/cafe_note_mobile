@@ -68,7 +68,10 @@ class MyPage extends StatelessWidget {
                 context: context,
                 buttonType: ButtonType.sub,
                 buttonLabel: 'ログイン',
-                onPressed: () => _controller.handleLoginPressed(formKey),
+                onPressed: () => _controller.handleLoginPressed(
+                  context: context,
+                  formKey: formKey,
+                ),
               ),
             ],
           ),
