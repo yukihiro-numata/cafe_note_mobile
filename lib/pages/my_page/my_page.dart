@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
 import 'package:cafe_note_mobile/components/atoms/main_button.dart';
+import 'package:cafe_note_mobile/controllers/auth_controller.dart';
 import 'package:cafe_note_mobile/controllers/my_page_controller.dart';
 import 'package:cafe_note_mobile/helpers/validators/my_page_form_validator.dart';
 import 'package:cafe_note_mobile/states/my_page_state.dart';
@@ -14,6 +15,7 @@ class MyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _state = context.read<MyPageState>();
     final _controller = context.read<MyPageController>();
+    final authController = context.read<AuthController>();
     final formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -61,6 +63,7 @@ class MyPage extends StatelessWidget {
                 buttonLabel: '新規登録',
                 onPressed: () => _controller.handleSignUpPressed(
                   context: context,
+                  authController: authController,
                   formKey: formKey,
                 ),
               ),
@@ -70,6 +73,7 @@ class MyPage extends StatelessWidget {
                 buttonLabel: 'ログイン',
                 onPressed: () => _controller.handleLoginPressed(
                   context: context,
+                  authController: authController,
                   formKey: formKey,
                 ),
               ),
