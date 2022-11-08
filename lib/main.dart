@@ -1,4 +1,4 @@
-import 'package:cafe_note_mobile/configs/cafe_noto_color.dart';
+import 'package:cafe_note_mobile/configs/cafe_note_color.dart';
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/auth_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';

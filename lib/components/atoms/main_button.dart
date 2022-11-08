@@ -1,4 +1,4 @@
-import 'package:cafe_note_mobile/configs/cafe_noto_color.dart';
+import 'package:cafe_note_mobile/configs/cafe_note_color.dart';
 import 'package:flutter/material.dart';
 
 enum ButtonType {
