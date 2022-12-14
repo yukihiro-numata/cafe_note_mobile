@@ -15,7 +15,15 @@ class AuthController extends StateNotifier<AuthState> with LocatorMixin {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final UserAction userAction = UserAction();
 
-  AuthController() : super(const AuthState(authenticated: false));
+  AuthController() : super(const AuthState(authenticated: false)) {
+    _init();
+  }
+
+  _init() {
+    firebaseAuth.authStateChanges().listen((user) {
+      state = state.copyWith(authenticated: user != null);
+    });
+  }
 
   Future<String?> signUp({
     required String email,
@@ -33,7 +41,6 @@ class AuthController extends StateNotifier<AuthState> with LocatorMixin {
         firebaseUid: result.user!.uid,
         email: email,
       );
-      state = state.copyWith(authenticated: true);
     } on FirebaseAuthException catch (e) {
       debugPrint(e.toString());
       return e.code == errorCodeEmailAlreadyInUse
