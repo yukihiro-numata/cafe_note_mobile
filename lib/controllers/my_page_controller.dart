@@ -7,6 +7,8 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
   static const String formKeyEmail = "email";
   static const String formKeyPassword = "password";
 
+  AuthController get _authController => read();
+
   MyPageController() : super(const MyPageState());
 
   void handleInputChanged({
@@ -27,7 +29,6 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
 
   Future<void> handleSignUpPressed({
     required BuildContext context,
-    required AuthController authController,
     required GlobalKey<FormState> formKey,
   }) async {
     if (!(formKey.currentState?.validate() ?? false)) {
@@ -35,7 +36,7 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     }
     formKey.currentState?.save();
 
-    final result = await authController.signUp(
+    final result = await _authController.signUp(
       email: state.email!,
       password: state.password!,
     );
@@ -49,7 +50,6 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
 
   Future<void> handleLoginPressed({
     required BuildContext context,
-    required AuthController authController,
     required GlobalKey<FormState> formKey,
   }) async {
     if (!(formKey.currentState?.validate() ?? false)) {
@@ -57,7 +57,7 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     }
     formKey.currentState?.save();
 
-    final result = await authController.login(
+    final result = await _authController.login(
       email: state.email!,
       password: state.password!,
     );
