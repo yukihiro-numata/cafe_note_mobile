@@ -1,11 +1,13 @@
 import 'package:cafe_note_mobile/configs/cafe_note_color.dart';
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/auth_controller.dart';
+import 'package:cafe_note_mobile/controllers/bottom_menu_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/cafes_controller.dart';
 import 'package:cafe_note_mobile/controllers/create_cafe_controller.dart';
 import 'package:cafe_note_mobile/controllers/my_page_controller.dart';
 import 'package:cafe_note_mobile/states/auth_state.dart';
+import 'package:cafe_note_mobile/states/bottom_menu_state.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:cafe_note_mobile/states/cafes_state.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
@@ -21,6 +23,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        StateNotifierProvider<BottomMenuController, BottomMenuState>(
+          create: (_) => BottomMenuController(),
+        ),
         StateNotifierProvider<CafesController, CafesState>(
           create: (_) => CafesController(),
         ),

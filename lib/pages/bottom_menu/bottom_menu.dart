@@ -1,35 +1,32 @@
-import 'package:cafe_note_mobile/pages/bottom_menu/_menu_content.dart';
-import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
-import 'package:cafe_note_mobile/pages/my_page/my_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cafe_note_mobile/controllers/bottom_menu_controller.dart';
+import 'package:cafe_note_mobile/states/bottom_menu_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class BottomMenu extends StatelessWidget {
   const BottomMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
+    final _state = context.watch<BottomMenuState>();
+    final _controller = context.read<BottomMenuController>();
+
+    return Scaffold(
+      body: _controller.currentContent,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _state.currentIndex,
+        onTap: _controller.handleMenuTapped,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
+            label: 'ホーム',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
+            label: 'マイページ',
           ),
         ],
       ),
-      tabBuilder: (BuildContext context, int index) {
-        switch (index) {
-          case 0:
-            return const MenuContent(content: CafesPage());
-          case 1:
-            return const MenuContent(content: MyPage());
-          default:
-            return const MenuContent(content: CafesPage());
-        }
-      },
     );
   }
 }
