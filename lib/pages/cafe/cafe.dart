@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/cafe_controller.dart';
 import 'package:cafe_note_mobile/pages/cafe/_cafe_cell.dart';
@@ -10,8 +11,11 @@ class CafePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _controller = context.read<CafeController>();
+
     final args = ModalRoute.of(context)?.settings.arguments as CafeRouteArgs;
-    context.read<CafeController>().fetch(args.id);
+    _controller.fetch(args.id);
+
     final isLoading =
         context.select<CafeState, bool>((state) => state.isLoading);
     final cafe = context.read<CafeState>().cafe;
@@ -75,6 +79,14 @@ class CafePage extends StatelessWidget {
                 ],
               ),
             ),
+      persistentFooterButtons: [
+        MainButton.fromButtonType(
+          context: context,
+          buttonType: ButtonType.primary,
+          buttonLabel: '訪問記録',
+          onPressed: () => _controller.handleArchiveCafePressed(context),
+        ),
+      ],
     );
   }
 }

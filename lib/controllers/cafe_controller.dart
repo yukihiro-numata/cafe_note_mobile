@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:cafe_note_mobile/states/cafe_state.dart';
 import 'package:flutter/material.dart';
@@ -15,5 +16,12 @@ class CafeController extends StateNotifier<CafeState> with LocatorMixin {
 
     final cafe = await _service.get(id);
     state = state.copyWith(cafe: cafe, isLoading: false);
+  }
+
+  void handleArchiveCafePressed(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      RouteConfig.archiveCafe,
+    );
   }
 }
