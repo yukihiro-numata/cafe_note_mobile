@@ -15,11 +15,12 @@ class DateFormField extends StatelessWidget {
 
   Future<void> _onTap(BuildContext context) async {
     DateTime initialDate = DateTime.now();
-    try {
-      initialDate = DateFormat(dateFormat).parse(controller.text);
-    } catch (err) {
-      debugPrint(err.toString());
-      return;
+    if (controller.text.isNotEmpty) {
+      try {
+        initialDate = DateFormat(dateFormat).parse(controller.text);
+      } catch (err) {
+        debugPrint(err.toString());
+      }
     }
 
     final inputDate = await showDatePicker(
