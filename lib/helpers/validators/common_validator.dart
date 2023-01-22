@@ -22,4 +22,8 @@ class CommonValidator {
   static bool checkIsEmail(String value) {
     return EmailValidator.validate(value);
   }
+
+  static String validationMessageMaxLength(int maxLength) {
+    return "$maxLength文字以内で入力してください";
+  }
 }
