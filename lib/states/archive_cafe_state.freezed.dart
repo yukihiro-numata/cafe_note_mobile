@@ -19,11 +19,15 @@ class _$ArchiveCafeStateTearOff {
   const _$ArchiveCafeStateTearOff();
 
   ArchiveCafeStateData call(
-      {double rating = 0, String? visitedDate, String? memo}) {
+      {double rating = 0,
+      String? visitedDate,
+      String? memo,
+      List<File> images = const []}) {
     return ArchiveCafeStateData(
       rating: rating,
       visitedDate: visitedDate,
       memo: memo,
+      images: images,
     );
   }
 }
@@ -36,6 +40,7 @@ mixin _$ArchiveCafeState {
   double get rating => throw _privateConstructorUsedError;
   String? get visitedDate => throw _privateConstructorUsedError;
   String? get memo => throw _privateConstructorUsedError;
+  List<File> get images => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ArchiveCafeStateCopyWith<ArchiveCafeState> get copyWith =>
@@ -47,7 +52,8 @@ abstract class $ArchiveCafeStateCopyWith<$Res> {
   factory $ArchiveCafeStateCopyWith(
           ArchiveCafeState value, $Res Function(ArchiveCafeState) then) =
       _$ArchiveCafeStateCopyWithImpl<$Res>;
-  $Res call({double rating, String? visitedDate, String? memo});
+  $Res call(
+      {double rating, String? visitedDate, String? memo, List<File> images});
 }
 
 /// @nodoc
@@ -64,6 +70,7 @@ class _$ArchiveCafeStateCopyWithImpl<$Res>
     Object? rating = freezed,
     Object? visitedDate = freezed,
     Object? memo = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
       rating: rating == freezed
@@ -78,6 +85,10 @@ class _$ArchiveCafeStateCopyWithImpl<$Res>
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
               as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ));
   }
 }
@@ -89,7 +100,8 @@ abstract class $ArchiveCafeStateDataCopyWith<$Res>
           $Res Function(ArchiveCafeStateData) then) =
       _$ArchiveCafeStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({double rating, String? visitedDate, String? memo});
+  $Res call(
+      {double rating, String? visitedDate, String? memo, List<File> images});
 }
 
 /// @nodoc
@@ -108,6 +120,7 @@ class _$ArchiveCafeStateDataCopyWithImpl<$Res>
     Object? rating = freezed,
     Object? visitedDate = freezed,
     Object? memo = freezed,
+    Object? images = freezed,
   }) {
     return _then(ArchiveCafeStateData(
       rating: rating == freezed
@@ -122,6 +135,10 @@ class _$ArchiveCafeStateDataCopyWithImpl<$Res>
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
               as String?,
+      images: images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ));
   }
 }
@@ -129,7 +146,8 @@ class _$ArchiveCafeStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ArchiveCafeStateData implements ArchiveCafeStateData {
-  const _$ArchiveCafeStateData({this.rating = 0, this.visitedDate, this.memo});
+  const _$ArchiveCafeStateData(
+      {this.rating = 0, this.visitedDate, this.memo, this.images = const []});
 
   @JsonKey()
   @override
@@ -138,10 +156,13 @@ class _$ArchiveCafeStateData implements ArchiveCafeStateData {
   final String? visitedDate;
   @override
   final String? memo;
+  @JsonKey()
+  @override
+  final List<File> images;
 
   @override
   String toString() {
-    return 'ArchiveCafeState(rating: $rating, visitedDate: $visitedDate, memo: $memo)';
+    return 'ArchiveCafeState(rating: $rating, visitedDate: $visitedDate, memo: $memo, images: $images)';
   }
 
   @override
@@ -152,7 +173,8 @@ class _$ArchiveCafeStateData implements ArchiveCafeStateData {
             const DeepCollectionEquality().equals(other.rating, rating) &&
             const DeepCollectionEquality()
                 .equals(other.visitedDate, visitedDate) &&
-            const DeepCollectionEquality().equals(other.memo, memo));
+            const DeepCollectionEquality().equals(other.memo, memo) &&
+            const DeepCollectionEquality().equals(other.images, images));
   }
 
   @override
@@ -160,7 +182,8 @@ class _$ArchiveCafeStateData implements ArchiveCafeStateData {
       runtimeType,
       const DeepCollectionEquality().hash(rating),
       const DeepCollectionEquality().hash(visitedDate),
-      const DeepCollectionEquality().hash(memo));
+      const DeepCollectionEquality().hash(memo),
+      const DeepCollectionEquality().hash(images));
 
   @JsonKey(ignore: true)
   @override
@@ -173,7 +196,8 @@ abstract class ArchiveCafeStateData implements ArchiveCafeState {
   const factory ArchiveCafeStateData(
       {double rating,
       String? visitedDate,
-      String? memo}) = _$ArchiveCafeStateData;
+      String? memo,
+      List<File> images}) = _$ArchiveCafeStateData;
 
   @override
   double get rating;
@@ -181,6 +205,8 @@ abstract class ArchiveCafeStateData implements ArchiveCafeState {
   String? get visitedDate;
   @override
   String? get memo;
+  @override
+  List<File> get images;
   @override
   @JsonKey(ignore: true)
   $ArchiveCafeStateDataCopyWith<ArchiveCafeStateData> get copyWith =>

@@ -2,6 +2,7 @@ import 'package:cafe_note_mobile/components/atoms/custom_text_form_field.dart';
 import 'package:cafe_note_mobile/components/atoms/date_form_field.dart';
 import 'package:cafe_note_mobile/components/atoms/form_container.dart';
 import 'package:cafe_note_mobile/components/atoms/form_label.dart';
+import 'package:cafe_note_mobile/components/atoms/image_form_field.dart';
 import 'package:cafe_note_mobile/components/atoms/main_button.dart';
 import 'package:cafe_note_mobile/components/atoms/rating_form_field.dart';
 import 'package:cafe_note_mobile/controllers/archive_cafe_controller.dart';
@@ -17,7 +18,7 @@ class ArchiveCafePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final _controller = context.read<ArchiveCafeController>();
-    final _state = context.read<ArchiveCafeState>();
+    final _state = context.watch<ArchiveCafeState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -54,6 +55,13 @@ class ArchiveCafePage extends StatelessWidget {
                       value: value,
                     ),
                     maxLines: 10,
+                  ),
+                ),
+                const FormLabel(text: '写真'),
+                FormContainer(
+                  child: ImageFormField(
+                    onTap: _controller.handleImageFormPressed,
+                    images: _state.images,
                   ),
                 ),
                 MainButton.fromButtonType(

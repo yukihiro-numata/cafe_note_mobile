@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cafe_note_mobile/states/archive_cafe_state.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
@@ -30,6 +33,15 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
       default:
         assert(false, 'argument error');
     }
+  }
+
+  Future<void> handleImageFormPressed(List<XFile> imageFiles) async {
+    final currentState = state;
+    final images = currentState.images.toList();
+    for (var f in imageFiles) {
+      images.add(File(f.path));
+    }
+    state = currentState.copyWith(images: images);
   }
 
   void handleSubmitButtonPressed() {
