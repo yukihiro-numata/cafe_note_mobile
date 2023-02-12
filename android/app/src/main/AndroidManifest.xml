@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cafe_note_mobile">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
    <application
         android:label="cafe_note_mobile"
         android:name="${applicationName}"
