@@ -45,5 +45,7 @@
 	<true/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>アルバムの写真を選択します。</string>
 </dict>
 </plist>
