@@ -7,6 +7,6 @@ part 'cafes_state.freezed.dart';
 abstract class CafesState with _$CafesState {
   const factory CafesState({
     @Default(<Cafe>[]) List<Cafe> cafes,
-    @Default(false) bool isLoading,
   }) = CafesStateData;
+  const factory CafesState.loading() = CafesStateLoading;
 }

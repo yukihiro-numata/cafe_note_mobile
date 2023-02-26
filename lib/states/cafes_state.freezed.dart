@@ -18,12 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CafesStateTearOff {
   const _$CafesStateTearOff();
 
-  CafesStateData call(
-      {List<Cafe> cafes = const <Cafe>[], bool isLoading = false}) {
+  CafesStateData call({List<Cafe> cafes = const <Cafe>[]}) {
     return CafesStateData(
       cafes: cafes,
-      isLoading: isLoading,
     );
+  }
+
+  CafesStateLoading loading() {
+    return const CafesStateLoading();
   }
 }
 
@@ -32,11 +34,43 @@ const $CafesState = _$CafesStateTearOff();
 
 /// @nodoc
 mixin _$CafesState {
-  List<Cafe> get cafes => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CafesStateCopyWith<CafesState> get copyWith =>
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes) $default, {
+    required TResult Function() loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CafesStateData value) $default, {
+    required TResult Function(CafesStateLoading value) loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -45,7 +79,6 @@ abstract class $CafesStateCopyWith<$Res> {
   factory $CafesStateCopyWith(
           CafesState value, $Res Function(CafesState) then) =
       _$CafesStateCopyWithImpl<$Res>;
-  $Res call({List<Cafe> cafes, bool isLoading});
 }
 
 /// @nodoc
@@ -55,33 +88,14 @@ class _$CafesStateCopyWithImpl<$Res> implements $CafesStateCopyWith<$Res> {
   final CafesState _value;
   // ignore: unused_field
   final $Res Function(CafesState) _then;
-
-  @override
-  $Res call({
-    Object? cafes = freezed,
-    Object? isLoading = freezed,
-  }) {
-    return _then(_value.copyWith(
-      cafes: cafes == freezed
-          ? _value.cafes
-          : cafes // ignore: cast_nullable_to_non_nullable
-              as List<Cafe>,
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $CafesStateDataCopyWith<$Res>
-    implements $CafesStateCopyWith<$Res> {
+abstract class $CafesStateDataCopyWith<$Res> {
   factory $CafesStateDataCopyWith(
           CafesStateData value, $Res Function(CafesStateData) then) =
       _$CafesStateDataCopyWithImpl<$Res>;
-  @override
-  $Res call({List<Cafe> cafes, bool isLoading});
+  $Res call({List<Cafe> cafes});
 }
 
 /// @nodoc
@@ -97,17 +111,12 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cafes = freezed,
-    Object? isLoading = freezed,
   }) {
     return _then(CafesStateData(
       cafes: cafes == freezed
           ? _value.cafes
           : cafes // ignore: cast_nullable_to_non_nullable
               as List<Cafe>,
-      isLoading: isLoading == freezed
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -115,18 +124,15 @@ class _$CafesStateDataCopyWithImpl<$Res> extends _$CafesStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CafesStateData implements CafesStateData {
-  const _$CafesStateData({this.cafes = const <Cafe>[], this.isLoading = false});
+  const _$CafesStateData({this.cafes = const <Cafe>[]});
 
   @JsonKey()
   @override
   final List<Cafe> cafes;
-  @JsonKey()
-  @override
-  final bool isLoading;
 
   @override
   String toString() {
-    return 'CafesState(cafes: $cafes, isLoading: $isLoading)';
+    return 'CafesState(cafes: $cafes)';
   }
 
   @override
@@ -134,32 +140,191 @@ class _$CafesStateData implements CafesStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is CafesStateData &&
-            const DeepCollectionEquality().equals(other.cafes, cafes) &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.cafes, cafes));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(cafes),
-      const DeepCollectionEquality().hash(isLoading));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(cafes));
 
   @JsonKey(ignore: true)
   @override
   $CafesStateDataCopyWith<CafesStateData> get copyWith =>
       _$CafesStateDataCopyWithImpl<CafesStateData>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes) $default, {
+    required TResult Function() loading,
+  }) {
+    return $default(cafes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+  }) {
+    return $default?.call(cafes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(cafes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CafesStateData value) $default, {
+    required TResult Function(CafesStateLoading value) loading,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class CafesStateData implements CafesState {
-  const factory CafesStateData({List<Cafe> cafes, bool isLoading}) =
-      _$CafesStateData;
+  const factory CafesStateData({List<Cafe> cafes}) = _$CafesStateData;
 
-  @override
   List<Cafe> get cafes;
-  @override
-  bool get isLoading;
-  @override
   @JsonKey(ignore: true)
   $CafesStateDataCopyWith<CafesStateData> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CafesStateLoadingCopyWith<$Res> {
+  factory $CafesStateLoadingCopyWith(
+          CafesStateLoading value, $Res Function(CafesStateLoading) then) =
+      _$CafesStateLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$CafesStateLoadingCopyWithImpl<$Res>
+    extends _$CafesStateCopyWithImpl<$Res>
+    implements $CafesStateLoadingCopyWith<$Res> {
+  _$CafesStateLoadingCopyWithImpl(
+      CafesStateLoading _value, $Res Function(CafesStateLoading) _then)
+      : super(_value, (v) => _then(v as CafesStateLoading));
+
+  @override
+  CafesStateLoading get _value => super._value as CafesStateLoading;
+}
+
+/// @nodoc
+
+class _$CafesStateLoading implements CafesStateLoading {
+  const _$CafesStateLoading();
+
+  @override
+  String toString() {
+    return 'CafesState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CafesStateLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes) $default, {
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(List<Cafe> cafes)? $default, {
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(CafesStateData value) $default, {
+    required TResult Function(CafesStateLoading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CafesStateData value)? $default, {
+    TResult Function(CafesStateLoading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CafesStateLoading implements CafesState {
+  const factory CafesStateLoading() = _$CafesStateLoading;
 }
