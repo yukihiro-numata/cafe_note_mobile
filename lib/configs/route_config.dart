@@ -28,4 +28,8 @@ class CafeRouteArgs {
   final int id;
   const CafeRouteArgs({required this.id});
 }
+
+class ArchiveCafeRouteArgs {
+  final int cafeId;
+  const ArchiveCafeRouteArgs({required this.cafeId});
 }

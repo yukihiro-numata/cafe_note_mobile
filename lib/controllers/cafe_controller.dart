@@ -22,6 +22,7 @@ class CafeController extends StateNotifier<CafeState> with LocatorMixin {
     Navigator.pushNamed(
       context,
       RouteConfig.archiveCafe,
+      arguments: ArchiveCafeRouteArgs(cafeId: cafeId),
     );
   }
 }
