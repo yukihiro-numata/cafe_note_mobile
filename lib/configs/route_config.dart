@@ -26,5 +26,6 @@ class RouteConfig {
 
 class CafeRouteArgs {
   final int id;
-  CafeRouteArgs({required this.id});
+  const CafeRouteArgs({required this.id});
+}
 }
