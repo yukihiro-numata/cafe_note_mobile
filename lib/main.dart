@@ -31,9 +31,6 @@ void main() async {
         StateNotifierProvider<CafesController, CafesState>(
           create: (_) => CafesController(),
         ),
-        StateNotifierProvider<CafeController, CafeState>(
-          create: (_) => CafeController(),
-        ),
         StateNotifierProvider<CreateCafeController, CreateCafeState>(
           create: (_) => CreateCafeController(),
         ),

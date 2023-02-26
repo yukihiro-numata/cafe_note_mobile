@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 class CafeController extends StateNotifier<CafeState> with LocatorMixin {
-  CafeController() : super(const CafeState());
-
+  final int cafeId;
   final CafeService _service = CafeService();
 
-  Future<void> fetch(int id) async {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      state = state.copyWith(isLoading: true);
-    });
+  CafeController({required this.cafeId}) : super(const CafeState.loading());
 
-    final cafe = await _service.get(id);
-    state = state.copyWith(cafe: cafe, isLoading: false);
+  @override
+  Future<void> initState() async {
+    super.initState();
+
+    final cafe = await _service.get(cafeId);
+    state = CafeState(cafe: cafe);
   }
 
   void handleArchiveCafePressed(BuildContext context) {
