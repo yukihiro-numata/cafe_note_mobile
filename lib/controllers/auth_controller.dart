@@ -15,12 +15,14 @@ class AuthController extends StateNotifier<AuthState> with LocatorMixin {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final UserAction userAction = UserAction();
 
-  AuthController() : super(const AuthState(authenticated: false)) {
-    _init();
-  }
+  AuthController() : super(const AuthState(authenticated: false));
 
-  _init() {
-    firebaseAuth.authStateChanges().listen((user) {
+  @override
+  initState() {
+    super.initState();
+
+    firebaseAuth.authStateChanges().listen((user) async {
+      final token = await user?.getIdToken();
       state = state.copyWith(authenticated: user != null);
     });
   }
