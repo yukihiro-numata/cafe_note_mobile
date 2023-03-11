@@ -25,6 +25,9 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
+        StateNotifierProvider<AuthController, AuthState>(
+          create: (_) => AuthController(),
+        ),
         StateNotifierProvider<BottomMenuController, BottomMenuState>(
           create: (_) => BottomMenuController(),
         ),
@@ -36,9 +39,6 @@ void main() async {
         ),
         StateNotifierProvider<MyPageController, MyPageState>(
           create: (_) => MyPageController(),
-        ),
-        StateNotifierProvider<AuthController, AuthState>(
-          create: (_) => AuthController(),
         ),
         StateNotifierProvider<ArchiveCafeController, ArchiveCafeState>(
           create: (_) => ArchiveCafeController(),
