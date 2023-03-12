@@ -53,18 +53,16 @@ class MyPageNotAuthenticated extends StatelessWidget {
                 ),
               ),
             ),
-            MainButton.fromButtonType(
+            MainButton.primary(
               context: context,
-              buttonType: ButtonType.primary,
               buttonLabel: '新規登録',
               onPressed: () => _controller.handleSignUpPressed(
                 context: context,
                 formKey: formKey,
               ),
             ),
-            MainButton.fromButtonType(
+            MainButton.sub(
               context: context,
-              buttonType: ButtonType.sub,
               buttonLabel: 'ログイン',
               onPressed: () => _controller.handleLoginPressed(
                 context: context,

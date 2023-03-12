@@ -77,9 +77,8 @@ class CafePage extends StatelessWidget {
               ),
             ),
         persistentFooterButtons: [
-          MainButton.fromButtonType(
+          MainButton.primary(
             context: context,
-            buttonType: ButtonType.primary,
             buttonLabel: '訪問記録',
             onPressed: () => context
                 .read<CafeController>()

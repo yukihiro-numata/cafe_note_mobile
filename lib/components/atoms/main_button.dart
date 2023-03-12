@@ -1,22 +1,41 @@
 import 'package:cafe_note_mobile/configs/cafe_note_color.dart';
 import 'package:flutter/material.dart';
 
-enum ButtonType {
-  primary,
-  sub,
-}
-
 class MainButton extends StatelessWidget {
   final Color buttonColor;
   final String buttonLabel;
   final VoidCallback onPressed;
 
-  const MainButton({
+  const MainButton._({
     Key? key,
-    required this.buttonColor,
     required this.buttonLabel,
+    required this.buttonColor,
     required this.onPressed,
   }) : super(key: key);
+
+  MainButton.primary({
+    Key? key,
+    required BuildContext context,
+    required String buttonLabel,
+    required VoidCallback onPressed,
+  }) : this._(
+          key: key,
+          buttonLabel: buttonLabel,
+          buttonColor: Theme.of(context).primaryColor,
+          onPressed: onPressed,
+        );
+
+  const MainButton.sub({
+    Key? key,
+    required BuildContext context,
+    required String buttonLabel,
+    required VoidCallback onPressed,
+  }) : this._(
+          key: key,
+          buttonLabel: buttonLabel,
+          buttonColor: CafeNoteColor.sub,
+          onPressed: onPressed,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -34,31 +53,6 @@ class MainButton extends StatelessWidget {
         child: Text(buttonLabel),
         onPressed: onPressed,
       ),
-    );
-  }
-
-  factory MainButton.fromButtonType({
-    required BuildContext context,
-    required ButtonType buttonType,
-    required String buttonLabel,
-    required VoidCallback onPressed,
-  }) {
-    Color buttonColor;
-    switch (buttonType) {
-      case ButtonType.primary:
-        buttonColor = Theme.of(context).primaryColor;
-        break;
-      case ButtonType.sub:
-        buttonColor = CafeNoteColor.sub;
-        break;
-      default:
-        buttonColor = Theme.of(context).primaryColor;
-        break;
-    }
-    return MainButton(
-      buttonColor: buttonColor,
-      buttonLabel: buttonLabel,
-      onPressed: onPressed,
     );
   }
 }

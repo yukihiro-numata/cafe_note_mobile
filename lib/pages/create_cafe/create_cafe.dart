@@ -100,9 +100,8 @@ class CreateCafePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                MainButton.fromButtonType(
+                MainButton.primary(
                   context: context,
-                  buttonType: ButtonType.primary,
                   buttonLabel: '次へ',
                   onPressed: () => _controller.handleToBasicInfo(
                     context,

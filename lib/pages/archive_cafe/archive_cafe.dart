@@ -64,9 +64,8 @@ class ArchiveCafePage extends StatelessWidget {
                     images: _state.images,
                   ),
                 ),
-                MainButton.fromButtonType(
+                MainButton.primary(
                   context: context,
-                  buttonType: ButtonType.primary,
                   buttonLabel: '記録',
                   onPressed: _controller.handleSubmitButtonPressed,
                 ),
