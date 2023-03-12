@@ -69,6 +69,10 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     }
   }
 
+  Future<void> handleLogoutPressed() async {
+    await _authController.logout();
+  }
+
   void _showAlertDialog({
     required BuildContext context,
     required String message,
