@@ -29,4 +29,21 @@ class HttpService<T> {
     }
     return jsonDecode(response.body);
   }
+
+  Future<Map<String, dynamic>> getWithAuth({
+    required String path,
+    required String token,
+  }) async {
+    final headers = {HttpHeaders.authorizationHeader: 'Bearer $token'};
+
+    final response = await http.get(
+      Uri.parse(baseUrl + path),
+      headers: headers,
+    );
+    if (response.statusCode != 200) {
+      throw Exception();
+    }
+
+    return jsonDecode(response.body);
+  }
 }

@@ -18,9 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  AuthStateData call({required bool authenticated}) {
+  AuthStateData call(
+      {required bool authenticated,
+      auth.User? firebaseUser = null,
+      User? user = null}) {
     return AuthStateData(
       authenticated: authenticated,
+      firebaseUser: firebaseUser,
+      user: user,
     );
   }
 }
@@ -31,6 +36,8 @@ const $AuthState = _$AuthStateTearOff();
 /// @nodoc
 mixin _$AuthState {
   bool get authenticated => throw _privateConstructorUsedError;
+  auth.User? get firebaseUser => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -41,7 +48,9 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
-  $Res call({bool authenticated});
+  $Res call({bool authenticated, auth.User? firebaseUser, User? user});
+
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -55,13 +64,34 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   @override
   $Res call({
     Object? authenticated = freezed,
+    Object? firebaseUser = freezed,
+    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       authenticated: authenticated == freezed
           ? _value.authenticated
           : authenticated // ignore: cast_nullable_to_non_nullable
               as bool,
+      firebaseUser: firebaseUser == freezed
+          ? _value.firebaseUser
+          : firebaseUser // ignore: cast_nullable_to_non_nullable
+              as auth.User?,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
+  }
+
+  @override
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -72,7 +102,10 @@ abstract class $AuthStateDataCopyWith<$Res>
           AuthStateData value, $Res Function(AuthStateData) then) =
       _$AuthStateDataCopyWithImpl<$Res>;
   @override
-  $Res call({bool authenticated});
+  $Res call({bool authenticated, auth.User? firebaseUser, User? user});
+
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -88,12 +121,22 @@ class _$AuthStateDataCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? authenticated = freezed,
+    Object? firebaseUser = freezed,
+    Object? user = freezed,
   }) {
     return _then(AuthStateData(
       authenticated: authenticated == freezed
           ? _value.authenticated
           : authenticated // ignore: cast_nullable_to_non_nullable
               as bool,
+      firebaseUser: firebaseUser == freezed
+          ? _value.firebaseUser
+          : firebaseUser // ignore: cast_nullable_to_non_nullable
+              as auth.User?,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 }
@@ -101,14 +144,23 @@ class _$AuthStateDataCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthStateData implements AuthStateData {
-  const _$AuthStateData({required this.authenticated});
+  const _$AuthStateData(
+      {required this.authenticated,
+      this.firebaseUser = null,
+      this.user = null});
 
   @override
   final bool authenticated;
+  @JsonKey()
+  @override
+  final auth.User? firebaseUser;
+  @JsonKey()
+  @override
+  final User? user;
 
   @override
   String toString() {
-    return 'AuthState(authenticated: $authenticated)';
+    return 'AuthState(authenticated: $authenticated, firebaseUser: $firebaseUser, user: $user)';
   }
 
   @override
@@ -117,12 +169,18 @@ class _$AuthStateData implements AuthStateData {
         (other.runtimeType == runtimeType &&
             other is AuthStateData &&
             const DeepCollectionEquality()
-                .equals(other.authenticated, authenticated));
+                .equals(other.authenticated, authenticated) &&
+            const DeepCollectionEquality()
+                .equals(other.firebaseUser, firebaseUser) &&
+            const DeepCollectionEquality().equals(other.user, user));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(authenticated));
+      runtimeType,
+      const DeepCollectionEquality().hash(authenticated),
+      const DeepCollectionEquality().hash(firebaseUser),
+      const DeepCollectionEquality().hash(user));
 
   @JsonKey(ignore: true)
   @override
@@ -131,10 +189,17 @@ class _$AuthStateData implements AuthStateData {
 }
 
 abstract class AuthStateData implements AuthState {
-  const factory AuthStateData({required bool authenticated}) = _$AuthStateData;
+  const factory AuthStateData(
+      {required bool authenticated,
+      auth.User? firebaseUser,
+      User? user}) = _$AuthStateData;
 
   @override
   bool get authenticated;
+  @override
+  auth.User? get firebaseUser;
+  @override
+  User? get user;
   @override
   @JsonKey(ignore: true)
   $AuthStateDataCopyWith<AuthStateData> get copyWith =>
