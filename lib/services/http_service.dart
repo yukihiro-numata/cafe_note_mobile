@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-class HttpService<T> {
+class HttpService {
   static const apiUrlScheme = "http";
   static const apiPort = "3000";
   late String baseUrl;

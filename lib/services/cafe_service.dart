@@ -6,7 +6,7 @@ class CafeService {
   late HttpService _apiClient;
 
   CafeService() {
-    _apiClient = HttpService<Cafe>();
+    _apiClient = HttpService();
   }
 
   Future<List<Cafe>> getList() async {

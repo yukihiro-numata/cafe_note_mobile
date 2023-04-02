@@ -2,7 +2,7 @@ import 'package:cafe_note_mobile/entities/user.dart';
 import 'package:cafe_note_mobile/services/http_service.dart';
 
 class UserAction {
-  final HttpService _httpService = HttpService<User>();
+  final HttpService _httpService = HttpService();
 
   Future<void> createUser({
     required String firebaseUid,
