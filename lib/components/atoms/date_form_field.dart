@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DateFormField extends StatelessWidget {
-  static const dateFormat = 'yyyy/MM/dd';
+  static const dateFormat = 'yyyy-MM-dd';
 
   final TextEditingController controller;
   final Function(String) changeValue; // state等で管理している値の更新処理
