@@ -98,4 +98,10 @@ class AuthController extends StateNotifier<AuthState> with LocatorMixin {
     await firebaseAuth.signOut();
     state = state.copyWith(authenticated: false);
   }
+
+  Future<String?> getToken() async {
+    if (state.firebaseUser == null) return null;
+    final token = await state.firebaseUser?.getIdToken();
+    return token;
+  }
 }
