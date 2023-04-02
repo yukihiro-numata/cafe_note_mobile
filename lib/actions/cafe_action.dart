@@ -2,15 +2,11 @@ import 'package:cafe_note_mobile/entities/cafe.dart';
 import 'package:cafe_note_mobile/entities/cafe_detail.dart';
 import 'package:cafe_note_mobile/services/http_service.dart';
 
-class CafeService {
-  late HttpService _apiClient;
-
-  CafeService() {
-    _apiClient = HttpService();
-  }
+class CafeAction {
+  final HttpService _httpService = HttpService();
 
   Future<List<Cafe>> getList() async {
-    final Map<String, dynamic> result = await _apiClient.get("/cafes");
+    final Map<String, dynamic> result = await _httpService.get("/cafes");
     return result["data"]
         .map((cafe) => Cafe.fromJson(cafe))
         .toList()
@@ -18,7 +14,7 @@ class CafeService {
   }
 
   Future<CafeDetail> get(int id) async {
-    final result = await _apiClient.get("/cafes/$id");
+    final result = await _httpService.get("/cafes/$id");
     return CafeDetail.fromJson(result["data"]);
   }
 
@@ -58,6 +54,6 @@ class CafeService {
       "can_smoking": canSmoking.toString(),
       "img_path": imgPath,
     };
-    await _apiClient.post("/cafes", params);
+    await _httpService.post("/cafes", params);
   }
 }

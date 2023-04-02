@@ -1,5 +1,5 @@
+import 'package:cafe_note_mobile/actions/cafe_action.dart';
 import 'package:cafe_note_mobile/configs/route_config.dart';
-import 'package:cafe_note_mobile/services/cafe_service.dart';
 import 'package:cafe_note_mobile/states/create_cafe_state.dart';
 import 'package:flutter/material.dart';
 import 'package:state_notifier/state_notifier.dart';
@@ -74,7 +74,7 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     "沖縄県",
   ];
 
-  final CafeService _service = CafeService();
+  final CafeAction _action = CafeAction();
 
   PreferredSizeWidget buildAppBar(BuildContext context) => AppBar(
         title: const Text("カフェ登録"),
@@ -184,7 +184,7 @@ class CreateCafeController extends StateNotifier<CreateCafeState>
     formKey.currentState?.save();
 
     try {
-      await _service.create(
+      await _action.create(
         name: state.name!,
         postCode: state.postCode!,
         prefecture: state.prefecture!,
