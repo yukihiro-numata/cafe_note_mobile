@@ -66,8 +66,8 @@ class CafeAction {
     String? memo,
   }) async {
     final Map<String, Object> params = {
-      'id': cafeId.toString(),
-      'rating': rating.toInt().toString(),
+      'id': cafeId,
+      'rating': rating,
       'visited_date': visitedDate,
     };
     if (memo != null) {
