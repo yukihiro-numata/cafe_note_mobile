@@ -9,10 +9,12 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
     with LocatorMixin {
   static const String formKeyMemo = 'memo';
 
+  final int cafeId;
   final TextEditingController visitedDateFormController =
       TextEditingController();
 
-  ArchiveCafeController() : super(const ArchiveCafeState());
+  ArchiveCafeController({required this.cafeId})
+      : super(const ArchiveCafeState());
 
   void handleVisitedDateChanged(String value) {
     state = state.copyWith(visitedDate: value);
