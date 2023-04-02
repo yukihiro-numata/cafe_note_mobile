@@ -54,7 +54,7 @@ class ArchiveCafePage extends StatelessWidget {
                         onRatingUpdate: _controller.handleRatingChanged,
                       ),
                     ),
-                    const FormLabel(text: 'メモ'),
+                    const FormLabel(text: 'メモ(任意)'),
                     FormContainer(
                       child: CustomTextFormField(
                         validator: ArchiveCafeValidator.memo,
