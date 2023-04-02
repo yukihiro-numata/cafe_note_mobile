@@ -30,6 +30,7 @@ dependencies:
   freezed: ^1.1.1
   freezed_annotation: ^1.1.0
   uuid: ^3.0.6
+  ulid: ^2.0.0
   json_serializable: ^6.1.6
   flutter_svg: ^1.0.3
   dotted_border: 2.0.0+2
