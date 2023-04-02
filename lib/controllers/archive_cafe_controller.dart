@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:cafe_note_mobile/controllers/auth_controller.dart';
 import 'package:cafe_note_mobile/states/archive_cafe_state.dart';
-import 'package:cafe_note_mobile/states/auth_state.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,7 +17,7 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
   final TextEditingController visitedDateFormController =
       TextEditingController();
 
-  AuthState get _authState => read();
+  AuthController get _authController => read();
 
   ArchiveCafeController({required this.cafeId})
       : super(const ArchiveCafeState());
@@ -54,7 +54,7 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
 
   void handleSubmitButtonPressed() async {
     final storageRef = FirebaseStorage.instance
-        .ref("/cafes/$cafeId/users/${_authState.user?.id}");
+        .ref("/cafes/$cafeId/users/${_authController.state.user?.id}");
 
     await Future.forEach(state.images, (i) async {
       final extension = p.extension(i.path);
