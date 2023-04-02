@@ -76,7 +76,8 @@ class ArchiveCafePage extends StatelessWidget {
                     MainButton.primary(
                       context: context,
                       buttonLabel: '記録',
-                      onPressed: _controller.handleSubmitButtonPressed,
+                      onPressed: () =>
+                          _controller.handleSubmitButtonPressed(formKey),
                     ),
                   ],
                 ),

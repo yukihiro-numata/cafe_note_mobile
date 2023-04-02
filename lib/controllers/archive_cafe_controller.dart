@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cafe_note_mobile/actions/cafe_action.dart';
 import 'package:cafe_note_mobile/controllers/auth_controller.dart';
 import 'package:cafe_note_mobile/states/archive_cafe_state.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -16,6 +17,7 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
   final int cafeId;
   final TextEditingController visitedDateFormController =
       TextEditingController();
+  final CafeAction action = CafeAction();
 
   AuthController get _authController => read();
 
@@ -52,15 +54,50 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
     state = currentState.copyWith(images: images);
   }
 
-  void handleSubmitButtonPressed() async {
+  void handleSubmitButtonPressed(GlobalKey<FormState> formKey) async {
+    if ((!(formKey.currentState?.validate() ?? false)) ||
+        state.visitedDate == null) {
+      return;
+    }
+    formKey.currentState?.save();
+
+    try {
+      List<String>? imagePaths;
+      if (state.images.isNotEmpty) {
+        imagePaths = await _uploadImagesToStorage();
+      }
+
+      final token = await _authController.getToken();
+      if (token == null) {
+        throw Exception('Something went wrong about authentication');
+      }
+
+      await action.archive(
+        token: token,
+        cafeId: cafeId,
+        rating: state.rating,
+        memo: state.memo,
+        visitedDate: state.visitedDate!,
+        imagePaths: imagePaths,
+      );
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<List<String>> _uploadImagesToStorage() async {
     final storageRef = FirebaseStorage.instance
         .ref("/cafes/$cafeId/users/${_authController.state.user?.id}");
 
+    final List<String> imagePaths = [];
     await Future.forEach(state.images, (i) async {
       final extension = p.extension(i.path);
       final fileName = Ulid().toString();
       final imageRef = storageRef.child(p.setExtension(fileName, extension));
       await imageRef.putFile(i);
+      imagePaths.add(imageRef.fullPath);
     });
+
+    return imagePaths;
   }
 }

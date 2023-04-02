@@ -56,4 +56,31 @@ class CafeAction {
     };
     await _httpService.post("/cafes", params);
   }
+
+  Future<void> archive({
+    required String token,
+    required int cafeId,
+    required double rating,
+    required String visitedDate,
+    List<String>? imagePaths,
+    String? memo,
+  }) async {
+    final Map<String, Object> params = {
+      'id': cafeId.toString(),
+      'rating': rating.toInt().toString(),
+      'visited_date': visitedDate,
+    };
+    if (memo != null) {
+      params.addAll({'memo': memo});
+    }
+    if (imagePaths != null) {
+      params.addAll({'image_paths': imagePaths});
+    }
+
+    await _httpService.postWithAuth(
+      token: token,
+      path: '/cafes/$cafeId/archive',
+      body: params,
+    );
+  }
 }
