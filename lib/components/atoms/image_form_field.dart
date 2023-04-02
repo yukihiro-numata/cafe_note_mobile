@@ -61,7 +61,7 @@ class ImageFormField extends StatelessWidget {
   }
 
   Future<void> _handleFormPressed() async {
-    final status = await Permission.photos.request();
+    final status = await Permission.camera.request();
     if (!status.isGranted) {
       openAppSettings();
       return;
