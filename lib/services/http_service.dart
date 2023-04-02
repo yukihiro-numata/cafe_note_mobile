@@ -52,7 +52,7 @@ class HttpService {
     required Map<String, Object> body,
   }) async {
     final headers = _createAuthHeader(token);
-    headers.addAll({'content-type': 'application/json'});
+    headers.addAll({HttpHeaders.contentTypeHeader: 'application/json'});
 
     final response = await http.post(
       Uri.parse(baseUrl + path),
