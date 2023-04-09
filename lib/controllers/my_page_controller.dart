@@ -1,3 +1,4 @@
+import 'package:cafe_note_mobile/configs/route_config.dart';
 import 'package:cafe_note_mobile/controllers/auth_controller.dart';
 import 'package:cafe_note_mobile/states/my_page_state.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,23 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
   AuthController get _authController => read();
 
   MyPageController() : super(const MyPageState());
+
+  void _showAlertDialog({
+    required BuildContext context,
+    required String message,
+  }) =>
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
 
   void handleInputChanged({
     required String key,
@@ -73,20 +91,10 @@ class MyPageController extends StateNotifier<MyPageState> with LocatorMixin {
     await _authController.logout();
   }
 
-  void _showAlertDialog({
-    required BuildContext context,
-    required String message,
-  }) =>
-      showDialog(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('OK'),
-            ),
-          ],
-        ),
-      );
+  Future<void> onTapToCafeArchives(BuildContext context) async {
+    Navigator.pushNamed(
+      context,
+      RouteConfig.cafeArchives,
+    );
+  }
 }

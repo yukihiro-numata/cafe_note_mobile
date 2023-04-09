@@ -1,6 +1,7 @@
 import 'package:cafe_note_mobile/pages/archive_cafe/archive_cafe.dart';
 import 'package:cafe_note_mobile/pages/bottom_menu/bottom_menu.dart';
 import 'package:cafe_note_mobile/pages/cafe/cafe.dart';
+import 'package:cafe_note_mobile/pages/cafe_archives/cafe_archives.dart';
 import 'package:cafe_note_mobile/pages/cafes/cafes.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/_basic_info.dart';
 import 'package:cafe_note_mobile/pages/create_cafe/create_cafe.dart';
@@ -13,6 +14,7 @@ class RouteConfig {
   static String archiveCafe = '/cafes/archive';
   static String createCafe = 'cafes/create';
   static String createCafeBasicInfo = 'cafes/create/basic_info';
+  static String cafeArchives = '/cafe_archives';
 
   static Map<String, WidgetBuilder> routes = {
     main: (context) => const BottomMenu(),
@@ -21,6 +23,7 @@ class RouteConfig {
     archiveCafe: (context) => const ArchiveCafePage(),
     createCafe: (context) => const CreateCafePage(),
     createCafeBasicInfo: (context) => const CreateCafeBasicInfo(),
+    cafeArchives: (context) => const CafeArchives(),
   };
 }
 
