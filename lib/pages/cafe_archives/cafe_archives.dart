@@ -5,8 +5,10 @@ class CafeArchives extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('訪問履歴一覧'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('訪問履歴一覧'),
+      ),
     );
   }
 }
