@@ -5,10 +5,12 @@ class MyPageCell extends StatelessWidget {
     Key? key,
     required this.onTap,
     required this.text,
+    this.icon = Icons.arrow_forward_ios,
   }) : super(key: key);
 
   final VoidCallback onTap;
   final String text;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class MyPageCell extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16) +
-            const EdgeInsets.only(bottom: 16),
+            const EdgeInsets.only(bottom: 32),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -27,7 +29,7 @@ class MyPageCell extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            const Icon(Icons.arrow_forward_ios),
+            Icon(icon),
           ],
         ),
       ),
