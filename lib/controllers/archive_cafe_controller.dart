@@ -54,6 +54,9 @@ class ArchiveCafeController extends StateNotifier<ArchiveCafeState>
     state = currentState.copyWith(images: images);
   }
 
+  // TODO: 処理中にローディングを表示する
+  // 処理に失敗したらダイアログを表示する
+  // 上記をなるべく汎用化した形で実装したい
   void handleSubmitButtonPressed(GlobalKey<FormState> formKey) async {
     if ((!(formKey.currentState?.validate() ?? false)) ||
         state.visitedDate == null) {
